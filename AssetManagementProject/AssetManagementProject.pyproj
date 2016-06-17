@@ -4,6 +4,9 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>AssetManagementProject</Name>
     <RootNamespace>AssetManagementProject</RootNamespace>
+    <InterpreterId>{75f7fff7-5f30-42af-8720-2440de7107cb}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
+    <NameOfLastUsedPublishProfile>AssetManagement</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,6 +55,7 @@
     <Folder Include="AssetManagementProject\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AssetManagement.pubxml" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
@@ -87,6 +91,9 @@
     <None Include="readme.mht">
       <SubType>WebBrowser</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{75f7fff7-5f30-42af-8720-2440de7107cb}\3.5" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
