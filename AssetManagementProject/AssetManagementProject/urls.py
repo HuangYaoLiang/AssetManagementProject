@@ -15,10 +15,14 @@ import app.views
 # admin.autodiscover()
 
 urlpatterns = [
+    # 测试
+    url(r'^test', app.views.test, name='test'),
     # Examples:
     url(r'^$', app.views.home, name='home'),
-    url(r'^contact$', app.views.contact, name='contact'),
-    url(r'^about', app.views.about, name='about'),
+    url(r'^hardware$', app.views.hardware, name='hardware'),
+    url(r'^printer$', app.views.printer, name='printer'),
+    url(r'^person$', app.views.person, name='person'),
+    url(r'^log$', app.views.log, name='log'),
     url(r'^login/$',
         django.contrib.auth.views.login,
         {
@@ -43,4 +47,7 @@ urlpatterns = [
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+
+    
+    
 ]

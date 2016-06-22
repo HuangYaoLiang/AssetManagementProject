@@ -19,15 +19,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Application name</a>
+                <a href="/" class="navbar-brand">广西人才市场人事代理部电脑资产管理系统</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'hardware' %}">硬件信息</a></li>
+                    <li><a href="{% url 'printer' %}">打印机信息</a></li>
+                    <li><a href="{% url 'person' %}">职员信息</a></li>
+                    <li><a href="{% url 'log' %}">变更记录</a></li>
                 </ul>
-                {% include 'app/loginpartial.html' %}
+                {#{% include 'app/loginpartial.html' %}#}
             </div>
         </div>
     </div>
@@ -36,14 +37,14 @@
 {% block content %}{% endblock %}
         <hr/>
         <footer>
-            <p>&copy; {{ year }} - My Django Application</p>
+            <p>&copy; 2016 - My Django Application    广西人才市场人事代理部电脑资产管理系统 黄耀樑</p>
         </footer>
     </div>
 
     <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
     <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
     <script src="{% static 'app/scripts/respond.js' %}"></script>
+    {#Respond.js 是一个快速、轻量的 polyfill，用于为 IE6-8 以及其它不支持 CSS3 Media Queries 的浏览器提供媒体查询的 min-width 和 max-width 特性，实现响应式网页设计（Responsive Web Design）。#}
 {% block scripts %}{% endblock %}
-
 </body>
 </html>
