@@ -43,3 +43,8 @@ class ChangeLog(models.Model):
     remark = models.TextField(help_text='变更说明', default='')
     create_time = models.DateTimeField(help_text='创建时间', auto_now=True)
 
+# 点赞图片
+class LikeImageInfo(models.Model):
+    pc_ip = models.CharField(help_text='IP4',max_length=20, default='')
+    img_number = models.IntegerField(help_text='图片编号')
+

@@ -10,27 +10,15 @@
 <br />
 
 <table class="table table-striped">
+    {% for row in data %}    
     <tr>
-        <td>active</td>
-        <td>success</td>
-        <td>warning</td>
-        <td>danger</td>
-        <td>info</td>
+        <td>{{ row.serial_number }}</td>
+         <td>{{ row.name }}</td>
+         <td>{{ row.type }}</td>
+         <td>{{ row.remark }}</td>
+         <td>{{ row.create_time|date:"Y-m-d H:i:s" }}</td>
     </tr>
-    <tr>
-        <td>active</td>
-        <td>success</td>
-        <td>warning</td>
-        <td>danger</td>
-        <td>info</td>
-    </tr>
-    <tr>
-        <td>active</td>
-        <td>success</td>
-        <td>warning</td>
-        <td>danger</td>
-        <td>info</td>
-    </tr>
+{% endfor %}
 </table>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -42,7 +30,7 @@
                 </button>
                 <h4 class="modal-title" id="exampleModalLabel">管理变更记录</h4>
             </div>
-            <form action="." method="POST">
+            <form action="/log" method="POST">
             {% csrf_token %}
             <div class="modal-body">
             {% for field in form %}

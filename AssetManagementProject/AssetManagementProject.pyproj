@@ -49,14 +49,50 @@
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />
     <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\temporary\" />
     <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\static\app\temporary\css\" />
+    <Folder Include="app\static\app\temporary\font\" />
+    <Folder Include="app\static\app\temporary\img\" />
+    <Folder Include="app\static\app\temporary\img\list\" />
+    <Folder Include="app\static\app\temporary\js\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
+    <Folder Include="app\templates\app\temporary\" />
     <Folder Include="AssetManagementProject\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AssetManagement.pubxml" />
+    <Content Include="app\static\app\scripts\csrf.js" />
+    <Content Include="app\static\app\temporary\css\style.css" />
+    <Content Include="app\static\app\temporary\font\iconfont.eot" />
+    <Content Include="app\static\app\temporary\font\iconfont.svg" />
+    <Content Include="app\static\app\temporary\font\iconfont.ttf" />
+    <Content Include="app\static\app\temporary\font\iconfont.woff" />
+    <Content Include="app\static\app\temporary\img\close.png" />
+    <Content Include="app\static\app\temporary\img\default.png" />
+    <Content Include="app\static\app\temporary\img\list\4076119_19-033215_675.jpg" />
+    <Content Include="app\static\app\temporary\img\list\516ec6e59600f_200x200_3.jpg" />
+    <Content Include="app\static\app\temporary\img\list\QQ图片20160628143334.jpg" />
+    <Content Include="app\static\app\temporary\img\list\QQ图片20160628143341.jpg" />
+    <Content Include="app\static\app\temporary\img\list\QQ图片20160628143346.jpg" />
+    <Content Include="app\static\app\temporary\img\list\QQ图片20160628143350.jpg" />
+    <Content Include="app\static\app\temporary\img\list\QQ图片20160628143425.png" />
+    <Content Include="app\static\app\temporary\img\list\QQ图片20160628144407.png" />
+    <Content Include="app\static\app\temporary\img\list\u=1927859965,395599740&amp;fm=11&amp;gp=0.jpg" />
+    <Content Include="app\static\app\temporary\img\list\u=285319453,2165089546&amp;fm=11&amp;gp=0.jpg" />
+    <Content Include="app\static\app\temporary\img\list\u=2982774508,2673421106&amp;fm=11&amp;gp=0.jpg" />
+    <Content Include="app\static\app\temporary\img\list\u=4293129632,2379848320&amp;fm=21&amp;gp=0.jpg" />
+    <Content Include="app\static\app\temporary\img\loading.gif" />
+    <Content Include="app\static\app\temporary\img\next.png" />
+    <Content Include="app\static\app\temporary\img\pic1.jpg" />
+    <Content Include="app\static\app\temporary\img\pic2.jpg" />
+    <Content Include="app\static\app\temporary\img\prev.png" />
+    <Content Include="app\static\app\temporary\js\jquery-1.11.3.min.js" />
+    <Content Include="app\static\app\temporary\js\jquery.lazyload.min.js" />
+    <Content Include="app\static\app\temporary\js\lightbox.min.js" />
     <Content Include="app\templates\app\hardware.html" />
+    <Content Include="app\templates\app\temporary\imagelist.html" />
     <Content Include="app\templates\app\log.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

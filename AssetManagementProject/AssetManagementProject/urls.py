@@ -17,8 +17,10 @@ import app.views
 urlpatterns = [
     # 测试
     url(r'^test', app.views.test, name='test'),
+    # 临时页面
+    url(r'^$', app.views.imagelist, name='imagelist'),
     # Examples:
-    url(r'^$', app.views.home, name='home'),
+    url(r'^home$', app.views.home, name='home'),
     url(r'^hardware$', app.views.hardware, name='hardware'),
     url(r'^printer$', app.views.printer, name='printer'),
     url(r'^person$', app.views.person, name='person'),
@@ -47,7 +49,4 @@ urlpatterns = [
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-
-    
-    
 ]

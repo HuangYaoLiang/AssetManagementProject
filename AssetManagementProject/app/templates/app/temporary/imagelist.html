@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Rave Chan">
+    {% load staticfiles %}
+    <link type="text/css" rel="stylesheet" href="{% static 'app/temporary/css/style.css' %}"/>
+</head>
+<body>
+   
+    <div class="header">
+        <div class="content">
+            <h1>&nbsp;<span class="iconfont icon-xiangce"></span>&nbsp;&nbsp;东兴的海 我们的海 噢耶 {{ request_ip }}</h1>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="content">            
+            <div class="feed-filter border-bottom"></div>
+             <span style="font-size:24px;width:200px;">您点赞的图片： </span>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" class="btn btn-cancel" onclick="clearLike()">清空点赞</a>
+           
+            <div class="feed-items cf" id="user_img">                                        
+            </div>
+
+              <div class="feed-filter border-bottom"></div> 
+            <span style="font-size:24px;width:200px;">参赛图片列表： </span>
+
+            <div class="feed-items cf">
+                 {% for item in all_img %}    
+                <div class="feed-item">
+                    <div class="feed-thumb">
+                        <img class="lazy" data-index="{{forloop.counter}}" data-original="{% static 'app/temporary/img/list/' %}{{ item }}" alt="" width="296" height="205">
+                    </div>
+                    <div class="feed-desc">
+                        <div class="feed-title">
+                            图片{{forloop.counter}}
+                        </div>
+
+                        <div class="feed-opr">
+                            <a class="iconlike" data-index="{{forloop.counter}}"><span class="iconfont  icon-zan"></span>点赞</a>
+                            &nbsp;|&nbsp;
+                            <a class="iconkan" data-lightbox="example-set" data-title="图片{{forloop.counter}}" href="{% static 'app/temporary/img/list/' %}{{ item }}"><span class="iconfont icon-kan"></span>&nbsp;查看</a>
+                        </div>
+                    </div>
+                </div>  
+                {% endfor %}               
+            </div>
+
+            <div class="feed-filter border-top">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="content">
+            <a href="javascript:void(0)" class="btn btn-success" style="margin-right:100px;" onclick="saveLike()">提交点赞</a>
+            <a href="javascript:void(0)" class="btn btn-cancel" onclick="resetLike()">重置点赞</a>
+        </div>
+    </div>
+
+    <script src="{% static 'app/temporary/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'app/temporary/js/lightbox.min.js' %}"></script>
+    <script src="{% static 'app/temporary/js/jquery.lazyload.min.js' %}"></script>
+    <script>        
+    var likeCount = {{ user_imgCount }};
+    var likeIDS = {{ user_imgIDS }};
+    $.ajaxSetup({
+        data: { csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+    </script>
+    <script>
+    (function ($) {
+        $("img.lazy").lazyload({ effect: "fadeIn" });
+
+        $('a.iconlike').on('click', function () {
+            var obj = $(this);
+            if (!obj.hasClass("active") && likeCount < 3) {
+                likeCount++;
+                obj.addClass("active");
+            }
+            else if (!obj.hasClass("active") && likeCount >= 3) {
+                alert('亲，最多点赞3张而已哦^-^');
+            }
+            else if (obj.hasClass("active") && likeCount > 0) {
+                likeCount--;
+                obj.removeClass("active");
+            }
+        });
+
+        if (likeIDS) {
+            $.each(likeIDS,function (i,n) {
+                var src = $('.lazy[data-index="'+n+'"]').attr('data-original');
+                $('#user_img').append('<img alt="" width="296" height="205" style="margin:18px 9px 0px 9px;border:2px solid #FF0000;" src="'+src+'"/>');
+            });
+        }
+    })(jQuery);
+
+    function resetLike() {
+        likeCount = 0;
+        $('a.iconlike').removeClass("active");
+    }
+
+    function saveLike() {
+        var ids = '';
+        var arrIDS = [];
+        $.each($('a.iconlike[class*="active"]'), function (i, n) {
+            var id = n.getAttribute('data-index');
+            if (ids) {
+                ids += ',';
+            }
+            ids +=id ;
+            arrIDS.push(id);
+        });
+    
+        if (ids) {
+            $('#user_img').empty();
+            resetLike();
+            $.each(arrIDS,function (i,n) {
+                var src = $('.lazy[data-index="'+n+'"]').attr('data-original');
+                $('#user_img').append('<img alt="" width="296" height="205" style="margin:18px 9px 0px 9px;border:2px solid #FF0000;" src="'+src+'"/>');
+            });
+            $.post("/imagelist", { 'ids': ids });
+        } else {
+            alert('亲，至少点赞1张呀^-^');
+        }
+    }
+
+    function clearLike() {
+        resetLike();
+        $('#user_img').empty();
+        $.post("/imagelist");
+    }
+</script>
+</body>
+
+</html>

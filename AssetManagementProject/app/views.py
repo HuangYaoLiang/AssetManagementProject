@@ -9,15 +9,40 @@ from django.http import HttpRequest
 from django.http import HttpResponse
 from django.template import RequestContext
 from datetime import datetime
- 
+
 import app.forms
 import app.models
+import os
+import posixpath
+from AssetManagementProject import settings
+ 
 
 # 测试
 def test(request):
     # request[0]+request[1]
     assert isinstance(request, HttpRequest)
     return HttpResponse(str(int(request.GET['a']) + int(request.GET['b'])))
+
+# 活动图片投票
+def imagelist(request):
+    assert isinstance(request, HttpRequest)
+    user_ip = request.META['REMOTE_ADDR']
+    if request.method == 'POST': 
+        ids = request.POST.get('ids')
+        app.models.LikeImageInfo.objects.filter(pc_ip=user_ip).delete()
+        if ids is not None:
+            for id in ids.split(','):
+               app.models.LikeImageInfo.objects.create(pc_ip=user_ip,img_number=id)
+    user_img = app.models.LikeImageInfo.objects.filter(pc_ip=user_ip)
+    return render(request,
+        'app/temporary/imagelist.html',
+        {
+            'title': '活动图片投票',
+            'user_imgCount':user_img.count(),
+            'user_imgIDS':user_img.values_list('img_number', flat=True),
+            'all_img': os.listdir(settings.STATIC_ROOT + '/app/temporary/img/list'),
+            'request_ip':request.META['REMOTE_ADDR'],
+        })
 
 # 首页
 def home(request):
@@ -99,11 +124,11 @@ def log(request):
             app.models.ChangeLog(serial_number = form.cleaned_data['serial_number'],
                 name = form.cleaned_data['name'],
                 type = form.cleaned_data['type'],
-                remark = form.cleaned_data['remark'],).save()
- 
+                remark = form.cleaned_data['remark'],).save() 
     return render(request,
         'app/log.html',
         {
             'title': '变更记录',
             'form': app.forms.LogForm(), #获得表单对象
+            'data':app.models.ChangeLog.objects.all()
         })
