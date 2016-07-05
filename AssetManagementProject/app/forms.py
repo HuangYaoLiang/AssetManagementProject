@@ -24,7 +24,8 @@ class BootstrapAuthenticationForm(AuthenticationForm):
 class HardwareForm(ModelForm):
     class Meta:
         model = app.models.HardwareInfo
-        fields = ('serial_number','person_id','position','system_os','pc_score','pc_cpu','pc_memory','use_time','pc_description') 
+        # 不用 __all__ 是为了界面的排序显示
+        fields = ('serial_number','person_id','position','system_os','pc_score','pc_cpu','pc_memory','pc_mac','pc_ip','use_time','pc_description') 
     def __init__(self, *args, **kwargs):
         super(HardwareForm, self).__init__(*args, **kwargs)
         self.fields['serial_number'].widget = forms.TextInput({'class': 'form-control'})
@@ -36,6 +37,8 @@ class HardwareForm(ModelForm):
         self.fields['pc_memory'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['pc_description'].widget = forms.Textarea({'class': 'form-control','style':'height:200px;'})
         self.fields['use_time'].widget = forms.TextInput({'class': 'form-control form-datetime'})
+        self.fields['pc_mac'].widget = forms.TextInput({'class': 'form-control'})
+        self.fields['pc_ip'].widget = forms.TextInput({'class': 'form-control'})
 
 # 打印机表单
 class PrinterForm(ModelForm):
@@ -61,8 +64,8 @@ class PersonForm(ModelForm):
         self.fields['name'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['position'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['contact'].widget = forms.TextInput({'class': 'form-control'})
-        self.fields['pc_mac'].widget = forms.TextInput({'class': 'form-control'})
-        self.fields['pc_ip'].widget = forms.TextInput({'class': 'form-control'})
+        #self.fields['pc_mac'].widget = forms.TextInput({'class': 'form-control'})
+        #self.fields['pc_ip'].widget = forms.TextInput({'class': 'form-control'})
 
 
 # 变更表单
@@ -81,6 +84,6 @@ class LogForm(ModelForm):
         self.fields['serial_number'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['name'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['type'].widget = forms.TextInput({'class': 'form-control'})
-        self.fields['remark'].widget = forms.TextInput({'class': 'form-control'})
+        self.fields['remark'].widget = forms.Textarea({'class': 'form-control'})
         self.fields['create_time'].widget = forms.TextInput({'class': 'form-control form-datetime'})
 

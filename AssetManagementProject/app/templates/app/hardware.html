@@ -1,5 +1,6 @@
 ﻿{% extends "app/layout.html" %}
-
+{% load myfilter %} #加载自定认标签
+ 
 {% block content %}
 
 <br/>
@@ -9,7 +10,8 @@
     <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">编辑硬件
     </button>&nbsp;&nbsp;&nbsp;
     <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除硬件</button>
-    <span style="float:right;font-size:20px;font-weight:bold;">合计：{{data.count}}</span>
+    <span style="float:right;font-size:20px;font-weight:bold;">合计：{{ data|length }}</span>
+    <span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ data|dictsortreversed:'serial_number'|first|key:'serial_number' }}</span>
 </div>
 <br/>
 
@@ -17,13 +19,15 @@
     <thead>
         <tr>
             <th width="35">#</th>
-            <th width="50">编号</th>
+            <th width="70" sort="serial_number">编号</th>
             <th width="100">使用者</th>
             <th width="100">所在位置</th>
             <th width="100">操作系统</th>
-            <th width="120" id="pc_score">鲁大师评分<span class="caret" style="margin-left:5px;"></span></th>
+            <th width="120" sort="pc_score">鲁大师评分</th>
             <th>CPU</th>
             <th>内存</th>
+            <th>MAC</th>
+            <th>IP4</th>
             <th width="100">启用时间</th>
         </tr>
     </thead>
@@ -37,8 +41,10 @@
             <td>{{ row.system_os }}</td>
             <td>{{ row.pc_score }}</td>
             <td>{{ row.pc_cpu }}</td>
-            <td>{{ row.pc_memory }}</td>         
-            <td>{{ row.use_time }}</td>
+            <td>{{ row.pc_memory }}</td> 
+            <td>{{ row.pc_mac }}</td>
+            <td>{{ row.pc_ip }}</td>        
+            <td>{{ row.use_time|date:"Y-m-d" }}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -99,17 +105,21 @@
     var _error = '{{error}}';
     var _id = parseInt('{{ id }}');
     var _order = '{{ order }}';
+    var _sort = '{{ sort }}';
 </script>
 <script>
     $(function () {
         $('#id_pc_description').blur(function () {
             var val = $(this).val();
             if (val) {
-                var desc = val.match(/--------\[ 概览 \][\s\S]*?--------\[ 主板 \]/gm)[0];
+                var ma = val.match(/--------\[ 概览 \][\s\S]*?--------\[ 主板 \]/gm);
 
-                $('#id_system_os').val($.trim(desc.match(/操作系统[\s\S]*?处理器/gm)[0].replace(/操作系统|处理器/g, '')));
-                $('#id_pc_cpu').val($.trim(desc.match(/处理器[\s\S]*?主板/gm)[0].replace(/处理器|主板/g, '')));
-                $('#id_pc_memory').val($.trim(desc.match(/内存[\s\S]*?主硬盘/gm)[0].replace(/内存|主硬盘/g, '')));
+                if (ma && ma.length > 0) {
+                    var desc = ma[0];
+                    $('#id_system_os').val($.trim(desc.match(/操作系统[\s\S]*?处理器/gm)[0].replace(/操作系统|处理器/g, '')));
+                    $('#id_pc_cpu').val($.trim(desc.match(/处理器[\s\S]*?主板/gm)[0].replace(/处理器|主板/g, '')));
+                    $('#id_pc_memory').val($.trim(desc.match(/内存[\s\S]*?主硬盘/gm)[0].replace(/内存|主硬盘/g, '')));
+                }
             }
         });
     });
@@ -121,14 +131,16 @@
             window.location.href = srvUrl + $(this).find(':checkbox').val();
         });
 
-        $('#pc_score').on('click', function () {
+        $('[sort]').on('click', function () {
+            var param = '0/' + $(this).attr('sort') + '/';
             if ($(this).hasClass("dropup")) {
-                window.location.href = srvUrl + '0/pc_score/desc';
+                param += 'desc';
             } else {
-                window.location.href = srvUrl + '0/pc_score/asc';
+                param += 'asc';
             }
+            window.location.href = srvUrl + param;
         });
-
+        
         $('#btnAdd').on('click', function () {
             $('#hdnID').val(0);
         });
@@ -165,10 +177,15 @@
             $('#exampleModal').modal('show');
             error = '';
         }
+
+        //
+        if (_sort) {
+            $('[sort="' + _sort + '"]').append('<span class="caret" style="margin-left:5px;"></span>');
+        }
         if (_order && _order == 'desc') {
-            $('#pc_score').removeClass("dropup");
+            $('[sort]').removeClass("dropup");
         } else {
-            $('#pc_score').addClass("dropup");
+            $('[sort]').addClass("dropup");
         }
     });
 </script>

@@ -14,11 +14,11 @@ class PersonInfo(models.Model):
     name = models.CharField(u'姓名',max_length=10, default='')
     position = models.CharField(u'所在位置',max_length=50, default='')
     contact = models.CharField(u'联系方式',max_length=50, default='')
-    pc_mac = models.CharField(u'MAC',max_length=20, default='')
-    pc_ip = models.CharField(u'IP4',max_length=20, default='')
+    #pc_mac = models.CharField(u'MAC',max_length=20, default='')
+    #pc_ip = models.CharField(u'IP4',max_length=20, default='')
 
     def getPersonDropDownList(self):
-        return tuple( [(0,'无')] + list(PersonInfo.objects.values_list('id','name')))
+        return tuple( [(0,'无')] + list(PersonInfo.objects.values_list('id','name').order_by('name')))
 
 # 硬件信息
 class HardwareInfo(models.Model):
@@ -29,15 +29,15 @@ class HardwareInfo(models.Model):
     pc_score = models.IntegerField(u'鲁大师评分',default=0)
     pc_cpu = models.CharField(u'CPU',max_length=50, default='')
     pc_memory = models.CharField(u'内存',max_length=50, default='')
+    pc_mac = models.CharField(u'MAC',max_length=20, default='')
+    pc_ip = models.CharField(u'IP4',max_length=20, default='')
     use_time = models.DateTimeField(u'启用时间',null=True, blank=True)
     pc_description = models.TextField(u'PC详细描述', default='',blank=True)
 
     def getHardwareList(self,sort='', order=''):
-        if not sort:
-            sort = 'pc_score'
         cursor = connection.cursor()  
 
-        sql = '''SELECT t1.id,t1.serial_number,t1.position,t1.system_os,t1.pc_score,t1.pc_cpu,t1.pc_memory,t1.use_time,t2.name AS person_name
+        sql = '''SELECT t1.id,t1.serial_number,t1.position,t1.system_os,t1.pc_score,t1.pc_cpu,t1.pc_memory,t1.use_time,t2.name AS person_name,t1.pc_mac,t1.pc_ip
         FROM app_HardwareInfo AS t1
         LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
         ORDER BY t1.%s %s''' % (sort, order)
@@ -63,6 +63,8 @@ class HardwareInfo(models.Model):
             dic['pc_memory'] = row[6]
             dic['use_time'] = row[7]
             dic['person_name'] = row[8]
+            dic['pc_mac'] = row[9]
+            dic['pc_ip'] = row[10]
             list.append(dic)
         return list
 

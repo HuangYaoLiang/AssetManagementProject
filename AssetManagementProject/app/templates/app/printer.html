@@ -1,4 +1,5 @@
 ﻿{% extends "app/layout.html" %}
+{% load myfilter %} #加载自定认标签
 
 {% block content %}
 
@@ -10,7 +11,8 @@
     </button>&nbsp;&nbsp;&nbsp;
     <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除打印机
     </button>
-    <span style="float:right;font-size:20px;font-weight:bold;">合计：{{data.count}}</span>
+    <span style="float:right;font-size:20px;font-weight:bold;">合计：{{ data|length }}</span>
+    <span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ data|dictsortreversed:'serial_number'|first|key:'serial_number' }}</span>
 </div>
 <br/>
 

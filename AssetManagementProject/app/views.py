@@ -82,6 +82,8 @@ def hardware(request, id=0, sort='', order=''):
                 model.pc_memory = form.cleaned_data['pc_memory']
                 model.pc_description = form.cleaned_data['pc_description']
                 model.use_time = form.cleaned_data['use_time']
+                model.pc_mac = form.cleaned_data['pc_mac']
+                model.pc_ip = form.cleaned_data['pc_ip']
                 model.save()
                 id = -1 
             else:
@@ -91,16 +93,21 @@ def hardware(request, id=0, sort='', order=''):
             form = app.forms.HardwareForm(instance = app.models.HardwareInfo.objects.get(id=id))
         else:
             form = app.forms.HardwareForm()
-            id = 0    
+            id = 0  
+
+    if not sort:
+        sort = 'pc_score'  
     if not order:
         order = ''
+    data = app.models.HardwareInfo().getHardwareList(sort,order) 
     return render(request,'app/hardware.html',{
             'title': '硬件信息',
             'form': form, #获得表单对象
-            'data':app.models.HardwareInfo().getHardwareList(sort,order),
+            'data': data,
+            'error': error,
             'id': id,
             'order': order,
-            'error': error,
+            'sort': sort,
             })
 
 # 打印机信息
@@ -166,8 +173,8 @@ def person(request,id=0):
                 model.name = form.cleaned_data['name']
                 model.position = form.cleaned_data['position']
                 model.contact = form.cleaned_data['contact']
-                model.pc_mac = form.cleaned_data['pc_mac']
-                model.pc_ip = form.cleaned_data['pc_ip']
+                #model.pc_mac = form.cleaned_data['pc_mac']
+                #model.pc_ip = form.cleaned_data['pc_ip']
                 model.save()
                 id = -1 
             else:
@@ -178,10 +185,11 @@ def person(request,id=0):
         else:
             form = app.forms.PersonForm()
             id = 0
+    data = app.models.PersonInfo.objects.all().order_by('position', 'name')
     return render(request,'app/person.html',{
             'title': '职员信息',
             'form': form, #获得表单对象
-            'data':app.models.PersonInfo.objects.all().order_by('position'),
+            'data': data,
             'id': id,
             'error': error,
             })
