@@ -99,7 +99,7 @@ class PrinterInfo(models.Model):
 
 # 变更记录
 class ChangeLog(models.Model):
-    serial_number = models.CharField(u'编号',max_length=10, default='')
+    #serial_number = models.CharField(u'编号',max_length=10, default='')
     name = models.CharField(u'姓名',max_length=10, default='')
     type = models.CharField(u'变更类型',max_length=10, default='')
     remark = models.TextField(u'变更说明', default='')

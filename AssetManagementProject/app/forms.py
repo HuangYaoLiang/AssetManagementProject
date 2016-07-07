@@ -81,7 +81,7 @@ class LogForm(ModelForm):
     # 3.  这也是改写model里面字段的
     def __init__(self, *args, **kwargs):
         super(LogForm, self).__init__(*args, **kwargs)
-        self.fields['serial_number'].widget = forms.TextInput({'class': 'form-control'})
+        #self.fields['serial_number'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['name'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['type'].widget = forms.TextInput({'class': 'form-control'})
         self.fields['remark'].widget = forms.Textarea({'class': 'form-control'})

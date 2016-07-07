@@ -213,7 +213,7 @@ def log(request,id=0):
                     model = app.models.ChangeLog()
 
                 model.create_time = form.cleaned_data['create_time']
-                model.serial_number = form.cleaned_data['serial_number']
+                #model.serial_number = form.cleaned_data['serial_number']
                 model.name = form.cleaned_data['name']
                 model.type = form.cleaned_data['type']
                 model.remark = form.cleaned_data['remark']

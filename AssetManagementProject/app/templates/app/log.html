@@ -17,7 +17,7 @@
     <thead>
         <tr>
             <th width="35">#</th>
-            <th width="50">编号</th>
+            {#<th width="50">编号</th>#}
             <th width="60">姓名</th>
             <th width="100">变更类型</th>
             <th width="100">创建时间</th>
@@ -28,7 +28,7 @@
         {% for row in data %}
         <tr>
             <td><input type="checkbox" value="{{ row.id }}"/></td>
-            <td>{{ row.serial_number }}</td>
+            {#<td>{{ row.serial_number }}</td>#}
             <td>{{ row.name }}</td>
             <td>{{ row.type }}</td>
             <td>{{ row.create_time|date:"Y-m-d" }}</td>
