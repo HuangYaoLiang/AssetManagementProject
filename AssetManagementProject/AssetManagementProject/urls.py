@@ -23,10 +23,10 @@ urlpatterns = [
     url(r'^$', app.views.home, name='home'),
 
     #url(r'^hardware(/(?P<id>\d{1,}))?$', app.views.hardware, name='hardware'),
-    url(r'^hardware(/(?P<id>\d{1,})(/(?P<sort>\w{1,})/(?P<order>\w{1,}))?)?$', app.views.hardware, name='hardware'),
+    url(r'^hardware(/(?P<id>-?\d{1,})(/(?P<sort>\w{1,})/(?P<order>\w{1,}))?)?$', app.views.hardware, name='hardware'),
     #url(r'^hardware/\d+/\w*/\w*', app.views.hardware, name='hardware'),
 
-    url(r'^printer(/(?P<id>\d{1,}))?$', app.views.printer, name='printer'),
+    url(r'^printer(/(?P<id>-?\d{1,}))?$', app.views.printer, name='printer'),
     url(r'^person(/(?P<id>\d{1,}))?$', app.views.person, name='person'),
     url(r'^log(/(?P<id>\d{1,}))?$', app.views.log, name='log'),
     url(r'^login/$',

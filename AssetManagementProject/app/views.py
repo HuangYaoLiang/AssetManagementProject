@@ -89,17 +89,18 @@ def hardware(request, id=0, sort='', order=''):
             else:
                 error = 1
     else:
-        if id and id != '0':  # 这个值是url get过来的 用以初始化编辑
+        if id and int(id) > 0:  # 这个值是url get过来的 用以初始化编辑
             form = app.forms.HardwareForm(instance = app.models.HardwareInfo.objects.get(id=id))
         else:
             form = app.forms.HardwareForm()
-            id = 0  
 
     if not sort:
         sort = 'pc_score'  
     if not order:
         order = ''
-    data = app.models.HardwareInfo().getHardwareList(sort,order) 
+    if not id:
+        id = -20 
+    data = app.models.HardwareInfo().getHardwareList(id,sort,order) 
     return render(request,'app/hardware.html',{
             'title': '硬件信息',
             'form': form, #获得表单对象
@@ -108,6 +109,7 @@ def hardware(request, id=0, sort='', order=''):
             'id': id,
             'order': order,
             'sort': sort,
+            'maxNo':app.models.HardwareInfo().getMaxNumber(),
             })
 
 # 打印机信息
@@ -139,17 +141,19 @@ def printer(request,id=0):
             else:
                 error = 1
     else:
-        if id and id != '0':  # 这个值是url get过来的 用以初始化编辑
+        if id and int(id) > 0:  # 这个值是url get过来的 用以初始化编辑
             form = app.forms.PrinterForm(instance = app.models.PrinterInfo.objects.get(id=id))
         else:
             form = app.forms.PrinterForm()
-            id = 0
+    if not id:
+        id = -20 
     return render(request,'app/printer.html',{
             'title': '打印机信息',
             'form': form, #获得表单对象
-            'data':app.models.PrinterInfo().getPrinterList(),
+            'data':app.models.PrinterInfo().getPrinterList(id),
             'id': id,
             'error': error,
+            'maxNo':app.models.PrinterInfo().getMaxNumber(),
             })
 
 # 职员信息

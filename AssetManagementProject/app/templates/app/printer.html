@@ -4,15 +4,31 @@
 {% block content %}
 
 <br/>
-<div>
-    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">添加打印机
-    </button>&nbsp;&nbsp;&nbsp;
-    <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">编辑打印机
-    </button>&nbsp;&nbsp;&nbsp;
-    <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除打印机
-    </button>
-    <span style="float:right;font-size:20px;font-weight:bold;">合计：{{ data|length }}</span>
-    <span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ data|dictsortreversed:'serial_number'|first|key:'serial_number' }}</span>
+<div class="row">
+    <div class="col-xs-4">
+        <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">添加打印机
+        </button>&nbsp;&nbsp;&nbsp;
+        <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">编辑打印机
+        </button>&nbsp;&nbsp;&nbsp;
+        <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除打印机
+        </button>
+    </div>
+    <div class="col-xs-4">
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="-10">全部
+        </label>
+        <label class="radio-inline" title="就是这台打印机装在谁的电脑上">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="-20">所属者
+        </label>
+        <label class="radio-inline" title="就是这台打印机没有安装在谁的电脑上或者没人使用">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="-30">无对象
+        </label>
+    </div>
+    <div class="col-xs-4">
+        <span style="float:right;font-size:20px;font-weight:bold;">合计：{{ data|length }}</span>
+        <span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ maxNo }}</span>
+        {#<span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ data|dictsortreversed:'serial_number'|first|key:'serial_number' }}</span>#}
+    </div>
 </div>
 <br/>
 
@@ -133,10 +149,20 @@
             $('#ff').submit();
         });
 
+        $(':radio[name="inlineRadioOptions"]').on('click', function () {
+            window.location.href = srvUrl + $(this).val();
+        });
+
+        var rVal = -20;
+        if (-10 >= _id) {
+            rVal = _id;
+        }
+        $(':radio[name="inlineRadioOptions"][value=' + rVal + ']').attr('checked', 'checked');
+
         if (_id == -1) {
             window.location.href = srvUrl.substring(0, srvUrl.length - 1);
             ;
-        } else if (_id || _error) {
+        } else if ((_id && _id > 0) || _error) {
             if (_id) {
                 $('#hdnID').val(_id);
             }
