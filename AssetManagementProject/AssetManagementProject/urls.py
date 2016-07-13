@@ -18,7 +18,7 @@ urlpatterns = [
     # 测试
     url(r'^test', app.views.test, name='test'),
     # 临时页面
-    url(r'^imagelist$', app.views.imagelist, name='imagelist'),
+    #url(r'^imagelist$', app.views.imagelist, name='imagelist'),
     # Examples:
     url(r'^$', app.views.home, name='home'),
 

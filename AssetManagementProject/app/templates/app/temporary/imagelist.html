@@ -40,7 +40,11 @@
                 </div>
                 <div class="feed-desc">
                     <div class="feed-title">
-                        图片{{forloop.counter}}
+                        {% if forloop.counter == 1 %}因为大海而渺小，因为国旗而伟大
+                        {% elif forloop.counter == 2 %}面向海风 咸咸的爱
+                        {% elif forloop.counter == 19 %}路远 脚更长
+                        {% elif forloop.counter == 24 %}手，是温柔的宇宙
+                        {% else %}图片{{forloop.counter}}{% endif %}
                     </div>
 
                     <div class="feed-opr">

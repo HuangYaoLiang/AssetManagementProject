@@ -29,6 +29,7 @@ def test(request):
 def imagelist(request):
     assert isinstance(request, HttpRequest)
     user_ip = request.META['REMOTE_ADDR']
+    likeImageInfo = app.models.LikeImageInfo()
     if request.method == 'POST': 
         ids = request.POST.get('ids')
         app.models.LikeImageInfo.objects.filter(pc_ip=user_ip).delete()
