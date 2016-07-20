@@ -8,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap-datetimepicker.min.css' %}"/>
+    {#<link rel="stylesheet" type="text/css" href="{% static 'app/scripts/jquery-easyui-1.4.5/themes/bootstrap/easyui.css' %}">#}
+    {#<link rel="stylesheet" type="text/css" href="{% static 'app/scripts/jquery-easyui-1.4.5/themes/icon.css' %}">#}
+    {#<link rel="stylesheet" type="text/css" href="{% static 'app/scripts/jquery-easyui-1.4.5/themes/color.css' %}">#}
     <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
 </head>
 
@@ -20,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">广西人才市场人事代理部电脑资产管理系统</a>
+            <a href="{% url 'home' %}" class="navbar-brand">广西人才市场人事代理部电脑资产管理系统</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -45,13 +48,22 @@
 <script src="{% static 'app/scripts/jquery-1.10.2.js' %}"></script>
 <script src="{% static 'app/scripts/bootstrap.js' %}"></script>
 <script src="{% static 'app/scripts/respond.js' %}"></script>
+{#<script src="{% static 'app/scripts/jquery-easyui-1.4.5/jquery.easyui.min.js' %}"></script>#}
 <script src="{% static 'app/scripts/bootstrap-datetimepicker.min.js' %}"></script>
 <script src="{% static 'app/scripts/locales/bootstrap-datetimepicker.zh-CN.js' %}"></script>
 {#Respond.js 是一个快速、轻量的 polyfill，用于为 IE6-8 以及其它不支持 CSS3 Media Queries 的浏览器提供媒体查询的 min-width 和 max-width 特性，实现响应式网页设计（Responsive Web Design）。#}
 {% block scripts %}{% endblock %}
 <script>
     $(function () {
-        $('.form-datetime').datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+        $('.form-datetime').datetimepicker({
+            format: 'yyyy-mm-dd', //  hh:ii
+            language: 'zh-CN',
+            autoclose: true,
+            todayBtn: 'linked',
+            todayHighlight: true,
+            startView: 2,
+            minView: 2
+        });
     });
 </script>
 </body>

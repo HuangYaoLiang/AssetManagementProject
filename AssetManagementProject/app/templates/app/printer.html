@@ -41,7 +41,9 @@
             <th width="100">所在位置</th>
             <th>打印机型号</th>
             <th>打印机详细描述</th>
-            <th>启用时间</th>
+            <th>价值</th>
+            <th>入库时间</th>
+            <th>备注</th>
         </tr>
     </thead>
     <tbody>
@@ -53,7 +55,9 @@
             <td>{{ row.position }}</td>
             <td>{{ row.prt_model }}</td>
             <td>{{ row.prt_description }}</td>
+            <td>{{ row.price }}</td>
             <td>{{ row.use_time }}</td>
+            <td>{{ row.remark }}</td>
         </tr>
         {% endfor %}
     </tbody>

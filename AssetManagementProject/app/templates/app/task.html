@@ -1,0 +1,39 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<br/>
+<div> 
+    <span style="float:right;font-size:20px;font-weight:bold;">合计：{{data.count}}</span>
+</div>
+<br/>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th data-options="field:'code'">Code</th>
+            <th data-options="field:'name'">Name</th>
+            <th data-options="field:'price'">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>001</td><td>name1</td><td>2323</td>
+        </tr>
+        <tr>
+            <td>002</td><td>name2</td><td>4612</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(function () {
+        $.get("/query", { 'key': 'task' }, function (d) {
+
+        });
+    });
+</script>
+{% endblock %}

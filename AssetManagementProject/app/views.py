@@ -57,108 +57,111 @@ def home(request):
         })
 
 # 硬件信息
-def hardware(request, id=0, sort='', order=''):
-    assert isinstance(request, HttpRequest)
-    error = ''
-    if request.method == 'POST':
-        form = app.forms.HardwareForm(request.POST)
-        id = form.data['hdnID'] # 这个值是隐藏域的 用以判断是添加还是修改
-        ids = form.data['hdnIDS'] # 这个值是隐藏域的 用以删除
-        if ids:            
-            app.models.HardwareInfo.objects.extra(where=['id IN (%s)' % ids]).delete()
-            id = -1
-        else:
-            if form.is_valid():            
-                if id and id != '0':
-                    model = app.models.HardwareInfo.objects.get(id=id)
-                else:
-                    model = app.models.HardwareInfo()
+# , id=0, sort='', order=''
+def hardware(request):
+    #assert isinstance(request, HttpRequest)
+    #error = ''
+    #if request.method == 'POST':
+    #    form = app.forms.HardwareForm(request.POST)
+    #    id = form.data['hdnID'] # 这个值是隐藏域的 用以判断是添加还是修改
+    #    ids = form.data['hdnIDS'] # 这个值是隐藏域的 用以删除
+    #    if ids:            
+    #        app.models.HardwareInfo.objects.extra(where=['id IN (%s)' % ids]).delete()
+    #        id = -1
+    #    else:
+    #        if form.is_valid():            
+    #            if id and id != '0':
+    #                model = app.models.HardwareInfo.objects.get(id=id)
+    #            else:
+    #                model = app.models.HardwareInfo()
+                #model.serial_number = form.cleaned_data['serial_number']
+                #model.person_id = form.cleaned_data['person_id']
+                #model.position = form.cleaned_data['position']
+                #model.system_os = form.cleaned_data['system_os']
+                #model.pc_score = form.cleaned_data['pc_score']
+                #model.pc_cpu = form.cleaned_data['pc_cpu']
+                #model.pc_memory = form.cleaned_data['pc_memory']
+                #model.pc_description = form.cleaned_data['pc_description']
+                #model.use_time = form.cleaned_data['use_time']
+                #model.pc_mac = form.cleaned_data['pc_mac']
+                #model.pc_ip = form.cleaned_data['pc_ip']
+                #model.price = form.cleaned_data['price']
+                #model.remark = form.cleaned_data['remark']
+    #            model.save()
+    #            id = -1 
+    #        else:
+    #            error = 1
+    #else:
+    #    if id and int(id) > 0:  # 这个值是url get过来的 用以初始化编辑
+    #        form = app.forms.HardwareForm(instance = app.models.HardwareInfo.objects.get(id=id))
+    #    else:
+    #        form = app.forms.HardwareForm()
 
-                model.serial_number = form.cleaned_data['serial_number']
-                model.person_id = form.cleaned_data['person_id']
-                model.position = form.cleaned_data['position']
-                model.system_os = form.cleaned_data['system_os']
-                model.pc_score = form.cleaned_data['pc_score']
-                model.pc_cpu = form.cleaned_data['pc_cpu']
-                model.pc_memory = form.cleaned_data['pc_memory']
-                model.pc_description = form.cleaned_data['pc_description']
-                model.use_time = form.cleaned_data['use_time']
-                model.pc_mac = form.cleaned_data['pc_mac']
-                model.pc_ip = form.cleaned_data['pc_ip']
-                model.save()
-                id = -1 
-            else:
-                error = 1
-    else:
-        if id and int(id) > 0:  # 这个值是url get过来的 用以初始化编辑
-            form = app.forms.HardwareForm(instance = app.models.HardwareInfo.objects.get(id=id))
-        else:
-            form = app.forms.HardwareForm()
-
-    if not sort:
-        sort = 'pc_score'  
-    if not order:
-        order = ''
-    if not id:
-        id = -20 
-    data = app.models.HardwareInfo().getHardwareList(id,sort,order) 
+    #if not sort:
+    #    sort = 'pc_score'  
+    #if not order:
+    #    order = ''
+    #if not id:
+    #    id = -20 
+    #data = app.models.HardwareInfo().getHardwareList(sort,order) 
     return render(request,'app/hardware.html',{
             'title': '硬件信息',
-            'form': form, #获得表单对象
-            'data': data,
-            'error': error,
-            'id': id,
-            'order': order,
-            'sort': sort,
+            #'form': form, #获得表单对象
+            #'data': data,
+            #'error': error,
+            #'id': id,
+            #'order': order,
+            #'sort': sort,
             'maxNo':app.models.HardwareInfo().getMaxNumber(),
             })
 
 # 打印机信息
-def printer(request,id=0):
+def printer(request):
     assert isinstance(request, HttpRequest)
-    error = ''
-    if request.method == 'POST':
-        form = app.forms.PrinterForm(request.POST)
-        id = form.data['hdnID'] # 这个值是隐藏域的 用以判断是添加还是修改
-        ids = form.data['hdnIDS'] # 这个值是隐藏域的 用以删除
-        if ids:            
-            app.models.PrinterInfo.objects.extra(where=['id IN (%s)' % ids]).delete()
-            id = -1
-        else:
-            if form.is_valid():            
-                if id and id != '0':
-                    model = app.models.PrinterInfo.objects.get(id=id)
-                else:
-                    model = app.models.PrinterInfo()
-
-                model.serial_number = form.cleaned_data['serial_number']
-                model.person_id = form.cleaned_data['person_id']
-                model.position = form.cleaned_data['position']
-                model.prt_model = form.cleaned_data['prt_model']
-                model.prt_description = form.cleaned_data['prt_description']
-                model.use_time = form.cleaned_data['use_time']
-                model.save()
-                id = -1
-            else:
-                error = 1
-    else:
-        if id and int(id) > 0:  # 这个值是url get过来的 用以初始化编辑
-            form = app.forms.PrinterForm(instance = app.models.PrinterInfo.objects.get(id=id))
-        else:
-            form = app.forms.PrinterForm()
-    if not id:
-        id = -20 
+    #error = ''
+    #if request.method == 'POST':
+    #    form = app.forms.PrinterForm(request.POST)
+    #    id = form.data['hdnID'] # 这个值是隐藏域的 用以判断是添加还是修改
+    #    ids = form.data['hdnIDS'] # 这个值是隐藏域的 用以删除
+    #    if ids:            
+    #        app.models.PrinterInfo.objects.extra(where=['id IN (%s)' % ids]).delete()
+    #        id = -1
+    #    else:
+    #        if form.is_valid():            
+    #            if id and id != '0':
+    #                model = app.models.PrinterInfo.objects.get(id=id)
+    #            else:
+    #                model = app.models.PrinterInfo()
+    #            #model.serial_number = form.cleaned_data['serial_number']
+    #            #model.person_id = form.cleaned_data['person_id']
+    #            #model.position = form.cleaned_data['position']
+    #            #model.prt_model = form.cleaned_data['prt_model']
+    #            #model.prt_description = form.cleaned_data['prt_description']
+    #            #model.use_time = form.cleaned_data['use_time']
+    #            #model.price = form.cleaned_data['price']
+    #            #model.remark = form.cleaned_data['remark']
+    #            model.save()
+    #            id = -1
+    #        else:
+    #            error = 1
+    #else:
+    #    if id and int(id) > 0:  # 这个值是url get过来的 用以初始化编辑
+    #        form = app.forms.PrinterForm(instance = app.models.PrinterInfo.objects.get(id=id))
+    #    else:
+    #        form = app.forms.PrinterForm()
+    #if not id:
+    #    id = -20 
     return render(request,'app/printer.html',{
             'title': '打印机信息',
-            'form': form, #获得表单对象
-            'data':app.models.PrinterInfo().getPrinterList(id),
-            'id': id,
-            'error': error,
-            'maxNo':app.models.PrinterInfo().getMaxNumber(),
+            'form': '', #获得表单对象
+            'data':'',
+            'id': 0,
+            'error': '',
+            'maxNo':'',
             })
 
 # 职员信息
-def person(request,id=0):
+def person(request):
     assert isinstance(request, HttpRequest)
     error = ''
     if request.method == 'POST':
@@ -178,8 +181,7 @@ def person(request,id=0):
                 model.name = form.cleaned_data['name']
                 model.position = form.cleaned_data['position']
                 model.contact = form.cleaned_data['contact']
-                #model.pc_mac = form.cleaned_data['pc_mac']
-                #model.pc_ip = form.cleaned_data['pc_ip']
+                model.remark = form.cleaned_data['remark']
                 model.save()
                 id = -1 
             else:
@@ -200,7 +202,7 @@ def person(request,id=0):
             })
 
 # 变更记录
-def log(request,id=0):
+def log(request):
     assert isinstance(request, HttpRequest)
     error = ''
     if request.method == 'POST':
@@ -216,12 +218,15 @@ def log(request,id=0):
                     model = app.models.ChangeLog.objects.get(id=id)
                 else:
                     model = app.models.ChangeLog()
-
+                model.serial_number = form.cleaned_data['serial_number']
                 model.create_time = form.cleaned_data['create_time']
-                #model.serial_number = form.cleaned_data['serial_number']
                 model.name = form.cleaned_data['name']
                 model.type = form.cleaned_data['type']
                 model.remark = form.cleaned_data['remark']
+                if len(model.serial_number) >= 8:
+                    model.state = 0
+                else:
+                    model.state = -1
                 model.save()
                 id = -1 
             else:
@@ -234,6 +239,51 @@ def log(request,id=0):
             id = 0
     return render(request,'app/log.html',{
             'title': '变更记录',
+            'form': form, #获得表单对象
+            'data':app.models.ChangeLog.objects.all().order_by('-create_time'), # 字段前面的减号是降序排列
+            'id': id,
+            'error': error,
+            })
+
+# 任务列表
+def task(request):
+    assert isinstance(request, HttpRequest)
+    error = ''
+    id = 0
+    if request.method == 'POST':
+        form = app.forms.LogForm(request.POST)
+        id = form.data['hdnID'] # 这个值是隐藏域的 用以判断是添加还是修改
+        ids = form.data['hdnIDS'] # 这个值是隐藏域的 用以删除
+        if ids:            
+            app.models.ChangeLog.objects.extra(where=['id IN (%s)' % ids]).delete()
+            id = -1
+        else:
+            if form.is_valid():            
+                if id and id != '0':
+                    model = app.models.ChangeLog.objects.get(id=id)
+                else:
+                    model = app.models.ChangeLog()
+                model.serial_number = form.cleaned_data['serial_number']
+                model.create_time = form.cleaned_data['create_time']
+                model.name = form.cleaned_data['name']
+                model.type = form.cleaned_data['type']
+                model.remark = form.cleaned_data['remark']
+                if len(model.serial_number) >= 8:
+                    model.state = 0
+                else:
+                    model.state = -1
+                model.save()
+                id = -1 
+            else:
+                error = 1
+    else:
+        if id and id != '0':  # 这个值是url get过来的 用以初始化编辑
+            form = app.forms.LogForm(instance = app.models.ChangeLog.objects.get(id=id))
+        else:
+            form = app.forms.LogForm()
+            id = 0
+    return render(request,'app/task.html',{
+            'title': '任务列表',
             'form': form, #获得表单对象
             'data':app.models.ChangeLog.objects.all().order_by('-create_time'), # 字段前面的减号是降序排列
             'id': id,

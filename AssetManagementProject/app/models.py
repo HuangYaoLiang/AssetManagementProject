@@ -6,7 +6,7 @@ from django.db import models
 from django.db import connection
 
 import datetime
-
+import django.utils.timezone as timezone
 # Create your models here.
 
 # 职员信息
@@ -14,83 +14,153 @@ class PersonInfo(models.Model):
     name = models.CharField(u'姓名',max_length=10, default='')
     position = models.CharField(u'所在位置',max_length=50, default='')
     contact = models.CharField(u'联系方式',max_length=50, default='')
+    remark = models.TextField(u'备注', default='',blank=True)
 
     def getPersonDropDownList(self):
         return tuple([(0,'无')] + list(PersonInfo.objects.values_list('id','name').order_by('name')))
 
+# 资产信息
+class AssetInfo(models.Model):
+    person_id = models.IntegerField(u'使用者ID', default=0)
+    position = models.CharField(u'存放地点',max_length=50, default='')
+    serial_number = models.CharField(u'资产编号',max_length=20, default='')
+    name = models.CharField(u'资产名称',max_length=100, default='')
+    category = models.CharField(u'资产分类',max_length=10, default='')
+    quantity = models.IntegerField(u'资产数量',default=1)
+    unit_price = models.IntegerField(u'单价',default=0)
+    total_price = models.IntegerField(u'总价值',default=0)
+    fiscal_funds = models.IntegerField(u'财政性资金',default=0)
+    use_department = models.CharField(u'使用部门',max_length=50, default='')
+    fund_source = models.CharField(u'资金来源',max_length=50, default='', blank=True)
+    get_time = models.DateTimeField(u'取得时间',null=True, blank=True)
+    remark = models.TextField(u'备注', default='',blank=True)
+    state = models.CharField(u'状态',max_length=10, default='')
+
 # 硬件信息
-class HardwareInfo(models.Model):
-    serial_number = models.CharField(u'编号',max_length=20, default='')
-    person_id = models.IntegerField(u'使用者ID')
-    position = models.CharField(u'所在位置',max_length=50, default='')
+class HardwareInfo(models.Model):    
+    asset_id = models.IntegerField(u'资产ID', default=0)
+    #person_id = models.IntegerField(u'使用者ID', default=0)
     system_os = models.CharField(u'操作系统',max_length=100, default='')
-    pc_score = models.IntegerField(u'鲁大师评分',default=0)
+    pc_score = models.IntegerField(u'鲁大师评分', default=0)
     pc_cpu = models.CharField(u'CPU',max_length=50, default='')
     pc_memory = models.CharField(u'内存',max_length=50, default='')
     pc_mac = models.CharField(u'MAC',max_length=20, default='')
     pc_ip = models.CharField(u'IP4',max_length=20, default='')
-    use_time = models.DateTimeField(u'启用时间',null=True, blank=True)
-    pc_description = models.TextField(u'PC详细描述', default='',blank=True)
+    pc_description = models.TextField(u'PC详细描述', default='', blank=True)
+
+    #serial_number = models.CharField(u'编号',max_length=20, default='')
+    #use_time = models.DateTimeField(u'入库时间',null=True, blank=True)
+    #position = models.CharField(u'所在位置',max_length=50, default='')
+    #remark = models.TextField(u'备注', default='',blank=True)
+    #price = models.IntegerField(u'价值',default=0)
 
     # 获取硬件信息列表
     # 黄耀樑 2016-07-08
-    def getHardwareList(self,id=0,sort='', order=''):
-        sqlWhere = '1=1'
-        if not id :
-            sqlWhere = 't1.person_id>0'
-        else:
-            id = int(id)
-            if id == -20:
-                sqlWhere = 't1.person_id>0'
-            elif id == -30:
-                sqlWhere = 't1.person_id=0'
+    def getHardwareList(self, sort='', order=''):
+        sqlWhere = "t1.category='台式机'"
+        #if not id :
+        #    sqlWhere += 't1.person_id>0'
+        #else:
+        #    id = int(id)
+        #    if id == -20:
+        #        sqlWhere += 't1.person_id>0'
+        #    elif id == -30:
+        #        sqlWhere += 't1.person_id=0'
         cursor = connection.cursor()
-        sql = '''SELECT t1.id,t1.serial_number,t1.position,t1.system_os,t1.pc_score,t1.pc_cpu,t1.pc_memory,t1.use_time,t2.name AS person_name,t1.pc_mac,t1.pc_ip,t1.pc_description
-        FROM app_HardwareInfo AS t1
+        sql = '''SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
         LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id
         WHERE %s
-        ORDER BY t1.%s %s''' % (sqlWhere, sort, order)
-        cursor.execute(sql)                
-        list = []
+        ORDER BY %s %s ''' % (sqlWhere, sort, order)
+        cursor.execute(sql)
+        index = cursor.description
+        result = []
         for row in cursor.fetchall():
-            dic = {}
-            dic['id'] = row[0]
-            dic['serial_number'] = row[1]
-            dic['position'] = row[2]
-            dic['system_os'] = row[3]
-            dic['pc_score'] = row[4]
-            dic['pc_cpu'] = row[5]
-            dic['pc_memory'] = row[6]
-            dic['use_time'] = row[7]
-            dic['person_name'] = row[8]
-            dic['pc_mac'] = row[9]
-            dic['pc_ip'] = row[10]
-            dic['pc_description'] = row[11]
-            list.append(dic)
-        return list
+            obj = {}
+            for i in range(len(index)):
+                obj[index[i][0]] = row[i]
+            result.append(obj)
+        cursor.close()
+        connection.close()
+        return result
 
     # 获取硬件信息列表最大编号
     # 黄耀樑 2016-07-08
     def getMaxNumber(self):
         cursor = connection.cursor()
         sql = '''SELECT MAX(serial_number)
-        FROM app_HardwareInfo
-        WHERE serial_number+0=serial_number'''
+        FROM app_assetinfo
+        WHERE category='台式机' AND serial_number+0=serial_number'''
         cursor.execute(sql)                
         obj = cursor.fetchone()[0]
         return obj
 
-# 打印机信息
-class PrinterInfo(models.Model):
+## 打印机信息
+#class PrinterInfo(models.Model):
+#    asset_id = models.IntegerField(u'资产ID', default=0)
+#    person_id = models.IntegerField(u'使用者ID', default=0)
+
+#    #serial_number = models.CharField(u'编号',max_length=20, default='')
+#    #position = models.CharField(u'所在位置',max_length=50, default='')
+#    #prt_model = models.CharField(u'打印机型号',max_length=50, default='')
+#    #use_time = models.DateTimeField(u'入库时间',null=True, blank=True)
+#    #prt_description = models.TextField(u'打印机详细描述', default='',blank=True)
+#    #remark = models.TextField(u'备注', default='',blank=True)
+#    #price = models.IntegerField(u'价值',default=0)
+
+#    # 获取打印机信息列表
+#    def getPrinterList(self,id=0):
+#        sqlWhere = '1=1'
+#        if not id :
+#            sqlWhere = 't1.person_id>0'
+#        else:
+#            id = int(id)
+#            if id == -20:
+#                sqlWhere = 't1.person_id>0'
+#            elif id == -30:
+#                sqlWhere = 't1.person_id=0'
+#        cursor = connection.cursor()
+#        cursor.execute("""
+#        SELECT t1.*,t2.name AS person_name,t3.*
+#        FROM app_PrinterInfo AS t1
+#        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+#        LEFT JOIN app_assetinfo AS t3 ON t1.asset_id=t3.id
+#        WHERE %s
+#        ORDER BY position""" % (sqlWhere))
+#        index = cursor.description
+#        result = []
+#        for row in cursor.fetchall():
+#            obj = {}
+#            for i in range(len(index)):
+#                obj[index[i][0]] = row[i]
+#            result.append(obj)
+#        cursor.close()
+#        connection.close()
+#        return result
+
+#    # 获取打印机信息列表最大编号
+#    # 黄耀樑 2016-07-08
+#    def getMaxNumber(self):
+#        cursor = connection.cursor()
+#        sql = '''SELECT MAX(serial_number)
+#        FROM app_PrinterInfo
+#        WHERE serial_number+0=serial_number'''
+#        cursor.execute(sql)                
+#        obj = cursor.fetchone()[0]
+#        return obj
+
+# 变更记录
+class ChangeLog(models.Model):
     serial_number = models.CharField(u'编号',max_length=20, default='')
-    person_id = models.IntegerField(u'使用者ID')
-    position = models.CharField(u'所在位置',max_length=50, default='')
-    prt_model = models.CharField(u'打印机型号',max_length=50, default='')
-    use_time = models.DateTimeField(u'启用时间',null=True, blank=True)
-    prt_description = models.TextField(u'打印机详细描述', default='',blank=True)
+    name = models.CharField(u'姓名',max_length=10, default='')
+    type = models.CharField(u'变更类型',max_length=10, default='')
+    remark = models.TextField(u'变更说明', default='')
+    create_time = models.DateTimeField(u'创建时间', default=timezone.now)
+    state = models.IntegerField(u'状态',default=0) # 0:待处理 1:已处理 -1:不处理
 
     # 获取打印机信息列表
-    def getPrinterList(self,id=0):
+    def getList(self,id=0):
         sqlWhere = '1=1'
         if not id :
             sqlWhere = 't1.person_id>0'
@@ -102,43 +172,23 @@ class PrinterInfo(models.Model):
                 sqlWhere = 't1.person_id=0'
         cursor = connection.cursor()
         cursor.execute("""
-        SELECT t1.id,t1.serial_number,t1.position,t1.prt_model,t1.prt_description,t2.name AS person_name
+        SELECT t1.*,t2.name AS person_name
         FROM app_PrinterInfo AS t1
         LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
         WHERE %s
         ORDER BY t1.position""" % (sqlWhere))
-        list = []
+        index = cursor.description
+        result = []
         for row in cursor.fetchall():
-            dic = {}
-            dic['id'] = row[0]
-            dic['serial_number'] = row[1]
-            dic['position'] = row[2]
-            dic['prt_model'] = row[3]
-            dic['prt_description'] = row[4]
-            dic['person_name'] = row[5]
-            list.append(dic)
-        return list
-
-    # 获取打印机信息列表最大编号
-    # 黄耀樑 2016-07-08
-    def getMaxNumber(self):
-        cursor = connection.cursor()
-        sql = '''SELECT MAX(serial_number)
-        FROM app_PrinterInfo
-        WHERE serial_number+0=serial_number'''
-        cursor.execute(sql)                
-        obj = cursor.fetchone()[0]
-        return obj
-
-# 变更记录
-class ChangeLog(models.Model):
-    name = models.CharField(u'姓名',max_length=10, default='')
-    type = models.CharField(u'变更类型',max_length=10, default='')
-    remark = models.TextField(u'变更说明', default='')
-    create_time = models.DateTimeField(u'创建时间', default=datetime.datetime.now())
+            obj = {}
+            for i in range(len(index)):
+                obj[index[i][0]] = row[i]
+            result.append(obj)
+        cursor.close()
+        connection.close()
+        return result
 
 # 点赞图片
 class LikeImageInfo(models.Model):
     pc_ip = models.CharField(u'IP4',max_length=20, default='')
     img_number = models.IntegerField(u'图片编号',default=0)
-
