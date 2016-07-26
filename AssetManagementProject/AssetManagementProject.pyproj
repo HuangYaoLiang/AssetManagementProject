@@ -30,6 +30,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\migrations\__init__.py" />
     <Compile Include="app\utils.py" />
     <Compile Include="app\controller.py">
       <SubType>Code</SubType>

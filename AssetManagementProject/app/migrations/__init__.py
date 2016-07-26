@@ -1,3 +1,3 @@
 """
-Package for AssetManagementProject.
+Package for the application.
 """
