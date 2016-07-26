@@ -1,0 +1,197 @@
+﻿{% extends "app/layout.html" %}
+{% load myfilter %} #加载自定认标签
+
+{% block content %}
+
+<br/>
+<div class="row">
+    <div class="col-xs-4">
+        <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">添加硬件
+        </button>
+        &nbsp;&nbsp;&nbsp;
+        <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+            编辑硬件
+        </button>
+        &nbsp;&nbsp;&nbsp;
+        <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除硬件</button>
+    </div>
+    <div class="col-xs-4">
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="-10">全部
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="-20">使用中
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="-30">无人机
+        </label>
+    </div>
+    <div class="col-xs-4">
+        <span style="        float: right;
+        font-size: 20px;
+        font-weight: bold;">合计：{{ data|length }}</span>
+        <span style="        float: right;
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 50px;">最后编号：{{ maxNo }}</span>
+        {#<span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ data|dictsortreversed:'serial_number'|first|key:'serial_number' }}</span>#}
+    </div>
+</div>
+<br/>
+
+<table class="snowui-datagrid table table-striped table-bordered" data-options="url:'/query/hardware'">
+    <thead>
+        <tr>
+            <th width="35" data-options="checkbox:true">#</th>
+            <th width="150" data-options="field:'serial_number',sortable:true">编号</th>
+            <th width="100" data-options="field:'person_name'">使用者</th>
+            <th width="100" data-options="field:'position',sortable:true">所在位置</th>
+            <th width="100" data-options="field:'get_time'">取得时间</th>
+
+            <!--<th width="100">操作系统</th>-->
+            <!---->
+            <!--<th data-options="field:'pc_score',sortable:true">鲁大师评分</th>-->
+            <!---->
+            <!--<th>CPU</th>-->
+            <!---->
+            <!--<th>内存</th>-->
+            <!---->
+            <!--<th>MAC</th>-->
+            <!---->
+            <!--<th>IP4</th>-->
+            <!---->
+            <!--<th>价值</th>-->
+            <!---->
+            <!--<th width="100">取得时间</th>-->
+            <!---->
+            <!--<th width="100">备注</th>-->
+            <!---->
+            <!--<th width="100">详细参数</th>-->
+
+        </tr>
+    </thead>
+</table>
+ 
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示框</h4>
+            </div>
+            <div class="modal-body">
+                确认删除吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="btnDelOK">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+            
+{#<input type="hidden" id="hdnIDS" name="hdnIDS" value=""/>#}
+
+{% endblock %}
+
+{% block scripts %}
+ 
+<script>
+    $(function () {
+         
+    });
+</script>
+ 
+<script>
+    var _SrvUrl = '/hardwareDetail/';
+
+    $(function () {
+        $('#btnAdd').on('click', function () {
+            window.location.href = _SrvUrl;
+        });
+
+        $('#btnModify').on('click', function () {
+            var arr = $('.snowui-datagrid input:checked');
+            if (arr.length > 0) {
+                window.location.href = _SrvUrl + $(arr[0]).val();
+            }
+        });
+
+        //$.get("/query", {'key': 'hardware'}, function (d) {
+        //    snowui.create_datagrid(d);
+        //});
+
+        //$('.table tbody tr').on('dblclick', function () {
+        //    window.location.href = srvUrl + $(this).find(':checkbox').val();
+        //});
+
+        //$('[sort]').on('click', function () {
+        //    var param = _id + '/' + $(this).attr('sort') + '/';
+        //    if ($(this).hasClass("dropup")) {
+        //        param += 'desc';
+        //    } else {
+        //        param += 'asc';
+        //    }
+        //    window.location.href = srvUrl + param;
+        //});
+
+        //$('#btnAdd').on('click', function () {
+        //    $('#hdnID').val(0);
+        //});
+
+        //$('#btnModify').on('click', function () {
+        //    var arr = $('.table-striped tr td input:checked');
+        //    if (arr.length > 0) {
+        //        window.location.href = srvUrl + $(arr[0]).val();
+        //    }
+        //});
+        //$('#btnDelete').on('click', function () {
+        //    var ids = '';
+        //    $.each($('.table-striped tr td input:checked'), function (i, n) {
+        //        if (ids) {
+        //            ids += ',';
+        //        }
+        //        ids += $(n).val();
+        //    });
+        //    if (ids) {
+        //        $('#delModal').modal('show');
+        //        $('#hdnIDS').val(ids);
+        //    }
+        //});
+        //$('#btnDelOK').on('click', function () {
+        //    $('#ff').submit();
+        //});
+
+        //$(':radio[name="inlineRadioOptions"]').on('click', function () {
+        //    window.location.href = srvUrl + $(this).val();
+        //});
+
+        //if (_id == -1) {
+        //    window.location.href = srvUrl.substring(0, srvUrl.length - 1);
+        //    ;
+        //} else if ((_id && _id > 0) || _error) {
+        //    if (_id) {
+        //        $('#hdnID').val(_id);
+        //    }
+        //    $('#exampleModal').modal('show');
+        //    error = '';
+        //}
+
+        //var rVal = -20;
+        //if (-10 >= _id) {
+        //    rVal = _id;
+        //}
+        //$(':radio[name="inlineRadioOptions"][value=' + rVal + ']').attr('checked', 'checked');
+
+        //if (_sort) {
+        //    $('[sort="' + _sort + '"]').append('<span class="caret" style="margin-left:5px;"></span>');
+        //}
+        //if (_order && _order == 'desc') {
+        //    $('[sort]').removeClass("dropup");
+        //} else {
+        //    $('[sort]').addClass("dropup");
+        //}
+    });
+</script>
+{% endblock %}
