@@ -1,0 +1,178 @@
+﻿{% extends "app/layout.html" %}
+{% load myfilter %} #加载自定认标签
+
+{% block content %}
+
+<br/>
+<div class="row">
+    <div class="col-xs-4">
+        <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">添加打印机
+        </button>&nbsp;&nbsp;&nbsp;
+        <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">编辑打印机
+        </button>&nbsp;&nbsp;&nbsp;
+        <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除打印机
+        </button>
+    </div>
+    <div class="col-xs-4">
+        <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="-10">全部
+        </label>
+        <label class="radio-inline" title="就是这台打印机装在谁的电脑上">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="-20">所属者
+        </label>
+        <label class="radio-inline" title="就是这台打印机没有安装在谁的电脑上或者没人使用">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="-30">无对象
+        </label>
+    </div>
+    <div class="col-xs-4">
+        <span style="float:right;font-size:20px;font-weight:bold;">合计：{{ data|length }}</span>
+        <span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ maxNo }}</span>
+        {#<span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ data|dictsortreversed:'serial_number'|first|key:'serial_number' }}</span>#}
+    </div>
+</div>
+<br/>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th width="35">#</th>
+            <th width="50">编号</th>
+            <th width="100">使用者</th>
+            <th width="100">所在位置</th>
+            <th>打印机型号</th>
+            <th>打印机详细描述</th>
+            <th>价值</th>
+            <th>入库时间</th>
+            <th>备注</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td><input type="checkbox" value="{{ row.id }}"/></td>
+            <td>{{ row.serial_number }}</td>
+            <td>{{ row.person_name }}</td>
+            <td>{{ row.position }}</td>
+            <td>{{ row.prt_model }}</td>
+            <td>{{ row.prt_description }}</td>
+            <td>{{ row.price }}</td>
+            <td>{{ row.use_time }}</td>
+            <td>{{ row.remark }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="exampleModalLabel">管理打印机信息</h4>
+            </div>
+            <form id="ff" action="/printer" method="POST">
+                {% csrf_token %}
+                <div class="modal-body">
+                    {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}:{{ field }}
+                        {{ field.errors }}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+                <input type="hidden" id="hdnID" name="hdnID" value="0"/>
+                <input type="hidden" id="hdnIDS" name="hdnIDS" value=""/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">提示框</h4>
+      </div>
+      <div class="modal-body">
+        确认删除吗？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" id="btnDelOK">确认</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var _error = '{{error}}';
+    var _id = parseInt('{{ id }}');
+</script>
+<script>
+    var srvUrl = '/printer/';
+    $(function () {
+        $('.table tbody tr').on('dblclick', function () {
+            window.location.href = srvUrl + $(this).find(':checkbox').val();
+        });
+
+        $('#btnAdd').on('click', function () {
+            $('#hdnID').val(0);
+        });
+
+        $('#btnModify').on('click', function () {
+            var arr = $('.table-striped tr td input:checked');
+            if (arr.length > 0) {
+                window.location.href = srvUrl + $(arr[0]).val();
+            }
+        });
+
+        $('#btnDelete').on('click', function () {
+            var ids = '';
+            $.each($('.table-striped tr td input:checked'), function (i, n) {
+                if (ids) {
+                    ids += ',';
+                }
+                ids += $(n).val();
+            });
+            if (ids) {
+                $('#delModal').modal('show');
+                $('#hdnIDS').val(ids);
+            }
+        });
+        $('#btnDelOK').on('click', function () {
+            $('#ff').submit();
+        });
+
+        $(':radio[name="inlineRadioOptions"]').on('click', function () {
+            window.location.href = srvUrl + $(this).val();
+        });
+
+        var rVal = -20;
+        if (-10 >= _id) {
+            rVal = _id;
+        }
+        $(':radio[name="inlineRadioOptions"][value=' + rVal + ']').attr('checked', 'checked');
+
+        if (_id == -1) {
+            window.location.href = srvUrl.substring(0, srvUrl.length - 1);
+            ;
+        } else if ((_id && _id > 0) || _error) {
+            if (_id) {
+                $('#hdnID').val(_id);
+            }
+            $('#exampleModal').modal('show');
+            error = '';
+        }
+    });
+</script>
+{% endblock %}

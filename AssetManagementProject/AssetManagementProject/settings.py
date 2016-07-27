@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 import posixpath
+import logging
+import django.utils.log
+import logging.handlers
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -62,6 +65,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.core.context_processors.debug',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -78,9 +82,14 @@ WSGI_APPLICATION = 'AssetManagementProject.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
+    # 数据库可以使用任何别名，但是 default 有特殊意义。当没有选择其他数据库时， Django 总是使用别名为 default 的数据库。因此，如果你没有定义一个名为 default 的数据库时，你应当小心了，在使用数据库前要指定你想用的数据库。 
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'default1': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db1.sqlite3'),
     }
 }
 
@@ -124,3 +133,60 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+
+# 配置日志记录
+LOGGING = {
+    'version': 1,
+    # 默认配置中的所有logger 都将禁用
+    'disable_existing_loggers': True,
+    # 配置打印日志格式
+    'formatters': { 
+        'standard': {
+            # 简单记录
+            #'format': '%(levelname)s %(asctime)s %(message)s'
+            # 详细记录
+            'format': '%(asctime)s [%(threadName)s:%(thread)d] [%(name)s:%(lineno)d] [%(levelname)s]- %(message)s'
+        },
+        'verbose': {
+            'format' : '%(asctime)s %(message)s',
+            'datefmt' : '%Y-%m-%d %H:%M:%S'
+        },
+    },
+    'filters': {
+    },
+    # 用来定义具体处理日志的方式，可以定义多种，"default"就是默认方式，"console"就是打印到控制台方式。
+    'handlers': {
+        #'defaul':{
+        #    'level':'DEBUG',
+        #    'class':'logging.handlers.RotatingFileHandler', # 根据大小创建日志文件，超过下面参数指定5M就新建，尾数阿拉伯数字
+        #    'filename': os.path.join(STATIC_ROOT+'/logs/','all.log'), #或者直接写路径：'c:\logs\all.log',记得新建一个 logs 文件夹
+        #    'maxBytes': 1024*1024*5, # 5 MB 用于指定日志文件的最大文件大小。如果maxBytes为0，意味着日志文件可以无限大，这时上面描述的重命名过程就不会发生。
+        #    'backupCount': 5, # 用于指定保留的备份文件的个数。比如，如果指定为2，当上面描述的重命名过程发生时，原有的chat.log.2并不会被更名，而是被删除。
+        #    'formatter':'standard',
+        #},
+        'defaul':{
+            'level':'DEBUG',
+            'class':'logging.handlers.TimedRotatingFileHandler', # 根据间隔时间，创建时间名称的日志文件
+            'filename': os.path.join(STATIC_ROOT+'/logs/', 'all.log'), # 目录要确保存在
+            'when': 'D', # 表示时间间隔的单位，不区分大小写 's’(秒)、'M’(分)、'H’(小时)、'D’(天)、'w’(周 interval=0时代表星期一)和'midnight’(在午夜备份)
+            'interval': 1, # 时间间隔
+            'backupCount': 5, # 用于指定保留的备份文件的个数。比如，如果指定为2，当上面描述的重命名过程发生时，原有的chat.log.2并不会被更名，而是被删除。
+            'formatter':'verbose',
+        },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            'formatter':'standard',
+        },
+    },
+    # 用来配置用那种handlers来处理日志，比如你同时需要输出日志到文件、控制台。
+    # loggers类型为"django"这将处理所有类型日志。
+    'loggers': {
+        'django': {
+            'handlers': ['defaul','console'],
+            'propagate': False, # 是否继承父类的log信息
+            'level':'DEBUG', # 级别，级别有DEBUG、INFO、WARNING、ERROR、CRITICAL
+        },
+    }
+}

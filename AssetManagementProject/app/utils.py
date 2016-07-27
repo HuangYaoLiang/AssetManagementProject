@@ -10,14 +10,16 @@ class utils():
 
     # 获取 snowui-datagrid json格式数据源
     # 黄耀樑 2016-07-22
-    def getDatagrid(query=[]):                    
-        return {"total":0,"rows":query}
+    def getDatagrid(query=[], total=0):
+        if not total:
+            total = len(query)
+        return {"total": total, "rows": query}
 
     # 封装表单数据到实体
     # 黄耀樑 2016-07-26
-    def createObject(model, request, exclude=[]):                    
+    def createObject(model, request, exclude=[]):
         for x in request.POST:
-            if x in model._meta.get_all_field_names():
-                if exclude and not x in exclude:
+            if x in model._meta.get_all_field_names() and x != 'id':
+                if not exclude or (len(exclude) > 0 and not x in exclude):
                     setattr(model, x, request.POST[x])
 

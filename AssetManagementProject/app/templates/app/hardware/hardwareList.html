@@ -1,5 +1,5 @@
 ﻿{% extends "app/layout.html" %}
-{% load myfilter %} #加载自定认标签
+{% load myfilter %} #加载自定义标签
 
 {% block content %}
 
@@ -27,19 +27,17 @@
         </label>
     </div>
     <div class="col-xs-4">
+        <!--
         <span style="        float: right;
         font-size: 20px;
-        font-weight: bold;">合计：{{ data|length }}</span>
-        <span style="        float: right;
-        font-size: 20px;
-        font-weight: bold;
-        margin-right: 50px;">最后编号：{{ maxNo }}</span>
+        font-weight: bold;">合计：{{ data|length }}</span>-->
+        <span style=" float: right; font-size: 20px; font-weight: bold; margin-right: 50px;">最后编号：{{ maxNo }}</span>
         {#<span style="float:right;font-size:20px;font-weight:bold;margin-right:50px;">最后编号：{{ data|dictsortreversed:'serial_number'|first|key:'serial_number' }}</span>#}
     </div>
 </div>
 <br/>
 
-<table class="snowui-datagrid table table-striped table-bordered" data-options="url:'/query/hardware'">
+<table class="snowui-datagrid" data-options="url:'/query/hardware'">
     <thead>
         <tr>
             <th width="35" data-options="checkbox:true">#</th>
@@ -96,13 +94,13 @@
 {% endblock %}
 
 {% block scripts %}
- 
+ <!--
 <script>
     $(function () {
          
     });
 </script>
- 
+  -->
 <script>
     var _SrvUrl = '/hardwareDetail/';
 

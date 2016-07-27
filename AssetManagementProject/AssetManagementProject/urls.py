@@ -29,12 +29,15 @@ urlpatterns = [
     #url(r'^log(/(?P<id>\d{1,}))?$', app.views.log, name='log'),
 
     url(r'^hardwareList$', app.views.hardwareList, name='hardwareList'),
-    url(r'^hardwareDetail/(\d*)$', app.views.hardwareDetail, name='hardwareDetail'),# ?P<id>
-    url(r'^printer$', app.views.printer, name='printer'),
-    url(r'^person$', app.views.person, name='person'),
-    url(r'^log$', app.views.log, name='log'),
-
+    url(r'^hardwareDetail/(\d*)$', app.views.hardwareDetail, name='hardwareDetail'),
+    url(r'^printerList$', app.views.printerList, name='printerList'),
+    url(r'^printerDetail/(\d*)$', app.views.printerDetail, name='printerDetail'),
+    url(r'^personList$', app.views.personList, name='personList'),
+    url(r'^personDetail/(\d*)$', app.views.personDetail, name='personDetail'),
+    url(r'^logList$', app.views.logList, name='logList'),
+    url(r'^logDetail/(\d*)$', app.views.logDetail, name='logDetail'),
     url(r'^task$', app.views.task, name='task'),
+
     url(r'^login$',
         django.contrib.auth.views.login,
         {

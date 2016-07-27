@@ -27,7 +27,9 @@ class controller():
         obj = {}
         if id and int(id) > 0:
             if key == 'hardware':
-                obj = app.models.HardwareInfo().getHardwareOne(id)
+                obj = app.models.HardwareInfo().getOne(id)
+            elif key == 'person':
+                obj = app.models.PersonInfo().getOne(id)
         return JsonResponse(obj)
     
     # 查询列表
@@ -37,7 +39,9 @@ class controller():
         # key = request.GET['key'] # key不存在就会产生异常
         query = []
         if key == 'hardware':
-            query = app.models.HardwareInfo().getHardwareList()
+            query = app.models.HardwareInfo().getList()
+        elif key == 'person':
+            query = app.models.PersonInfo().getList()
         return JsonResponse(utils.getDatagrid(query))
 
     # 新增或者更新
@@ -45,9 +49,9 @@ class controller():
     def edit(request, key):
         #assert isinstance(request, HttpRequest)
         # user_obj=json.loads(request.body.decode())
-        success = False
-        msg = '操作失败'
-        id = int(request.POST['id'])
+        success = True
+        msg = '操作成功'
+        id = int(request.POST.get('id', 0))
         if key == 'hardware':
             assetInfo = app.models.AssetInfo()
             hardwareInfo = app.models.HardwareInfo()
@@ -57,5 +61,11 @@ class controller():
             utils.createObject(assetInfo, request)
             utils.createObject(hardwareInfo, request, ['id'])
             # assetInfo.save()
-        return JsonResponse({'success': success, 'msg':msg})
+        elif key == 'person':
+            personInfo = app.models.PersonInfo()
+            if id > 0:
+                personInfo = app.models.PersonInfo.objects.get(id=id)
+            utils.createObject(personInfo, request)
+            personInfo.save()
+        return JsonResponse({'success': success, 'msg': msg})
 

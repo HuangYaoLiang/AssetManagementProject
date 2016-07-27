@@ -4,11 +4,11 @@
 
 <br/>
 <div>
-    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">添加职员
+    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">添加记录
     </button>&nbsp;&nbsp;&nbsp;
-    <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">编辑职员
+    <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">编辑记录
     </button>&nbsp;&nbsp;&nbsp;
-    <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除职员</button>
+    <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除记录</button>
     <span style="float:right;font-size:20px;font-weight:bold;">合计：{{data.count}}</span>
 </div>
 <br/>
@@ -17,19 +17,23 @@
     <thead>
         <tr>
             <th width="35">#</th>
-            <th width="50">姓名</th>
-            <th width="100">所在位置</th>
-            <th width="100">联系方式</th>
-            <th>备注</th>
+            <th width="100">编号</th>
+            <th width="60">姓名</th>
+            <th width="100">变更类型</th>
+            <th width="100">创建时间</th>            
+            <th width="100" title="0:待处理 1:已处理 -1:不处理">状态</th>
+            <th>变更说明</th>
         </tr>
     </thead>
     <tbody>
         {% for row in data %}
         <tr>
             <td><input type="checkbox" value="{{ row.id }}"/></td>
+            <td>{{ row.serial_number }}</td>
             <td>{{ row.name }}</td>
-            <td>{{ row.position }}</td>
-            <td>{{ row.contact }}</td>
+            <td>{{ row.type }}</td>
+            <td>{{ row.create_time|date:"Y-m-d" }}</td>
+            <td>{{ row.state }}</td>
             <td>{{ row.remark }}</td>
         </tr>
         {% endfor %}
@@ -43,14 +47,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="exampleModalLabel">管理职员信息</h4>
+                <h4 class="modal-title" id="exampleModalLabel">管理变更记录</h4>
             </div>
-            <form id="ff" action="/person" method="POST">
+            <form id="ff" action="/log" method="POST">
                 {% csrf_token %}
                 <div class="modal-body">
                     {% for field in form %}
                     <div class="form-group">
-                        {{ field.label_tag }}:{{ field }}
+                        {{ field.label_tag }}
+                        {{ field }}
                         {{ field.errors }}
                     </div>
                     {% endfor %}
@@ -89,10 +94,10 @@
 {% block scripts %}
 <script>
     var _error = '{{error}}';
-    var _id = parseInt('{{ id }}');
+    var _id = parseInt('{{id}}');
 </script>
 <script>
-    var srvUrl = '/person/';
+    var srvUrl = '/log/';
     $(function () {
         $('.table tbody tr').on('dblclick', function () {
             window.location.href = srvUrl + $(this).find(':checkbox').val();
@@ -103,7 +108,7 @@
         });
 
         $('#btnModify').on('click', function () {
-            var arr = $('.table-striped tr td :checked');
+            var arr = $('.table-striped tr td input:checked');
             if (arr.length > 0) {
                 window.location.href = srvUrl + $(arr[0]).val();
             }
@@ -111,7 +116,7 @@
 
         $('#btnDelete').on('click', function () {
             var ids = '';
-            $.each($('.table-striped tr td :checked'), function (i, n) {
+            $.each($('.table-striped tr td input:checked'), function (i, n) {
                 if (ids) {
                     ids += ',';
                 }

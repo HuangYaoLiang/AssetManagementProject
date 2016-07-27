@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="app\dbhelp.py" />
     <Compile Include="app\utils.py" />
     <Compile Include="app\controller.py">
       <SubType>Code</SubType>
@@ -80,6 +81,9 @@
     <Folder Include="app\static\app\scripts\jquery-snowui\" />
     <Folder Include="app\static\app\scripts\bootstrap-datetimepicker\" />
     <Folder Include="app\templates\app\hardware\" />
+    <Folder Include="app\templates\app\log\" />
+    <Folder Include="app\templates\app\printer\" />
+    <Folder Include="app\templates\app\person\" />
     <Folder Include="app\templatetags\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
@@ -632,9 +636,12 @@
     <Content Include="app\static\app\temporary\js\lightbox.min.js" />
     <Content Include="app\templates\app\hardware\hardwareDetail.html" />
     <Content Include="app\templates\app\hardware\hardwareList.html" />
+    <Content Include="app\templates\app\log\logDetail.html" />
+    <Content Include="app\templates\app\person\personList.html" />
+    <Content Include="app\templates\app\printer\printerDetail.html" />
     <Content Include="app\templates\app\task.html" />
     <Content Include="app\templates\app\temporary\imagelist.html" />
-    <Content Include="app\templates\app\log.html" />
+    <Content Include="app\templates\app\log\logList.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\site.css" />
@@ -655,8 +662,8 @@
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
-    <Content Include="app\templates\app\person.html" />
-    <Content Include="app\templates\app\printer.html" />
+    <Content Include="app\templates\app\person\personDetail.html" />
+    <Content Include="app\templates\app\printer\printerList.html" />
     <Content Include="app\templates\app\index.html" />
     <Content Include="app\templates\app\layout.html" />
     <Content Include="app\templates\app\login.html" />

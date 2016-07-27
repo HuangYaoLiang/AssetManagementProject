@@ -14,7 +14,7 @@
 </div>
 <br/>
  
-<form id="ff" method="post" action="/edit" class="snowui-form form-horizontal" data-options="url:'/get/hardware/{{ id }}'">
+<form class="snowui-form" data-options="url:'/get/hardware/{{ id }}'">
     <div class="form-group">
         <label class="col-lg-1">使用者</label>
         <div class="col-lg-3">
@@ -127,7 +127,7 @@
             <textarea class="form-control" name="pc_description" rows="10"></textarea>
         </div>
     </div>
-    <input type="hidden" name="id" value="0"/>
+    {#<input type="hidden" name="id" value="0"/>#}
     {#<input type="hidden" name="key" value="hardware"/>#}
 </form>
 
@@ -155,9 +155,9 @@
     //var srvUrl = '/hardware/';
 
     $(function () {
-        $('#btnBack').on('click', function () {
-            history.back(-1);
-        });
+        //$('#btnBack').on('click', function () {
+        //    history.back(-1);
+        //});
 
         $('#btnSave').on('click', function () {
             $.post('/edit/hardware', $("#ff").serialize(), function (result) {
