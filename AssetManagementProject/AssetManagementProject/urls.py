@@ -2,17 +2,18 @@
 Definition of urls for AssetManagementProject.
 """
 
-from datetime import datetime
-from django.conf.urls import url
-import django.contrib.auth.views
-
 import app.forms
 import app.views
 import app.controller
+import django.contrib.auth.views
+
+from datetime import datetime
+from django.conf.urls import url
 
 # Uncomment the next lines to enable the admin:
 from django.conf.urls import include
 from django.contrib import admin
+
 admin.autodiscover()
 
 urlpatterns = [
@@ -34,8 +35,8 @@ urlpatterns = [
     url(r'^printerDetail/(\d*)$', app.views.printerDetail, name='printerDetail'),
     url(r'^personList$', app.views.personList, name='personList'),
     url(r'^personDetail/(\d*)$', app.views.personDetail, name='personDetail'),
-    url(r'^logList$', app.views.logList, name='logList'),
-    url(r'^logDetail/(\d*)$', app.views.logDetail, name='logDetail'),
+    url(r'^changeList$', app.views.changeList, name='changeList'),
+    url(r'^changeDetail/(\d*)$', app.views.changeDetail, name='changeDetail'),
     url(r'^task$', app.views.task, name='task'),
 
     url(r'^login$',
@@ -61,6 +62,7 @@ urlpatterns = [
     url(r'^get/(\w+)/(\d*)$', app.controller.controller.get, name='get'),
     url(r'^query/(\w+)$', app.controller.controller.query, name='query'),
     url(r'^edit/(\w+)$', app.controller.controller.edit, name='edit'),
+    url(r'^remove/(\w+)$', app.controller.controller.remove, name='remove'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

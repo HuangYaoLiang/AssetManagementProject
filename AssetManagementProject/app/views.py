@@ -5,6 +5,12 @@
 黄耀樑 2016-07-20
 """
 
+import app.forms
+import app.models
+import os
+import posixpath
+import json
+
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.http import HttpResponse
@@ -13,11 +19,8 @@ from datetime import datetime
 from AssetManagementProject import settings
 from django.http.response import JsonResponse
 
-import app.forms
-import app.models
-import os
-import posixpath
-import json
+
+
 
 # 测试
 def test(request):
@@ -116,11 +119,13 @@ def hardwareDetail(request, id=0):
     #obj = '{}'
     #if id and int(id) > 0:
     #    obj = app.models.HardwareInfo().getHardwareOne(id)
+    #if not id:
+    #    id = 0
     dsPerson = app.models.PersonInfo().getDropDownList()
     return render(request,'app/hardware/hardwareDetail.html',{
         'title': '硬件信息',
         #'obj': json.dumps(obj),
-        'id': id,
+        'id': id if id else 0,
         'dsPerson': dsPerson,
     })
 
@@ -176,11 +181,13 @@ def printerDetail(request, id=0):
     #obj = '{}'
     #if id and int(id) > 0:
     #    obj = app.models.HardwareInfo().getHardwareOne(id)
+    #if not id:
+    #    id = 0
     dsPerson = app.models.PersonInfo().getDropDownList()
     return render(request,'app/printer/printerDetail.html',{
         'title': '打印机信息',
         #'obj': json.dumps(obj),
-        'id': id,
+        'id': id if id else 0,
         'dsPerson': dsPerson,
     })
 
@@ -233,16 +240,18 @@ def personDetail(request, id=0):
     #if id and int(id) > 0:
     #    obj = app.models.HardwareInfo().getHardwareOne(id)
     #dsPerson = app.models.PersonInfo().getPersonDropDownList()
+    #if not id:
+    #    id = 0
     return render(request,'app/person/personDetail.html',{
         'title': '职员信息',
         #'obj': json.dumps(obj),
-        'id': id,
+        'id': id if id else 0,
         #'dsPerson': dsPerson,
     })
 
 # 变更记录列表
 # 黄耀樑 2016-07-26
-def logList(request):
+def changeList(request):
     #assert isinstance(request, HttpRequest)
     #error = ''
     #if request.method == 'POST':
@@ -277,7 +286,7 @@ def logList(request):
     #    else:
     #        form = app.forms.LogForm()
     #        id = 0
-    return render(request,'app/log/logList.html',{
+    return render(request,'app/change/changeList.html',{
             'title': '变更记录',
             #'form': form, #获得表单对象
             #'data':app.models.ChangeLog.objects.all().order_by('-create_time'), # 字段前面的减号是降序排列
@@ -287,15 +296,17 @@ def logList(request):
 
 # 变更记录详细
 # 黄耀樑 2016-07-26
-def logDetail(request, id=0):
+def changeDetail(request, id=0):
     #obj = '{}'
     #if id and int(id) > 0:
     #    obj = app.models.HardwareInfo().getHardwareOne(id)
     #dsPerson = app.models.PersonInfo().getPersonDropDownList()
-    return render(request,'app/log/logDetail.html',{
+    #if not id:
+    #    id = 0
+    return render(request,'app/change/changeDetail.html',{
         'title': '变更记录',
         #'obj': json.dumps(obj),
-        'id': id,
+        'id': id if id else 0,
         #'dsPerson': dsPerson,
     })
 

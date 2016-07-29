@@ -4,20 +4,20 @@
 
 <br/>
 <div class="row">
-     <div class="col-xs-11">
+    <div class="col-xs-11">
         <button id="btnBack" type="button" class="btn btn-default">返回</button>
     </div>
-    <div class="col-xs-1">        
+    <div class="col-xs-1">
         <button id="btnSave" type="button" class="btn btn-success">保存</button>
     </div>
 </div>
 <br/>
-
- <form class="snowui-form" data-options="url:'/get/person/{{ id }}'">
+<!-- url:'/get/person/{{ id }}',saveUrl:'/edit/person' -->
+<form class="snowui-form" data-options="controller:'person',id:{{ id }}">
     <div class="form-group">
         <label class="col-lg-1">姓名</label>
         <div class="col-lg-3">
-              <input type="text" class="form-control" name="name"/>
+            <input type="text" class="form-control" name="name"/>
         </div>
         <label class="col-lg-1">所在位置</label>
         <div class="col-lg-3">
@@ -34,24 +34,18 @@
             <textarea class="form-control" name="remark" rows="3"></textarea>
         </div>
     </div>
-    {#<input type="hidden" name="id" value="0"/>#}
-    {#<input type="hidden" name="key" value="hardware"/>#}
 </form>
 
 {% endblock %}
 
-{% block scripts %} 
-<script> 
-    $(function () {
-        //$('#btnBack').on('click', function () {
-        //    history.back(-1);
-        //});
-
-        $('#btnSave').on('click', function () {
-            $.post('/edit/person', $(".snowui-form").serialize(), function (result) {
-                alert(result.success + result.msg);
-            });
-        });
-    });
+{% block scripts %}
+<script>
+    //$(function () {
+    //    $('#btnSave').on('click', function () {
+    //        $.post('/edit/person', $(".snowui-form").serialize(), function (result) {
+    //            alert(result.success + result.msg);
+    //        });
+    //    });
+    //});
 </script>
 {% endblock %}

@@ -1,0 +1,94 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<br/>
+<div class="row">
+    <div class="col-xs-11">
+        <button id="btnBack" type="button" class="btn btn-default">返回</button>
+    </div>
+    <div class="col-xs-1">
+        <button id="btnSave" type="button" class="btn btn-success">保存</button>
+    </div>
+</div>
+<br/>
+
+<form class="snowui-form" data-options="controller:'change',id:{{ id }}">
+    <div class="form-group">
+        <label class="col-lg-1">变更类型</label>
+        <div class="col-lg-3">
+            <select class="form-control" name="type">
+                <option value="">请选择...</option>
+                <option value="硬件更换">硬件更换</option>                 
+                <option value="重装系统">重装系统</option>
+                <option value="系统修复">系统修复</option>
+                <option value="位置变更">位置变更</option>
+            </select>
+        </div>
+        <label class="col-lg-1">创建时间</label>
+        <div class="col-lg-3">
+            <input type="date" class="form-control" name="create_time"/>
+        </div>
+        <label class="col-lg-1">状态</label>
+        <div class="col-lg-3">
+            <select class="form-control" name="state">
+                <option value="0" selected="selected">待处理</option>
+                <option value="1">已处理</option>
+                <option value="-1">不处理</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-1">变更说明</label>
+        <div class="col-lg-11">
+            <textarea class="form-control" name="remark" rows="3"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-1">编号</label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" name="serial_number"/>
+        </div>
+        <label class="col-lg-1">姓名</label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" name="name"/>
+        </div> 
+        <label class="col-lg-1">位置</label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" name="position"/>
+        </div> 
+    </div>
+    <div class="form-group" style="display:none;" id="ChangeInfo">
+        <label class="col-lg-1">来源编号</label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" name="serial_number2"/>
+        </div>
+        <label class="col-lg-1">来源姓名</label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" name="name2" value="无"/>
+        </div> 
+        <label class="col-lg-1">来源位置</label>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" name="position2"/>
+        </div> 
+    </div>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(function () {
+        $(':input[name="type"]').on('change', function () {
+            var t = $(this);
+            var v = t.val();
+            if (v && v == '硬件更换'){
+                $('#ChangeInfo').show();
+            }
+            else {
+                $('#ChangeInfo').hide();
+            }
+        });
+    });
+</script>
+{% endblock %}

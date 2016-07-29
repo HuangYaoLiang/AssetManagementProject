@@ -3,12 +3,12 @@
 黄耀樑 2016-07-20
 """
 
+#import app.models
+
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
 from django.forms import ModelForm
-
-import app.models
 
 class BootstrapAuthenticationForm(AuthenticationForm):
     """Authentication form which uses boostrap CSS."""

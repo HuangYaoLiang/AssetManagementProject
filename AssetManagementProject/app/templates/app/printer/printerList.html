@@ -7,9 +7,12 @@
 <div class="row">
     <div class="col-xs-4">
         <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">添加打印机
-        </button>&nbsp;&nbsp;&nbsp;
-        <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">编辑打印机
-        </button>&nbsp;&nbsp;&nbsp;
+        </button>
+        &nbsp;&nbsp;&nbsp;
+        <button id="btnModify" type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+            编辑打印机
+        </button>
+        &nbsp;&nbsp;&nbsp;
         <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal">删除打印机
         </button>
     </div>
@@ -34,32 +37,32 @@
 
 <table class="table table-striped table-bordered">
     <thead>
-        <tr>
-            <th width="35">#</th>
-            <th width="50">编号</th>
-            <th width="100">使用者</th>
-            <th width="100">所在位置</th>
-            <th>打印机型号</th>
-            <th>打印机详细描述</th>
-            <th>价值</th>
-            <th>入库时间</th>
-            <th>备注</th>
-        </tr>
+    <tr>
+        <th width="35">#</th>
+        <th width="50">编号</th>
+        <th width="100">使用者</th>
+        <th width="100">所在位置</th>
+        <th>打印机型号</th>
+        <th>打印机详细描述</th>
+        <th>价值</th>
+        <th>入库时间</th>
+        <th>备注</th>
+    </tr>
     </thead>
     <tbody>
-        {% for row in data %}
-        <tr>
-            <td><input type="checkbox" value="{{ row.id }}"/></td>
-            <td>{{ row.serial_number }}</td>
-            <td>{{ row.person_name }}</td>
-            <td>{{ row.position }}</td>
-            <td>{{ row.prt_model }}</td>
-            <td>{{ row.prt_description }}</td>
-            <td>{{ row.price }}</td>
-            <td>{{ row.use_time }}</td>
-            <td>{{ row.remark }}</td>
-        </tr>
-        {% endfor %}
+    {% for row in data %}
+    <tr>
+        <td><input type="checkbox" value="{{ row.id }}"/></td>
+        <td>{{ row.serial_number }}</td>
+        <td>{{ row.person_name }}</td>
+        <td>{{ row.position }}</td>
+        <td>{{ row.prt_model }}</td>
+        <td>{{ row.prt_description }}</td>
+        <td>{{ row.price }}</td>
+        <td>{{ row.use_time }}</td>
+        <td>{{ row.remark }}</td>
+    </tr>
+    {% endfor %}
     </tbody>
 </table>
 
@@ -94,21 +97,22 @@
 </div>
 
 <div class="modal fade" id="delModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">提示框</h4>
-      </div>
-      <div class="modal-body">
-        确认删除吗？
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary" id="btnDelOK">确认</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示框</h4>
+            </div>
+            <div class="modal-body">
+                确认删除吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="btnDelOK">确认</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 {% endblock %}
