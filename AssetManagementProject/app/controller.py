@@ -76,12 +76,27 @@ class controller():
                     utils.createObject(hardwareInfo, request)
                     assetInfo.save()
                     hardwareInfo.save()
-                #elif key == 'person':
-                #    personInfo = app.models.PersonInfo()
-                #    if id > 0:
-                #        personInfo = app.models.PersonInfo.objects.get(id=id)
-                #    utils.createObject(personInfo, request)
-                #    personInfo.save()
+                elif key == 'change':
+                    state = request.POST['state']
+                    changeInfo = models.ChangeInfo()
+                    if id > 0:
+                        changeInfo = models.ChangeInfo.objects.get(id=id)
+                    utils.createObject(changeInfo, request)
+                    # 添加的时候要特别处理
+                    if changeInfo.name == '硬件更换' and id == 0:                                            
+                        changeInfo1 = models.ChangeInfo()
+                        utils.createObject(changeInfo1, request)
+                        changeInfo1.serial_number = request.POST['serial_number2']
+                        changeInfo1.name = request.POST['name2']
+                        changeInfo1.position = request.POST['position2']
+                        changeInfo1.remark = '因为 %s 位置(%s)使用者(%s)编号(%s)，调整到，位置(%s)使用者(%s)编号(%s)' %s (request.POST['remark'], changeInfo1.position, changeInfo1.name,changeInfo1.serial_number, changeInfo.position, changeInfo.name, changeInfo.serial_number)
+                        if len(changeInfo1.serial_number) >= 6 and state == '0':
+                            changeInfo1.state = state
+                        changeInfo1.save()
+                        changeInfo.remark = '因为 %s 位置(%s)使用者(%s)编号(%s)，调整到，位置(%s)使用者(%s)编号(%s)' %s (request.POST['remark'], changeInfo.position, changeInfo.name,changeInfo.serial_number, changeInfo1.position, changeInfo1.name, changeInfo1.serial_number)
+                    if len(changeInfo.serial_number) >= 6 and state == '0':
+                        changeInfo.state = state
+                    changeInfo.save()
                 else:
                     obj = {}
                     model = utils.importModel(key);
