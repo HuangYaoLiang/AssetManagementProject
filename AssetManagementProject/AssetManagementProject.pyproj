@@ -56,6 +56,7 @@
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
+    <Folder Include="app\static\app\images\" />
     <Folder Include="app\static\app\scripts\bootstrap-3.3.5-dist\" />
     <Folder Include="app\static\app\scripts\bootstrap-3.3.5-dist\css\" />
     <Folder Include="app\static\app\scripts\bootstrap-3.3.5-dist\fonts\" />
@@ -80,6 +81,8 @@
     <Folder Include="app\static\app\scripts\jquery-easyui-1.4.5\themes\metro\images\" />
     <Folder Include="app\static\app\scripts\jquery-snowui\" />
     <Folder Include="app\static\app\scripts\bootstrap-datetimepicker\" />
+    <Folder Include="app\static\app\scripts\jquery-snowui\css\" />
+    <Folder Include="app\static\app\scripts\jquery-snowui\images\" />
     <Folder Include="app\templates\app\hardware\" />
     <Folder Include="app\templates\app\change\" />
     <Folder Include="app\templates\app\printer\" />
@@ -104,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AssetManagement.pubxml" />
+    <Content Include="app\static\app\scripts\jquery-snowui\images\datagrid_icons.png" />
     <Content Include="app\static\app\scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
     <Content Include="app\static\app\scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
     <Content Include="app\static\app\scripts\bootstrap-3.3.5-dist\css\bootstrap-theme.css" />
@@ -545,6 +549,8 @@
     <Content Include="app\static\app\scripts\jquery-easyui-1.4.5\themes\metro\validatebox.css" />
     <Content Include="app\static\app\scripts\jquery-easyui-1.4.5\themes\metro\window.css" />
     <Content Include="app\static\app\scripts\jquery-easyui-1.4.5\themes\mobile.css" />
+    <Content Include="app\static\app\scripts\jquery-snowui\css\snowui.css" />
+    <Content Include="app\static\app\scripts\jquery-snowui\images\loading.gif" />
     <Content Include="app\static\app\scripts\jquery-snowui\jquery-snowui.js" />
     <Content Include="app\static\app\scripts\bootstrap-datetimepicker\locales\bootstrap-datetimepicker.ar.js" />
     <Content Include="app\static\app\scripts\bootstrap-datetimepicker\locales\bootstrap-datetimepicker.az.js" />
@@ -634,7 +640,9 @@
     <Content Include="app\static\app\temporary\js\jquery-1.11.3.min.js" />
     <Content Include="app\static\app\temporary\js\jquery.lazyload.min.js" />
     <Content Include="app\static\app\temporary\js\lightbox.min.js" />
+    <Content Include="app\templates\app\hardware\hardware2Detail.html" />
     <Content Include="app\templates\app\hardware\hardwareDetail.html" />
+    <Content Include="app\templates\app\hardware\hardware2List.html" />
     <Content Include="app\templates\app\hardware\hardwareList.html" />
     <Content Include="app\templates\app\change\changeDetail.html" />
     <Content Include="app\templates\app\person\personList.html" />

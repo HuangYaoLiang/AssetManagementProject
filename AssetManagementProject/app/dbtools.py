@@ -72,26 +72,32 @@ class dbhelp():
 
 # 数据库父类
 # 黄耀樑 2016-07-26
-class dbbase(models.Model):
+class dbbase():
     
     # 获取实体
     # 黄耀樑 2016-07-26
-    def getOne(self, id=0):
+    def getOne(self, id):
         # 因为要使用参数化操作数据库，只能拼接sql语句
         sql = '''
-        SELECT t1.*
-        FROM ''' + self._meta.db_table + ''' AS t1
-        WHERE t1.id=%s
+        SELECT *
+        FROM ''' + self._meta.db_table + '''
+        WHERE id=%s
         '''
         return dbhelp.querySingle(sql, [id])
 
     # 获取列表
     # 黄耀樑 2016-07-26
-    def getList(self, where='1=1', sort='id', order='', params=[]):
+    def getList(self, where=None, sort=None, order=None, params=[]):
+        if not where:
+            where = '1=1'
+        if not sort:
+            sort = 'id'
+        if not order:
+            order = ''
         # 因为要使用参数化操作数据库，只能拼接sql语句
         sql = '''
-        SELECT t1.*
-        FROM ''' + self._meta.db_table + ''' AS t1
+        SELECT *
+        FROM ''' + self._meta.db_table + '''
         WHERE ''' + where + '''
         ORDER BY ''' + sort + ''' ''' + order + ''' 
         '''

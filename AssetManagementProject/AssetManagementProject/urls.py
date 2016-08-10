@@ -31,6 +31,8 @@ urlpatterns = [
 
     url(r'^hardwareList$', app.views.hardwareList, name='hardwareList'),
     url(r'^hardwareDetail/(\d*)$', app.views.hardwareDetail, name='hardwareDetail'),
+    url(r'^hardware2List$', app.views.hardware2List, name='hardware2List'),
+    url(r'^hardware2Detail/(\d*)$', app.views.hardware2Detail, name='hardware2Detail'),
     url(r'^printerList$', app.views.printerList, name='printerList'),
     url(r'^printerDetail/(\d*)$', app.views.printerDetail, name='printerDetail'),
     url(r'^personList$', app.views.personList, name='personList'),

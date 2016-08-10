@@ -1,17 +1,18 @@
 ﻿{% extends "app/layout.html" %}
 
 {% block content %}
-
+<!--
 <br/>
 <div class="row">
     <div class="col-xs-11">
-        <button id="btnBack" type="button" class="btn btn-default">返回</button>
+        <button class="snowui-linkbutton btn btn-default" id="btnBack">返回</button>
     </div>
     <div class="col-xs-1">
-        <button id="btnSave" type="button" class="btn btn-success">保存</button>
+        <button class="snowui-linkbutton btn btn-success" id="btnSave">保存</button>
     </div>
 </div>
 <br/>
+-->
 <!-- url:'/get/person/{{ id }}',saveUrl:'/edit/person' -->
 <form class="snowui-form" data-options="controller:'person',id:{{ id }}">
     <div class="form-group">

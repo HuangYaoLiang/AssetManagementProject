@@ -2,24 +2,26 @@
 
 {% block content %}
 
+<!--
 <br/>
 <div class="row">
     <div class="col-xs-4">
-        <button id="btnAdd" type="button" class="btn btn-primary">添加职员</button>
+        <button class="snowui-datagrid-btnAdd btn btn-primary">添加职员</button>
         &nbsp;&nbsp;&nbsp;
-        <button id="btnModify" type="button" class="btn btn-warning">编辑职员</button>
+        <button class="snowui-datagrid-btnModify btn btn-warning">编辑职员</button>
         &nbsp;&nbsp;&nbsp;
-        <button id="btnDelete" type="button" class="btn btn-danger">删除职员</button>
+        <button class="snowui-datagrid-btnDelete btn btn-danger">删除职员</button>
     </div>
 </div>
 <br/>
+-->
 
-<table class="snowui-datagrid" data-options="controller:'person'">
+<table class="snowui-datagrid" data-options="controller:'person',sortName:'position'">
     <thead>
     <tr>
         <th data-options="checkbox:true" width="35">#</th>
-        <th data-options="field:'name',sortable:true" width="50">姓名</th>
-        <th data-options="field:'position',sortable:true" width="100">所在位置</th>
+        <th data-options="field:'name'" width="50">姓名</th>
+        <th data-options="field:'position'" width="100">所在位置</th>
         <th data-options="field:'contact'" width="100">联系方式</th>
         <th data-options="field:'remark'">备注</th>
     </tr>

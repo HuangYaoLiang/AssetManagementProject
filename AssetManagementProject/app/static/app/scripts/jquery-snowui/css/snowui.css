@@ -1,0 +1,15 @@
+﻿
+/* 表格排序 */
+.datagrid-sort-icon {
+    background: rgba(0, 0, 0, 0) url("../images/datagrid_icons.png") no-repeat scroll -64px center;
+    display: inline;
+    padding: 0 13px 0 0;
+}
+
+/*.snowui-load span {
+    background: url("../images/loading.gif");
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+    top: 50%;
+}*/

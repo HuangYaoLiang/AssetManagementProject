@@ -1,4 +1,5 @@
 ﻿{% extends "app/layout.html" %}
+{% load myfilter %} #加载自定义标签
 
 {% block content %}
 
@@ -15,11 +16,12 @@
         <li>306 借给泰坦 <span style="color:tomato">联想电脑：[10]</span></li>
         <li>307 借给分市场 <span style="color:tomato">显示器：[1]</span></li>
         <li>303 <span style="color:darkgreen">联想显示器：好[4]、戴尔显示器：好[1]</span></li>
-        <li>303 <span style="color:dodgerblue">联想主机：好[3]、戴尔主机：好[2]</span></li>
+        <li>303 <span style="color:dodgerblue">联想主机：好[1]、戴尔主机：好[2]、原李健主机：好[1]</span></li>
         <li>303 <span style="color:fuchsia">联想服务器主机：好[1]</span></li>
         <li>303 <span style="color:tomato">内存条：256MB DDR1-400[1]、1GB DDR3-240[1]</span></li>
-        <li>合计[25]：显示器-好[19]、坏[10]</li>
-        <li>合计[34]：主机----好[19]、坏[21]、待检测[4] （好的包括杨艺的机子,借给泰坦的）</li>
+        <li>合计[25]：显示器-好[18]、坏[11]</li>
+        <li>合计[34]：主机----好[18]、坏[21]、待检测[4] （好的包括杨艺的机子,借给泰坦的）</li>
+        <li>Test:{{ dateTest|isNew }}</li>
     </ul>
 </div>
 

@@ -2,40 +2,31 @@
 
 {% block content %}
 
+<!--
 <br/>
 <div class="row">
     <div class="col-xs-4">
-        <button id="btnAdd" type="button" class="btn btn-primary">添加硬件</button>
+        <button class="snowui-datagrid-btnAdd btn btn-primary">添加硬件</button>
         &nbsp;&nbsp;&nbsp;
-        <button id="btnModify" type="button" class="btn btn-warning"> 编辑硬件</button>
+        <button class="snowui-datagrid-btnModify btn btn-warning"> 编辑硬件</button>
         &nbsp;&nbsp;&nbsp;
-        <button id="btnDelete" type="button" class="btn btn-danger">删除硬件</button>
-    </div>
-    <div class="col-xs-4">
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="-10">全部
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="-20">使用中
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="-30">无人机
-        </label>
-    </div>
-    <div class="col-xs-4">
-        <span style="float: right; font-size: 20px; font-weight: bold; margin-right: 50px;">最后编号：{{ maxNo }}</span>
+        <button class="snowui-datagrid-btnDelete btn btn-danger">删除硬件</button>
     </div>
 </div>
 <br/>
-<!-- url:'/query/hardware',editUrl:'/hardwareDetail/' -->
-<table class="snowui-datagrid" data-options="controller:'hardware'">
+-->
+
+<table class="snowui-datagrid" data-options="controller:'hardware',sortName:'pc_score'">
     <thead>
     <tr>
         <th data-options="checkbox:true" width="35">#</th>
-        <th data-options="field:'serial_number',sortable:true" width="150">编号</th>
+        <th data-options="field:'serial_number'" width="150" title="最后编号：{{ maxNo }}">资产编号</th>
+        <th data-options="field:'name'" width="250">资产名称</th>
         <th data-options="field:'person_name'" width="100">使用者</th>
-        <th data-options="field:'position',sortable:true" width="100">所在位置</th>
-        <th data-options="field:'get_time'">取得时间</th>
+        <th data-options="field:'position'" width="100">所在位置</th>
+        <th data-options="field:'pc_score',searchable:false">鲁大师评分</th>
+        <th data-options="field:'state'">状态</th>
+        <th data-options="field:'remark'">备注</th>
 
         <!--<th width="100">操作系统</th>-->
         <!---->
