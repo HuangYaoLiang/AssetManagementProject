@@ -78,11 +78,11 @@ $(function () {
                 $t.before('<br/>' +
     '<div class="row">' +
     '   <div class="col-xs-4">' +
-    '       <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-primary">添加</button>' +
+    '       <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;添加</button>' +
     '       &nbsp;&nbsp;&nbsp;' +
-    '       <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-warning">编辑</button>' +
+    '       <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-warning"><span class="glyphicon glyphicon glyphicon-edit"></span>&nbsp;编辑</button>' +
     '       &nbsp;&nbsp;&nbsp;' +
-    '       <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-danger">删除</button>' +
+    '       <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp;删除</button>' +
     '   </div>' +
     '   <div class="col-xs-4 col-xs-offset-4" style="text-align:right;">' +
     '       <div class="input-group">' +
@@ -96,7 +96,7 @@ $(function () {
     '           </div>' +
     '           <input type="text" class="form-control" placeholder="搜索..." id="snowui-datagrid-txt-' + i + '">' +
     '           <span class="input-group-btn">' +
-    '               <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-default">Go!</button>' +
+    '               <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-default"><span class="glyphicon glyphicon-search"></span>&nbsp;Go!</button>' +
     '           </span>' +
     '       </div>' +
     '   </div>' +
@@ -152,6 +152,8 @@ $(function () {
                                             snowui.datagrid.clearCheckbox($t);
                                         }
                                     });
+                                }, function () {
+                                    snowui.datagrid.clearCheckbox($t);
                                 });
                             }
                         });
@@ -164,12 +166,10 @@ $(function () {
                             var s_data = s_option.data;
                             s_data.searchVal = s_value;
 
-                            if (s_data.searchName && s_data.searchVal) {
-                                snowui.datagrid.load($t, {
-                                    url: option.url,
-                                    data: s_data
-                                });
-                            }
+                            snowui.datagrid.load($t, {
+                                url: option.url,
+                                data: s_data
+                            });
                         });
                     }
                 });
@@ -236,10 +236,10 @@ $(function () {
                     '<br/>' +
 '<div class="row">' +
 '     <div class="col-xs-11">' +
-'        <button class="snowui-linkbutton snowui-form-btn btn btn-info">返回</button>' +
+'        <button class="snowui-linkbutton snowui-form-btn btn btn-info"><span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;返回</button>' +
 '    </div>' +
 '    <div class="col-xs-1">' +
-'        <button class="snowui-linkbutton snowui-form-btn btn btn-success">保存</button>' +
+'        <button class="snowui-linkbutton snowui-form-btn btn btn-success"><span class="glyphicon glyphicon-saved"></span>&nbsp;保存</button>' +
 '    </div>' +
 '</div>' +
 '<br/>');
@@ -269,7 +269,7 @@ $(function () {
     // linkbutton----------------------------------------------------start
     // 黄耀樑 2016-08-08
     $.each($('.snowui-linkbutton'), function (i, n) {
-        if (this.tagName == 'button') {
+        if (this.tagName.toLowerCase() == 'button') {
             $(this).attr('type', 'button');
         }
     });
@@ -277,7 +277,7 @@ $(function () {
 });
 
 var snowui = {
-    
+
     // 获取随机数
     // 黄耀樑 2016-07-26
     generateMixed: function (n) {
@@ -431,20 +431,25 @@ var snowui = {
         // 加载 datagrid 数据
         // 黄耀樑 2016-07-26
         load: function ($element, op) {
+            var option = snowui.datagrid.container[$element.attr('data-index')].option;
+            if (op.queryParams) {
+                $.extend(option.data, op.queryParams);
+            }
+            $.extend(option, op);
+
             $.ajax({
                 typ: 'GET',
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                url: op.url,
-                data: op.data,
+                url: option.url,
+                data: option.data,
                 success: function (result) {
                     var columns = snowui.datagrid.container[$element.attr('data-index')].option.columns;
                     // 它们的出现次序是：thead、tfoot、tbody，这样浏览器就可以在收到所有数据前呈现页脚了
                     if (columns && result) {
+
                         // 脚部信息
-                        if (result.total) {
-                            $('tfoot tr', $element).empty().append('<td colspan="' + columns.length + '" style="font-size:20px;font-weight:bold;">合计：' + result.total + '</td>');
-                        }
+                        $('tfoot tr', $element).empty().append('<td colspan="' + columns.length + '" style="font-size:20px;font-weight:bold;">合计：' + result.total + '</td>');
 
                         // 行数据
                         if (result.rows) {
@@ -579,7 +584,7 @@ var snowui = {
     // 黄耀樑 2016-07-27
     alert: function (msg, func) {
         var id = snowui.generateMixed();
-        $('body').append('<div class="modal fade" id="' + id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">提示框</h4></div><div class="modal-body">' + msg + '</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose' + id + '">关闭</button></div></div></div></div>');
+        $('body').append('<div class="modal fade" id="' + id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">提示框</h4></div><div class="modal-body">' + msg + '</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose' + id + '"><span class="glyphicon glyphicon-remove"></span>&nbsp;关闭</button></div></div></div></div>');
         $("#" + id).modal('show');
         $("#btnClose" + id).on('click', function () {
             $("#" + id).modal('hide');
@@ -593,7 +598,7 @@ var snowui = {
     // 黄耀樑 2016-07-27
     confirm: function (msg, funcOK, funcCancel) {
         var id = snowui.generateMixed();
-        $('body').append('<div class="modal fade" id="' + id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">提示框</h4></div><div class="modal-body">' + msg + '</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose' + id + '">取消</button><button type="button" class="btn btn-primary" id="btnOK' + id + '">确认</button></div></div></div></div>');
+        $('body').append('<div class="modal fade" id="' + id + '" tabindex="-1" role="dialog"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">提示框</h4></div><div class="modal-body">' + msg + '</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal" id="btnClose' + id + '"><span class="glyphicon glyphicon-remove"></span>&nbsp;取消</button><button type="button" class="btn btn-danger" id="btnOK' + id + '"><span class="glyphicon glyphicon-ok"></span>&nbsp;删除</button></div></div></div></div>');
         $("#" + id).modal('show');
         $("#btnOK" + id).on('click', function () {
             $("#" + id).modal('hide');

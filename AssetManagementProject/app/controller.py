@@ -59,6 +59,29 @@ class controller():
         if sqlWhere:
             sqlWhere = '(' + sqlWhere + ')'
         if key:
+            pc_state = request.GET.get('pc_state')
+            stateWhere = ''
+            if pc_state and key in ['printer', 'hardware', 'hardware2']:
+                if pc_state == '1':
+                    if key == 'printer':
+                        stateWhere = "position<>'106'"
+                    else:
+                        stateWhere = "person_id>0"
+                elif pc_state == '2':
+                    if key == 'printer':
+                        stateWhere = "position='106'"
+                    else:
+                        stateWhere = "(person_id=0 AND state='OK')"
+                elif pc_state == '3':
+                    stateWhere = "state='BAD'"
+                elif pc_state == '4':
+                    stateWhere = "state='SCRAP'"
+                elif pc_state == '5':
+                    stateWhere = "state='UNKNOWN'"
+                if sqlWhere:
+                    sqlWhere += (' AND ' + stateWhere)
+                else:
+                    sqlWhere = stateWhere
             if key == 'printer':
                 printerWhere = "category IN ('多功能一体机','打印设备','复印机')"
                 if sqlWhere:
@@ -67,9 +90,15 @@ class controller():
                     sqlWhere = printerWhere
                 query = AssetInfo().getList(sqlWhere, sortName, sortOrder)
             elif key == 'hardware':
-                query = HardwareInfo().getDesktopList(sqlWhere, sortName, sortOrder)
+                
+                if pc_state == '6':
+                    query = HardwareInfo().getServerList(sqlWhere, sortName, sortOrder)
+                else:
+                    query = HardwareInfo().getDesktopList(sqlWhere, sortName, sortOrder)
             elif key == 'hardware2':
                 query = HardwareInfo().getNotebookList(sqlWhere, sortName, sortOrder)
+            #elif key == 'untread':
+            #    pass
             else:
                 query = utils.importModel(key)().getList(sqlWhere, sortName, sortOrder)
         return JsonResponse(utils.getDatagrid(query))
@@ -91,6 +120,7 @@ class controller():
                     utils.createObject(assetInfo, request)
                     utils.createObject(hardwareInfo, request)
                     assetInfo.save()
+                    hardwareInfo.asset_id = assetInfo.id
                     hardwareInfo.save()
                 elif key == 'printer':
                     assetInfo = AssetInfo()
@@ -99,8 +129,7 @@ class controller():
                     utils.createObject(assetInfo, request)
                     assetInfo.save()
                 elif key == 'change':
-                    state = request.POST['state']
-                    
+                    state = request.POST['state']                    
                     changeInfo = ChangeInfo()
                     if id > 0:
                         changeInfo = ChangeInfo.objects.get(id=id)
@@ -123,6 +152,28 @@ class controller():
                     else:
                         changeInfo.state = -1
                     changeInfo.save()
+                elif key == 'untread':
+                    untreadInfo = UntreadInfo()                    
+                    if id > 0:
+                        untreadInfo = UntreadInfo.objects.get(id=id)
+                        UntreadDetailInfo.objects.filter(untread_id=id).delete()
+                    untreadInfo.untread_time = request.POST['untread_time']
+                    untreadInfo.remark = request.POST['remark']
+                    untreadInfo.save()
+                    count = int(request.POST['UntreadCount'])
+                    i = 0
+                    while i < count:
+                        j = str(i)   
+                        if 'category' + j in request.POST:                 
+                            untreadDetailInfo = UntreadDetailInfo()
+                            untreadDetailInfo.untread_id = untreadInfo.id
+                            untreadDetailInfo.category = request.POST['category' + j]
+                            untreadDetailInfo.serial_number = request.POST['serial_number' + j]
+                            untreadDetailInfo.name = request.POST['name' + j]
+                            untreadDetailInfo.reason = '无法使用'
+                            untreadDetailInfo.remark = '106室'
+                            untreadDetailInfo.save()
+                        i += 1
                 else:
                     obj = {}
                     model = utils.importModel(key)
@@ -151,6 +202,9 @@ class controller():
                 elif key == 'hardware' or key == 'hardware2':
                     AssetInfo.objects.extra(where=['id IN (%s)' % ids]).delete()
                     HardwareInfo.objects.extra(where=['asset_id IN (%s)' % ids]).delete()
+                elif key == 'untread':
+                    UntreadInfo.objects.extra(where=['id IN (%s)' % ids]).delete()
+                    UntreadDetailInfo.objects.extra(where=['untread_id IN (%s)' % ids]).delete()
                 else:
                     model = utils.importModel(key)
                     model.objects.extra(where=['id IN (%s)' % ids]).delete()

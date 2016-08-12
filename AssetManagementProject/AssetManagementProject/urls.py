@@ -39,6 +39,9 @@ urlpatterns = [
     url(r'^personDetail/(\d*)$', app.views.personDetail, name='personDetail'),
     url(r'^changeList$', app.views.changeList, name='changeList'),
     url(r'^changeDetail/(\d*)$', app.views.changeDetail, name='changeDetail'),
+    url(r'^untreadList$', app.views.untreadList, name='untreadList'),
+    url(r'^untreadDetail/(\d*)$', app.views.untreadDetail, name='untreadDetail'),
+
     url(r'^task$', app.views.task, name='task'),
 
     url(r'^login$',

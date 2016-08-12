@@ -51,20 +51,19 @@ def imagelist(request):
 # 首页
 def home(request):
     # assert isinstance(request, HttpRequest)
-    return render(request,
-        'app/index.html',
-        {
+    return render(request, 'app/index.html', {
             'title': '首页',
             'dateTest': '2016.08.01',
-        })
+    })
 
 # 台式机信息列表
 # 黄耀樑 2016-07-26
 def hardwareList(request):
     return render(request,'app/hardware/hardwareList.html',{
             'title': '硬件信息',
-            'maxNo':app.models.HardwareInfo().getMaxNumber("t1.category='台式机'"),
-            })
+            'menu': 'hardware',
+            'maxNo':app.models.HardwareInfo().getMaxNumber("category='台式机'"),
+    })
 
 # 台式机信息详细
 # 黄耀樑 2016-07-26
@@ -72,6 +71,7 @@ def hardwareDetail(request, id=0):
     dsPerson = app.models.PersonInfo().getDropDownList()
     return render(request,'app/hardware/hardwareDetail.html',{
         'title': '硬件信息',
+        'menu': 'hardware',
         'id': id if id else 0,
         'dsPerson': dsPerson,
     })
@@ -81,7 +81,8 @@ def hardwareDetail(request, id=0):
 def hardware2List(request):
     return render(request,'app/hardware/hardware2List.html',{
             'title': '硬件信息',
-            })
+            'menu': 'hardware2',
+    })
 
 # 笔记本信息详细
 # 黄耀樑 2016-07-26
@@ -89,6 +90,7 @@ def hardware2Detail(request, id=0):
     dsPerson = app.models.PersonInfo().getDropDownList()
     return render(request,'app/hardware/hardware2Detail.html',{
         'title': '硬件信息',
+        'menu': 'hardware2',
         'id': id if id else 0,
         'dsPerson': dsPerson,
     })
@@ -98,8 +100,9 @@ def hardware2Detail(request, id=0):
 def printerList(request):
     return render(request,'app/printer/printerList.html',{
             'title': '打印机信息',
-            'maxNo': app.models.AssetInfo().getMaxNumber("t1.category IN ('多功能一体机','打印设备','复印机')"),
-            })
+            'menu': 'printer',
+            'maxNo': app.models.AssetInfo().getMaxNumber("category IN ('多功能一体机','打印设备','复印机')"),
+    })
 
 # 打印机信息详细
 # 黄耀樑 2016-07-26
@@ -107,6 +110,7 @@ def printerDetail(request, id=0):
     dsPerson = app.models.PersonInfo().getDropDownList()
     return render(request,'app/printer/printerDetail.html',{
         'title': '打印机信息',
+        'menu': 'printer',
         'id': id if id else 0,
         'dsPerson': dsPerson,
     })
@@ -116,13 +120,15 @@ def printerDetail(request, id=0):
 def personList(request):
     return render(request,'app/person/personList.html',{
             'title': '职员信息',
-            })
+            'menu': 'person',
+    })
 
 # 职员信息详细
 # 黄耀樑 2016-07-26
 def personDetail(request, id=0):
     return render(request,'app/person/personDetail.html',{
         'title': '职员信息',
+        'menu': 'person',
         'id': id if id else 0,
     })
 
@@ -131,14 +137,35 @@ def personDetail(request, id=0):
 def changeList(request):
     return render(request,'app/change/changeList.html',{
             'title': '变更记录',
-            })
+            'menu': 'change',
+    })
 
 # 变更记录详细
 # 黄耀樑 2016-07-26
 def changeDetail(request, id=0):
     return render(request,'app/change/changeDetail.html',{
         'title': '变更记录',
+        'menu': 'change',
         'id': id if id else 0,
+    })
+
+# 退回记录列表
+# 黄耀樑 2016-08-10
+def untreadList(request):
+    return render(request,'app/untread/untreadList.html',{
+            'title': '退回记录',
+            'menu': 'untread',
+    })
+
+# 退回记录详细
+# 黄耀樑 2016-08-10
+def untreadDetail(request, id=0):
+    id = id if id else 0
+    return render(request,'app/untread/untreadDetail.html',{
+        'title': '退回记录',
+        'menu': 'untread',
+        'id': id,
+        'data': app.models.UntreadDetailInfo.objects.filter(untread_id=id)
     })
 
 # 任务列表

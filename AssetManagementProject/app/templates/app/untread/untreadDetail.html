@@ -1,0 +1,109 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+ 
+<form class="snowui-form" data-options="controller:'untread',id:{{ id }}">
+    <div class="form-group">
+        <label class="col-lg-1">退回时间</label>
+        <div class="col-lg-11">
+            <input type="date" class="form-control" name="untread_time"/>
+        </div>
+    </div>   
+    <div class="form-group">
+        <label class="col-lg-1">退回说明</label>
+        <div class="col-lg-11">
+            <textarea class="form-control" name="remark" rows="5"></textarea>
+        </div>
+    </div> 
+    <hr />
+    {% for item in data %}
+     <div id="Template_Untread_{{ forloop.counter0 }}">
+         <div class="form-group">
+            <label class="col-lg-1">资产类型</label>
+            <div class="col-lg-2">
+                <input type="text" class="form-control" name="category{{ forloop.counter0 }}" value="{{ item.category }}"/>
+            </div>
+            <label class="col-lg-1">资产编号</label>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" name="serial_number{{ forloop.counter0 }}" value="{{ item.serial_number }}" />
+            </div>
+            <label class="col-lg-1">资产名称</label>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" name="name{{ forloop.counter0 }}" value="{{ item.name }}" />
+            </div>
+            <div class="col-lg-1">
+                <button class="snowui-linkbutton btn btn-danger btnDelUntread">移除{{ forloop.counter }}</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div id="Template_Untread">
+         <div class="form-group">
+            <label class="col-lg-1">资产类型</label>
+            <div class="col-lg-2">
+                <input type="text" class="form-control" id="category" />
+            </div>
+            <label class="col-lg-1">资产编号</label>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" id="serial_number" value="无" />
+            </div>
+            <label class="col-lg-1">资产名称</label>
+            <div class="col-lg-3">
+                <input type="text" class="form-control" id="name" />
+            </div>
+            <div class="col-lg-1">
+                <button class="snowui-linkbutton btn btn-link" id="btnAddUntread">添加</button>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="UntreadCount" name="UntreadCount" value="{{ data|length }}"/>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var __TemplateCount = parseInt($('#UntreadCount').val());
+    $(function () {
+        $('#btnAddUntread').on('click', function () {
+            var category = $('#category').val();
+            var serial_number = $('#serial_number').val();
+            var name = $('#name').val();
+
+            if (category && serial_number && name) {
+                $('#Template_Untread').before(
+                    '<div id="Template_Untread_' + __TemplateCount + '">' +
+                             '<div class="form-group">' +
+            '<label class="col-lg-1">资产类型</label>' +
+            '<div class="col-lg-2">' +
+            '    <input type="text" class="form-control" name="category' + __TemplateCount + '" value="' + category + '"/>' +
+            '</div>' +
+            '<label class="col-lg-1">资产编号</label>' +
+            '<div class="col-lg-3">' +
+            '    <input type="text" class="form-control" name="serial_number' + __TemplateCount + '" value="' + serial_number + '"/>' +
+            '</div>' +
+            '<label class="col-lg-1">资产名称</label>' +
+            '<div class="col-lg-3">' +
+            '    <input type="text" class="form-control" name="name' + __TemplateCount + '" value="' + name + '"/>' +
+            '</div>' +
+        '    <div class="col-lg-1">' +
+        '        <button type="button" class="btn btn-danger btnDelUntread" data-index="' + __TemplateCount + '">移除' + (__TemplateCount+1) + '</button>' +
+        '    </div>' +
+        '</div>' +
+        '</div>');
+
+                __TemplateCount++;
+                $('#category').val('');
+                $('#serial_number').val('无');
+                $('#name').val('');
+                $('#UntreadCount').val(__TemplateCount);
+            }
+        });
+
+        $('.snowui-form').on('click', '.btnDelUntread', function () {
+            alert($(this).attr('data-index'));
+            $('#Template_Untread_' + $(this).attr('data-index')).remove()
+        });
+    });
+</script>
+{% endblock %}

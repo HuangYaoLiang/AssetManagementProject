@@ -26,17 +26,17 @@ class utils():
         for x in request.POST:
             if x in model._meta.get_all_field_names() and x != 'id':
                 if not exclude or (len(exclude) > 0 and not x in exclude):
-                    #val = getattr(model, x)
-                    #p = re.compile(r'_time$') # 时间属性 一定要_time 这个结尾 要不然无法动态判断
-                    #new_val = request.POST[x]
-                    #if p.search(x):
-                    #    if new_val:
-                    #        setattr(model, x, new_val)
-                    #else:
-                    #    setattr(model, x, new_val)
+                    p = re.compile(r'_time$') # 时间属性 一定要_time 这个结尾 要不然无法动态判断
                     new_val = request.POST[x]
-                    if new_val:
+                    if p.search(x):
+                        if new_val:
+                            setattr(model, x, new_val)
+                    else:
                         setattr(model, x, new_val)
+
+                    #new_val = request.POST[x]
+                    #if new_val:
+                    #    setattr(model, x, new_val)
 
     # 设置值，用于格式化，私有函数
     # 黄耀樑 2016-07-27

@@ -85,6 +85,7 @@
     <Folder Include="app\static\app\scripts\jquery-snowui\images\" />
     <Folder Include="app\templates\app\hardware\" />
     <Folder Include="app\templates\app\change\" />
+    <Folder Include="app\templates\app\untread\" />
     <Folder Include="app\templates\app\printer\" />
     <Folder Include="app\templates\app\person\" />
     <Folder Include="app\templatetags\" />
@@ -650,6 +651,8 @@
     <Content Include="app\templates\app\task.html" />
     <Content Include="app\templates\app\temporary\imagelist.html" />
     <Content Include="app\templates\app\change\changeList.html" />
+    <Content Include="app\templates\app\untread\untreadDetail.html" />
+    <Content Include="app\templates\app\untread\untreadList.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\site.css" />

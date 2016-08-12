@@ -2,22 +2,30 @@
 {% load myfilter %} #加载自定认标签
 
 {% block content %}
-<!--
-<br/>
-<div class="row" id="tb">
-    <div class="col-xs-4">
-        <button class="snowui-linkbutton btn btn-primary" id="btnAdd">添加硬件</button>
-        &nbsp;&nbsp;&nbsp;
-        <button class="snowui-linkbutton btn btn-warning" id="btnModify">编辑硬件</button>
-        &nbsp;&nbsp;&nbsp;
-        <button class="snowui-linkbutton btn btn-danger" id="btnDelete">删除硬件</button>
-    </div>
-    <div class="col-xs-4">
-        <input class="snowui-searchbox" />
+ 
+ <div class="row">
+    <div class="col-xs-12 pull-right">
+        <label class="radio-inline">
+            <input type="radio" name="pc_state" value="0"> 所有
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="pc_state" value="1"> 正在使用
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="pc_state" value="2"> 可用空闲
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="pc_state" value="3"> 损坏
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="pc_state" value="4"> 退回
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="pc_state" value="5"> 待检测
+        </label>
     </div>
 </div>
-<br/>
--->
+
 <table class="snowui-datagrid" data-options="controller:'printer',sortName:'position'">
     <thead>
     <tr>
@@ -29,8 +37,21 @@
     </tr>
     </thead>
 </table>
+
 {% endblock %}
 
 {% block scripts %}
+
+<script>
+    $(function () {
+        $('[name="pc_state"]').on('change', function () {
+            snowui.datagrid.load($('.snowui-datagrid'), {
+                queryParams: {
+                    'pc_state': $(this).val()
+                }
+            });
+        });
+    });
+</script>
 
 {% endblock %}
