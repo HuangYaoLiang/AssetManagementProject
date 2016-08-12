@@ -103,15 +103,15 @@ class dbbase():
         '''
         return dbhelp.queryList(sql, params)
 
-    def getDropDownList(self):
+    def getDropDownList(self,text='name', value='id', sort='name'):
         #query = self._meta.model.objects.values_list('id','name').order_by('name')
         #list = tuple([(0,'无')] + list(query))
         #return list
         sql = '''
-        SELECT id,name
+        SELECT %s,%s
         FROM ''' + self._meta.db_table + '''
-        ORDER BY name
-        '''
+        ORDER BY %s
+        ''' % (value, text, sort)
         query = dbhelp.queryDropDownList(sql)
         list = tuple([(0,'无')] + query)
         return list
