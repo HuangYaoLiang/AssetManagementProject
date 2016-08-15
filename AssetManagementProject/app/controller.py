@@ -78,10 +78,11 @@ class controller():
                     stateWhere = "state='SCRAP'"
                 elif pc_state == '5':
                     stateWhere = "state='UNKNOWN'"
-                if sqlWhere:
-                    sqlWhere += (' AND ' + stateWhere)
-                else:
-                    sqlWhere = stateWhere
+                if stateWhere:
+                    if sqlWhere:
+                        sqlWhere += (' AND ' + stateWhere)
+                    else:
+                        sqlWhere = stateWhere
             if key == 'printer':
                 printerWhere = "category IN ('多功能一体机','打印设备','复印机')"
                 if sqlWhere:
