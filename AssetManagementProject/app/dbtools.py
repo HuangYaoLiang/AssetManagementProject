@@ -109,9 +109,9 @@ class dbbase():
         #return list
         sql = '''
         SELECT %s,%s
-        FROM ''' + self._meta.db_table + '''
+        FROM %s
         ORDER BY %s
-        ''' % (value, text, sort)
+        ''' % (value, text, self._meta.db_table, sort)
         query = dbhelp.queryDropDownList(sql)
         list = tuple([(0,'无')] + query)
         return list
