@@ -184,10 +184,10 @@ class controller():
                         obj = model()
                     utils.createObject(obj, request)
                     obj.save()
-            except:
+            except Exception as ex:
                 info = sys.exc_info()  
                 success = False
-                msg = '操作失败！'
+                msg = ex
         return JsonResponse({'success': success, 'msg': msg})
 
     # 删除
@@ -209,8 +209,9 @@ class controller():
                 else:
                     model = utils.importModel(key)
                     model.objects.extra(where=['id IN (%s)' % ids]).delete()
-        except:
+        except Exception as ex:
+            info = sys.exc_info()  
             success = False
-            msg = '操作失败！'
+            msg = ex
         return JsonResponse({'success': success, 'msg': msg})
 
