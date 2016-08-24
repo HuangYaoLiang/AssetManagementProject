@@ -1,0 +1,71 @@
+2016-08-18 09:42:56 Not Found: /favicon.ico
+2016-08-18 09:42:56 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-18 09:42:56 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'

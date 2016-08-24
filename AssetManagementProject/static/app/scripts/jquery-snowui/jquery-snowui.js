@@ -73,7 +73,7 @@ $(function () {
                         fieldDropdown += ('<li><a href="#" data-search="' + f_o.field + '">' + f_o.title + '</a></li>');
                     }
                 });
-                f_option.data.searchName = fieldAllDropdown.join();
+                var allField = fieldAllDropdown.join();
 
                 $t.before('<br/>' +
     '<div class="row">' +
@@ -87,14 +87,14 @@ $(function () {
     '   <div class="col-xs-4 col-xs-offset-4" style="text-align:right;">' +
     '       <div class="input-group">' +
     '           <div class="input-group-btn">' +
-    '               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-index="' + i + '">全部 <span class="caret"></span></button>' +
-    '               <ul class="dropdown-menu snowui-datagrid-search-dropdown-menu">' +
+    '               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">全部<span class="caret"></span></button>' +
+    '               <ul class="dropdown-menu snowui-datagrid-search-dropdown-menu snowui-datagrid-txt-' + i + '">' +
     fieldDropdown +
     '                   <li role="separator" class="divider"></li>' +
-    '                   <li><a href="#" data-search="' + f_option.data.searchName + '">全部</a></li>' +
+    '                   <li><a href="#" data-search="' + allField + '" selected="selected">全部</a></li>' +
     '               </ul>' +
     '           </div>' +
-    '           <input type="text" class="form-control" placeholder="搜索..." id="snowui-datagrid-txt-' + i + '">' +
+    '           <input type="text" class="form-control" placeholder="搜索..." id="snowui-datagrid-val-' + i + '">' +
     '           <span class="input-group-btn">' +
     '               <button class="snowui-linkbutton snowui-datagrid-btn-' + i + ' btn btn-default"><span class="glyphicon glyphicon-search"></span>&nbsp;Go!</button>' +
     '           </span>' +
@@ -126,16 +126,17 @@ $(function () {
                             var ids = snowui.datagrid.getCheckedAll();
                             if (ids) {
                                 snowui.confirm('确认删除吗？', function () {
+                                    var d_option = snowui.datagrid.container[i].option;
                                     $.ajax({
                                         type: 'POST',
                                         dataType: "json",
-                                        url: '/remove/' + option.controller,
+                                        url: '/remove/' + d_option.controller,
                                         data: { 'ids': ids },
                                         success: function (result) {
                                             if (result.success) {
                                                 snowui.datagrid.load($t, {
-                                                    url: option.url,
-                                                    data: snowui.datagrid.container[i].option.data
+                                                    url: d_option.url,
+                                                    data: d_option.data
                                                 });
                                             } else {
                                                 snowui.alert(result.msg);
@@ -161,13 +162,15 @@ $(function () {
                     else if (btn_i == 3) {
                         // 搜索
                         $(btn_o).on('click', function () {
-                            var s_value = $('#snowui-datagrid-txt-' + i).val();
+                            var s_text = $('.snowui-datagrid-txt-' + i + ' li a[selected]').attr('data-search');
+                            var s_value = $('#snowui-datagrid-val-' + i).val();
                             var s_option = snowui.datagrid.container[i].option;
                             var s_data = s_option.data;
+                            s_data.searchName = s_text;
                             s_data.searchVal = s_value;
 
                             snowui.datagrid.load($t, {
-                                url: option.url,
+                                url: s_option.url,
                                 data: s_data
                             });
                         });
@@ -178,13 +181,12 @@ $(function () {
 
         // 搜索框 下拉菜单
         $(".snowui-datagrid-search-dropdown-menu li a").bind("click", function () {
+            $(".snowui-datagrid-search-dropdown-menu li a").removeAttr('selected');
             var $this = $(this);
             var $btn = $this.parent().parent().prev();
+            $this.attr('selected', 'selected');
             $btn.text($this.text() + ' ');
-            $btn.append("<span class='caret'>");
-            var i = $btn.attr('data-index');
-            var option = snowui.datagrid.container[i].option;
-            option.data.searchName = $this.attr('data-search');
+            $btn.append('<span class="caret">');
         });
     }
     // datagrid----------------------------------------------------end
@@ -460,26 +462,39 @@ var snowui = {
                             else {
                                 $tbody.empty();
                             }
-                            for (var i = 0; i < result.rows.length; i++) {
+                            for (var i = 0; i < result.rows.length; i++) { // 循环数据源
                                 var column = '';
-                                var row = result.rows[i];
-                                for (var j = 0; j < columns.length; j++) {
+                                var row = result.rows[i];   // 获取行数据对象
+                                for (var j = 0; j < columns.length; j++) {  // 循环列属性
                                     var colHead = '<td>';
                                     var colBody = '';
-                                    var dic = columns[j];
-                                    for (var k in dic) {
-                                        var v = dic[k];
-                                        switch (k) {
-                                            case 'field':
-                                                colBody += row[v];
-                                                break;
-                                            case 'checkbox':
-                                                if (v) {
-                                                    colBody += '<input type="checkbox" value="' + row['id'] + '"/>';
-                                                }
-                                                break;
+                                    var dic = columns[j];   // 获取每个列属性
+                                    //for (var k in dic) {
+                                    //    var v = dic[k];
+                                    //    switch (k) {
+                                    //        case 'field':
+                                    //            colBody += row[v];
+                                    //            break;
+                                    //        case 'checkbox':
+                                    //            if (v) {
+                                    //                colBody += '<input type="checkbox" value="' + row['id'] + '"/>';
+                                    //            }
+                                    //            break;
+                                    //    }
+                                    //}
+
+                                    if (dic['field']) { // 有绑定源
+                                        var v = dic['field'];
+
+                                        if (dic['formatter']) { // 格式化输出
+                                            colBody += dic['formatter'](row[v], row, i + 1);
+                                        } else {
+                                            colBody += row[v];
                                         }
+                                    } else if (dic['checkbox']) {   // 开启复选框
+                                        colBody += '<input type="checkbox" value="' + row['id'] + '"/>';
                                     }
+
                                     column += (colHead + colBody + '</td>');
                                 }
                                 $tbody.append('<tr>' + column + '<tr>');
