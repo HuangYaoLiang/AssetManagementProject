@@ -95,6 +95,25 @@ def hardware2Detail(request, id=0):
         'dsPerson': dsPerson,
     })
 
+# 其他资产信息列表
+# 黄耀樑 2016-09-05
+def hardware3List(request):
+    return render(request,'app/hardware/hardware3List.html',{
+            'title': '其他资产信息',
+            'menu': 'hardware3',
+    })
+
+# 其他资产信息详细
+# 黄耀樑 2016-09-05
+def hardware3Detail(request, id=0):
+    dsPerson = app.models.PersonInfo().getDropDownList()
+    return render(request,'app/hardware/hardware3Detail.html',{
+        'title': '其他资产信息',
+        'menu': 'hardware3',
+        'id': id if id else 0,
+        'dsPerson': dsPerson,
+    })
+
 # 打印机信息列表
 # 黄耀樑 2016-07-26
 def printerList(request):

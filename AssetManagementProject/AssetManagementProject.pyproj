@@ -641,7 +641,9 @@
     <Content Include="app\static\app\temporary\js\jquery-1.11.3.min.js" />
     <Content Include="app\static\app\temporary\js\jquery.lazyload.min.js" />
     <Content Include="app\static\app\temporary\js\lightbox.min.js" />
+    <Content Include="app\templates\app\hardware\hardware3Detail.html" />
     <Content Include="app\templates\app\hardware\hardware2Detail.html" />
+    <Content Include="app\templates\app\hardware\hardware3List.html" />
     <Content Include="app\templates\app\hardware\hardwareDetail.html" />
     <Content Include="app\templates\app\hardware\hardware2List.html" />
     <Content Include="app\templates\app\hardware\hardwareList.html" />

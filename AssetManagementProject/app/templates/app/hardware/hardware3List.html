@@ -1,39 +1,32 @@
 ﻿{% extends "app/layout.html" %}
 
 {% block content %}
-
+<!--
  <div class="row">
     <div class="col-xs-12 pull-right">
         <label class="radio-inline">
             <input type="radio" name="pc_state" value="0"> 所有
         </label>
-        <!--<label class="radio-inline">
-            <input type="radio" name="pc_state" value="1"> 正在使用
-        </label>
-        <label class="radio-inline">
-            <input type="radio" name="pc_state" value="2"> 可用空闲
-        </label>-->
         <label class="radio-inline">
             <input type="radio" name="pc_state" value="3"> 损坏
         </label>
         <label class="radio-inline">
             <input type="radio" name="pc_state" value="4"> 退回
         </label>
-        <!--<label class="radio-inline">
-            <input type="radio" name="pc_state" value="5"> 待检测
-        </label>-->
+         
     </div>
 </div>
-
-<table class="snowui-datagrid" data-options="controller:'hardware2',sortName:'serial_number'">
+-->
+<table class="snowui-datagrid" data-options="controller:'hardware3',sortName:'serial_number'">
     <thead>
     <tr>
         <th data-options="checkbox:true" width="35">#</th>
         <th data-options="field:'serial_number'" width="150">资产编号</th>
-        <th data-options="field:'name'" width="250">资产名称</th>
+        <th data-options="field:'category'" width="150">资产分类</th>
+        <th data-options="field:'name'" width="200">资产名称</th>
         <th data-options="field:'unit_price'" width="100">单价</th>
         <th data-options="field:'position'" width="100">所在位置</th>
-        <th data-options="field:'state'">状态</th>
+        {#<th data-options="field:'state'">状态</th>#}
         <th data-options="field:'remark'">备注</th>
     </tr>
     </thead>

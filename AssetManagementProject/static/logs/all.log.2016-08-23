@@ -1,0 +1,1859 @@
+2016-08-22 16:39:29 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'None': None, 'False': False, 'True': True}, {'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003E63840>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000003F271D0>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000003EC42F0>>, 'DEFAULT_MESSAGE_LEVELS': {'INFO': 20, 'ERROR': 40, 'WARNING': 30, 'DEBUG': 10, 'SUCCESS': 25}, 'request': <WSGIRequest: GET '/'>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003E992E8>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-22 16:39:29 Not Found: /favicon.ico
+2016-08-22 16:39:29 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-22 16:39:29 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-22 16:39:33 (0.125) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-22 16:39:34 (0.175) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:39:40 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND state='BAD'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:39:43 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND state='SCRAP'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:39:46 (0.001) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-22 16:39:46 (0.000) 
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id
+        WHERE t1.id='42'
+        ; args=['42']
+2016-08-22 16:39:48 (0.001) SELECT "app_assetinfo"."id", "app_assetinfo"."person_id", "app_assetinfo"."position", "app_assetinfo"."serial_number", "app_assetinfo"."name", "app_assetinfo"."category", "app_assetinfo"."quantity", "app_assetinfo"."unit_price", "app_assetinfo"."total_price", "app_assetinfo"."fiscal_funds", "app_assetinfo"."use_department", "app_assetinfo"."fund_source", "app_assetinfo"."get_time", "app_assetinfo"."remark", "app_assetinfo"."state" FROM "app_assetinfo" WHERE "app_assetinfo"."id" = 42; args=(42,)
+2016-08-22 16:39:48 (0.001) SELECT "app_hardwareinfo"."id", "app_hardwareinfo"."asset_id", "app_hardwareinfo"."system_os", "app_hardwareinfo"."pc_score", "app_hardwareinfo"."pc_cpu", "app_hardwareinfo"."pc_memory", "app_hardwareinfo"."pc_mac", "app_hardwareinfo"."pc_ip", "app_hardwareinfo"."pc_description" FROM "app_hardwareinfo" WHERE "app_hardwareinfo"."asset_id" = 42; args=(42,)
+2016-08-22 16:39:48 (0.000) BEGIN; args=None
+2016-08-22 16:39:48 (0.001) UPDATE "app_assetinfo" SET "person_id" = 0, "position" = '106', "serial_number" = '27', "name" = 'Lenovo 启天 M7100', "category" = '台式机', "quantity" = 1, "unit_price" = 0, "total_price" = 0, "fiscal_funds" = 0, "use_department" = '人事代理部', "fund_source" = '人才办', "get_time" = NULL, "remark" = '', "state" = 'SCRAP' WHERE "app_assetinfo"."id" = 42; args=(0, '106', '27', 'Lenovo 启天 M7100', '台式机', 1, 0, 0, 0, '人事代理部', '人才办', '', 'SCRAP', 42)
+2016-08-22 16:39:48 (0.000) BEGIN; args=None
+2016-08-22 16:39:48 (0.001) UPDATE "app_hardwareinfo" SET "asset_id" = 42, "system_os" = '未知', "pc_score" = 0, "pc_cpu" = '未知', "pc_memory" = '未知', "pc_mac" = '无', "pc_ip" = '无', "pc_description" = '原来325中间那台，开不了机的' WHERE "app_hardwareinfo"."id" = 42; args=(42, '未知', 0, '未知', '未知', '无', '无', '原来325中间那台，开不了机的', 42)
+2016-08-22 16:39:48 (0.000) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-22 16:39:48 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:39:50 (0.004) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND state='SCRAP'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:39:52 (0.002) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-22 16:39:52 (0.001) 
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id
+        WHERE t1.id='34'
+        ; args=['34']
+2016-08-22 16:39:54 (0.001) SELECT "app_assetinfo"."id", "app_assetinfo"."person_id", "app_assetinfo"."position", "app_assetinfo"."serial_number", "app_assetinfo"."name", "app_assetinfo"."category", "app_assetinfo"."quantity", "app_assetinfo"."unit_price", "app_assetinfo"."total_price", "app_assetinfo"."fiscal_funds", "app_assetinfo"."use_department", "app_assetinfo"."fund_source", "app_assetinfo"."get_time", "app_assetinfo"."remark", "app_assetinfo"."state" FROM "app_assetinfo" WHERE "app_assetinfo"."id" = 34; args=(34,)
+2016-08-22 16:39:54 (0.000) SELECT "app_hardwareinfo"."id", "app_hardwareinfo"."asset_id", "app_hardwareinfo"."system_os", "app_hardwareinfo"."pc_score", "app_hardwareinfo"."pc_cpu", "app_hardwareinfo"."pc_memory", "app_hardwareinfo"."pc_mac", "app_hardwareinfo"."pc_ip", "app_hardwareinfo"."pc_description" FROM "app_hardwareinfo" WHERE "app_hardwareinfo"."asset_id" = 34; args=(34,)
+2016-08-22 16:39:54 (0.000) BEGIN; args=None
+2016-08-22 16:39:54 (0.000) UPDATE "app_assetinfo" SET "person_id" = 0, "position" = '106', "serial_number" = '34', "name" = 'Lenovo 启天 M7100', "category" = '台式机', "quantity" = 1, "unit_price" = 0, "total_price" = 0, "fiscal_funds" = 0, "use_department" = '人事代理部', "fund_source" = '人才办', "get_time" = NULL, "remark" = '', "state" = 'SCRAP' WHERE "app_assetinfo"."id" = 34; args=(0, '106', '34', 'Lenovo 启天 M7100', '台式机', 1, 0, 0, 0, '人事代理部', '人才办', '', 'SCRAP', 34)
+2016-08-22 16:39:54 (0.000) BEGIN; args=None
+2016-08-22 16:39:54 (0.001) UPDATE "app_hardwareinfo" SET "asset_id" = 34, "system_os" = 'Windows 7 旗舰版 32位 SP1 ( DirectX 11 )', "pc_score" = 52444, "pc_cpu" = '英特尔 Pentium(奔腾) G2030 @ 3.00GHz 双核', "pc_memory" = '4 GB ( 南亚易胜 DDR3 1600MHz / 记忆科技 DDR3 1600MHz )', "pc_mac" = '44-37-E6-8A-D1-7B', "pc_ip" = '192.168.2.60', "pc_description" = '--------[ 鲁大师 ]--------------------------------------------------------------------------------
+
+  软件:             鲁大师 5.15.16.1025
+  时间:             2016-06-21 14:33:25
+  网站:             http://www.ludashi.com
+
+--------[ 概览 ]----------------------------------------------------------------------------------
+
+  电脑型号            联想 启天B4360-B015 台式电脑
+  操作系统            Windows 7 旗舰版 32位 SP1 ( DirectX 11 )
+
+  处理器              英特尔 Pentium(奔腾) G2030 @ 3.00GHz 双核
+  主板                联想 MAHOBAY ( 英特尔 Ivy Bridge - H61 芯片组 )
+  显卡                英特尔 Ivy Bridge Graphics Controller ( 96 MB / 联想 )
+  内存                4 GB ( 南亚易胜 DDR3 1600MHz / 记忆科技 DDR3 1600MHz )
+  主硬盘              希捷 ST500DM002-1BD142 ( 500 GB / 7200 转/分 )
+  显示器              LLL0000 ( 19.1 英寸  )
+  光驱                日立-LG DVDROM DH50N DVD光驱
+  声卡                瑞昱 ALC662 @ 英特尔 6 Series Chipset  高保真音频
+  网卡                瑞昱 RTL8168/8111/8112 Gigabit Ethernet Controller / 联想
+
+--------[ 主板 ]----------------------------------------------------------------------------------
+
+  主板型号            联想 MAHOBAY
+  芯片组              英特尔 Ivy Bridge - H61 芯片组
+  主板版本            NOK
+  BIOS                联想 F9KT45AUS  /  制造日期: 2013年05月02日
+  BIOS的大小          4096 KB
+
+  板载设备            视频设备 (启用)
+  板载设备            网卡 (启用)
+  板载设备            音频设备 (启用)
+  板载设备            SATA 控制器 (启用)
+  板载设备            其他 (启用)
+
+--------[ 处理器 ]--------------------------------------------------------------------------------
+
+  处理器              英特尔 Pentium(奔腾) G2030 @ 3.00GHz 双核
+  步进                E1
+  速度                3.00 GHz (100 MHz x 30.0)
+  处理器数量          核心数: 2 / 线程数: 2
+  核心代号            Ivy Bridge
+  生产工艺            22 纳米
+  插槽/插座           Socket H2 (LGA 1155)
+  一级数据缓存        32 KB, 8-Way, 64 byte lines
+  一级代码缓存        32 KB, 8-Way, 64 byte lines
+  二级缓存            256 KB, 8-Way, 64 byte lines
+  三级缓存            3 MB, 12-Way, 64 byte lines
+  特征                MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, EM64T, EIST
+
+--------[ 硬盘 ]----------------------------------------------------------------------------------
+
+  产品                希捷 ST500DM002-1BD142
+  大小                500 GB
+  转速                7200 转/分
+  缓存                16 MB
+  硬盘已使用          共 1025 次，累计 5431 小时
+  固件                KC65    
+  接口                SATA III
+  数据传输率          600.00 MB/秒
+  特征                S.M.A.R.T,  48-bit LBA,  NCQ
+
+--------[ 内存 ]----------------------------------------------------------------------------------
+
+  ChannelA-DIMM0      记忆科技 DDR3 1600MHz 2GB
+  制造日期            2013 年 05月
+  型号                7F7F7F7F43 RMR5030MM58E8F1600
+  序列号              41734CA2
+  厂商                Ramaxel
+  模块位宽:           64 Bits
+  模块电压:           SSTL 1.5V
+
+  ChannelB-DIMM0      南亚易胜 DDR3 1600MHz 2GB
+  制造日期            2012 年 06月
+  型号                7F7F7F0B NT2GC64B88G0NF-DI
+  序列号              47A62614
+  厂商                Elixir
+  模块位宽:           64 Bits
+  模块电压:           SSTL 1.5V
+
+--------[ 显卡 ]----------------------------------------------------------------------------------
+
+  主显卡              英特尔 Ivy Bridge Graphics Controller
+  显存                96 MB
+  制造商              联想
+  制造商              Intel
+  BIOS版本            Intel Video BIOS
+  BIOS日期            03/14/20
+  驱动版本            9.17.10.2932
+  驱动日期            12-12-2012
+
+--------[ 显示器 ]--------------------------------------------------------------------------------
+
+  产品                 LLL0000
+  固件日期            2011 年 05月
+  屏幕尺寸            19.1 英寸 (41 厘米 x 26 厘米)
+  显示比例            宽屏 16 : 10
+  分辨率              1440 x 900 32 位真彩色
+  Gamma               2.20
+  电源管理            Standby, Suspend, Active-Off
+
+--------[ 其他设备 ]------------------------------------------------------------------------------
+
+  产品                日立-LG DVDROM DH50N DVD光驱
+  缓存/固件:          198 KB /1.02
+
+  网卡                瑞昱 RTL8168/8111/8112 Gigabit Ethernet Controller
+  制造商              联想
+
+  声卡                瑞昱 ALC662 @ 英特尔 6 Series Chipset  高保真音频
+
+  键盘                PS/2 标准键盘
+  鼠标                HID-compliant 鼠标
+
+
+--------[ PCI设备 ]-------------------------------------------------------------------------------
+
+  设备                Ivy Bridge DRAM Controller
+  设备ID              0150
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to HOST
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                Ivy Bridge Graphics Controller
+  设备ID              0152
+  制造商              Intel
+  制造商ID            8086
+  类别                Display / VGA
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                6 Series/C200 Series Management Engine Interface
+  设备ID              1C3A
+  制造商              Intel
+  制造商ID            8086
+  类别                Simple Communication / Other
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                6 Series/C200 Series Chipset USB Enhanced Host Controller
+  设备ID              1C2D
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB 2.0 (EHCI)
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                6 Series Chipset HD Audio Controller
+  设备ID              1C20
+  制造商              Intel
+  制造商ID            8086
+  类别                Multimedia / Hi-definition Audio
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                6 Series/C200 Series Chipset PCI Express Root Port 1
+  设备ID              1C10
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                82801 PCI Bridge
+  设备ID              244E
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI (Subtractive Decode)
+  子系统ID            00000000
+
+  设备                6 Series/C200 Series Chipset PCI Express Root Port 5
+  设备ID              1C18
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                6 Series/C200 Series Chipset USB Enhanced Host Controller
+  设备ID              1C26
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB 2.0 (EHCI)
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                H61 Express Chipset LPC Interface Controller
+  设备ID              1C5C
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to ISA
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                6 Series/C200 Series Chipset 6 Port SATA AHCI Controller
+  设备ID              1C02
+  制造商              Intel
+  制造商ID            8086
+  类别                Storage / Serial ATA (AHCI 1.0)
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                6 Series/C200 Series Chipset SMBus Controller
+  设备ID              1C22
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / SMBus Controller
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                6 Series/C200 Series Chipset Thermal Control
+  设备ID              1C24
+  制造商              Intel
+  制造商ID            8086
+  类别                Data Aquisition & Signal Processing / Other
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+  设备                IT8893 PCI Bridge
+  设备ID              8893
+  制造商              ITE
+  制造商ID            1283
+  类别                Bridge / PCI to PCI (Subtractive Decode)
+  子系统ID            00000000
+
+  设备                RTL8168/8111/8112 Gigabit Ethernet Controller
+  设备ID              8168
+  制造商              Realtek
+  制造商ID            10EC
+  类别                Network / Ethernet
+  子系统制造商        Lenovo
+  子系统ID            306517AA
+
+--------[ USB设备 ]-------------------------------------------------------------------------------
+
+  描述                Pixart Optical Mouse
+  制造商ID            093A
+  产品ID              2510
+  类别                0 / 0 / 0
+  设备                PixArt USB Optical Mouse
+  版本                USB 2.0
+
+  制造商ID            0951
+  产品ID              1665
+  类别                0 / 0 / 0
+  设备                Kingston DataTraveler 2.0
+  Serial              60A44C425324AF718996000F
+  版本                USB 2.0
+
+--------[ 传感器 ]--------------------------------------------------------------------------------
+
+  名称                ITE IT8728
+  CPU温度             44℃
+  CPU核心             41℃
+  CPU封装             41℃
+  PCH                 58℃
+  主板                44℃
+  硬盘温度            36℃
+  风扇                755转' WHERE "app_hardwareinfo"."id" = 34; args=(34, 'Windows 7 旗舰版 32位 SP1 ( DirectX 11 )', 52444, '英特尔 Pentium(奔腾) G2030 @ 3.00GHz 双核', '4 GB ( 南亚易胜 DDR3 1600MHz / 记忆科技 DDR3 1600MHz )', '44-37-E6-8A-D1-7B', '192.168.2.60', '--------[ 鲁大师 ]--------------------------------------------------------------------------------\r\n\r\n  软件:             鲁大师 5.15.16.1025\r\n  时间:             2016-06-21 14:33:25\r\n  网站:             http://www.ludashi.com\r\n\r\n--------[ 概览 ]----------------------------------------------------------------------------------\r\n\r\n  电脑型号            联想 启天B4360-B015 台式电脑\r\n  操作系统            Windows 7 旗舰版 32位 SP1 ( DirectX 11 )\r\n\r\n  处理器              英特尔 Pentium(奔腾) G2030 @ 3.00GHz 双核\r\n  主板                联想 MAHOBAY ( 英特尔 Ivy Bridge - H61 芯片组 )\r\n  显卡                英特尔 Ivy Bridge Graphics Controller ( 96 MB / 联想 )\r\n  内存                4 GB ( 南亚易胜 DDR3 1600MHz / 记忆科技 DDR3 1600MHz )\r\n  主硬盘              希捷 ST500DM002-1BD142 ( 500 GB / 7200 转/分 )\r\n  显示器              LLL0000 ( 19.1 英寸  )\r\n  光驱                日立-LG DVDROM DH50N DVD光驱\r\n  声卡                瑞昱 ALC662 @ 英特尔 6 Series Chipset  高保真音频\r\n  网卡                瑞昱 RTL8168/8111/8112 Gigabit Ethernet Controller / 联想\r\n\r\n--------[ 主板 ]----------------------------------------------------------------------------------\r\n\r\n  主板型号            联想 MAHOBAY\r\n  芯片组              英特尔 Ivy Bridge - H61 芯片组\r\n  主板版本            NOK\r\n  BIOS                联想 F9KT45AUS  /  制造日期: 2013年05月02日\r\n  BIOS的大小          4096 KB\r\n\r\n  板载设备            视频设备 (启用)\r\n  板载设备            网卡 (启用)\r\n  板载设备            音频设备 (启用)\r\n  板载设备            SATA 控制器 (启用)\r\n  板载设备            其他 (启用)\r\n\r\n--------[ 处理器 ]--------------------------------------------------------------------------------\r\n\r\n  处理器              英特尔 Pentium(奔腾) G2030 @ 3.00GHz 双核\r\n  步进                E1\r\n  速度                3.00 GHz (100 MHz x 30.0)\r\n  处理器数量          核心数: 2 / 线程数: 2\r\n  核心代号            Ivy Bridge\r\n  生产工艺            22 纳米\r\n  插槽/插座           Socket H2 (LGA 1155)\r\n  一级数据缓存        32 KB, 8-Way, 64 byte lines\r\n  一级代码缓存        32 KB, 8-Way, 64 byte lines\r\n  二级缓存            256 KB, 8-Way, 64 byte lines\r\n  三级缓存            3 MB, 12-Way, 64 byte lines\r\n  特征                MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, EM64T, EIST\r\n\r\n--------[ 硬盘 ]----------------------------------------------------------------------------------\r\n\r\n  产品                希捷 ST500DM002-1BD142\r\n  大小                500 GB\r\n  转速                7200 转/分\r\n  缓存                16 MB\r\n  硬盘已使用          共 1025 次，累计 5431 小时\r\n  固件                KC65    \r\n  接口                SATA III\r\n  数据传输率          600.00 MB/秒\r\n  特征                S.M.A.R.T,  48-bit LBA,  NCQ\r\n\r\n--------[ 内存 ]----------------------------------------------------------------------------------\r\n\r\n  ChannelA-DIMM0      记忆科技 DDR3 1600MHz 2GB\r\n  制造日期            2013 年 05月\r\n  型号                7F7F7F7F43 RMR5030MM58E8F1600\r\n  序列号              41734CA2\r\n  厂商                Ramaxel\r\n  模块位宽:           64 Bits\r\n  模块电压:           SSTL 1.5V\r\n\r\n  ChannelB-DIMM0      南亚易胜 DDR3 1600MHz 2GB\r\n  制造日期            2012 年 06月\r\n  型号                7F7F7F0B NT2GC64B88G0NF-DI\r\n  序列号              47A62614\r\n  厂商                Elixir\r\n  模块位宽:           64 Bits\r\n  模块电压:           SSTL 1.5V\r\n\r\n--------[ 显卡 ]----------------------------------------------------------------------------------\r\n\r\n  主显卡              英特尔 Ivy Bridge Graphics Controller\r\n  显存                96 MB\r\n  制造商              联想\r\n  制造商              Intel\r\n  BIOS版本            Intel Video BIOS\r\n  BIOS日期            03/14/20\r\n  驱动版本            9.17.10.2932\r\n  驱动日期            12-12-2012\r\n\r\n--------[ 显示器 ]--------------------------------------------------------------------------------\r\n\r\n  产品                 LLL0000\r\n  固件日期            2011 年 05月\r\n  屏幕尺寸            19.1 英寸 (41 厘米 x 26 厘米)\r\n  显示比例            宽屏 16 : 10\r\n  分辨率              1440 x 900 32 位真彩色\r\n  Gamma               2.20\r\n  电源管理            Standby, Suspend, Active-Off\r\n\r\n--------[ 其他设备 ]------------------------------------------------------------------------------\r\n\r\n  产品                日立-LG DVDROM DH50N DVD光驱\r\n  缓存/固件:          198 KB /1.02\r\n\r\n  网卡                瑞昱 RTL8168/8111/8112 Gigabit Ethernet Controller\r\n  制造商              联想\r\n\r\n  声卡                瑞昱 ALC662 @ 英特尔 6 Series Chipset  高保真音频\r\n\r\n  键盘                PS/2 标准键盘\r\n  鼠标                HID-compliant 鼠标\r\n\r\n\r\n--------[ PCI设备 ]-------------------------------------------------------------------------------\r\n\r\n  设备                Ivy Bridge DRAM Controller\r\n  设备ID              0150\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to HOST\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                Ivy Bridge Graphics Controller\r\n  设备ID              0152\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Display / VGA\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                6 Series/C200 Series Management Engine Interface\r\n  设备ID              1C3A\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Simple Communication / Other\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                6 Series/C200 Series Chipset USB Enhanced Host Controller\r\n  设备ID              1C2D\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / USB 2.0 (EHCI)\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                6 Series Chipset HD Audio Controller\r\n  设备ID              1C20\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Multimedia / Hi-definition Audio\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                6 Series/C200 Series Chipset PCI Express Root Port 1\r\n  设备ID              1C10\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to PCI\r\n  子系统ID            00000000\r\n\r\n  设备                82801 PCI Bridge\r\n  设备ID              244E\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to PCI (Subtractive Decode)\r\n  子系统ID            00000000\r\n\r\n  设备                6 Series/C200 Series Chipset PCI Express Root Port 5\r\n  设备ID              1C18\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to PCI\r\n  子系统ID            00000000\r\n\r\n  设备                6 Series/C200 Series Chipset USB Enhanced Host Controller\r\n  设备ID              1C26\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / USB 2.0 (EHCI)\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                H61 Express Chipset LPC Interface Controller\r\n  设备ID              1C5C\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to ISA\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                6 Series/C200 Series Chipset 6 Port SATA AHCI Controller\r\n  设备ID              1C02\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Storage / Serial ATA (AHCI 1.0)\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                6 Series/C200 Series Chipset SMBus Controller\r\n  设备ID              1C22\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / SMBus Controller\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                6 Series/C200 Series Chipset Thermal Control\r\n  设备ID              1C24\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Data Aquisition & Signal Processing / Other\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n  设备                IT8893 PCI Bridge\r\n  设备ID              8893\r\n  制造商              ITE\r\n  制造商ID            1283\r\n  类别                Bridge / PCI to PCI (Subtractive Decode)\r\n  子系统ID            00000000\r\n\r\n  设备                RTL8168/8111/8112 Gigabit Ethernet Controller\r\n  设备ID              8168\r\n  制造商              Realtek\r\n  制造商ID            10EC\r\n  类别                Network / Ethernet\r\n  子系统制造商        Lenovo\r\n  子系统ID            306517AA\r\n\r\n--------[ USB设备 ]-------------------------------------------------------------------------------\r\n\r\n  描述                Pixart Optical Mouse\r\n  制造商ID            093A\r\n  产品ID              2510\r\n  类别                0 / 0 / 0\r\n  设备                PixArt USB Optical Mouse\r\n  版本                USB 2.0\r\n\r\n  制造商ID            0951\r\n  产品ID              1665\r\n  类别                0 / 0 / 0\r\n  设备                Kingston DataTraveler 2.0\r\n  Serial              60A44C425324AF718996000F\r\n  版本                USB 2.0\r\n\r\n--------[ 传感器 ]--------------------------------------------------------------------------------\r\n\r\n  名称                ITE IT8728\r\n  CPU温度             44℃\r\n  CPU核心             41℃\r\n  CPU封装             41℃\r\n  PCH                 58℃\r\n  主板                44℃\r\n  硬盘温度            36℃\r\n  风扇                755转', 34)
+2016-08-22 16:39:54 (0.000) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-22 16:39:54 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:39:55 (0.007) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND state='SCRAP'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:39:58 (0.002) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-22 16:39:59 (0.001) 
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id
+        WHERE t1.id='23'
+        ; args=['23']
+2016-08-22 16:40:00 (0.000) SELECT "app_assetinfo"."id", "app_assetinfo"."person_id", "app_assetinfo"."position", "app_assetinfo"."serial_number", "app_assetinfo"."name", "app_assetinfo"."category", "app_assetinfo"."quantity", "app_assetinfo"."unit_price", "app_assetinfo"."total_price", "app_assetinfo"."fiscal_funds", "app_assetinfo"."use_department", "app_assetinfo"."fund_source", "app_assetinfo"."get_time", "app_assetinfo"."remark", "app_assetinfo"."state" FROM "app_assetinfo" WHERE "app_assetinfo"."id" = 23; args=(23,)
+2016-08-22 16:40:00 (0.000) SELECT "app_hardwareinfo"."id", "app_hardwareinfo"."asset_id", "app_hardwareinfo"."system_os", "app_hardwareinfo"."pc_score", "app_hardwareinfo"."pc_cpu", "app_hardwareinfo"."pc_memory", "app_hardwareinfo"."pc_mac", "app_hardwareinfo"."pc_ip", "app_hardwareinfo"."pc_description" FROM "app_hardwareinfo" WHERE "app_hardwareinfo"."asset_id" = 23; args=(23,)
+2016-08-22 16:40:00 (0.000) BEGIN; args=None
+2016-08-22 16:40:00 (0.001) UPDATE "app_assetinfo" SET "person_id" = 0, "position" = '106', "serial_number" = '13', "name" = 'Lenovo 启天 M7100', "category" = '台式机', "quantity" = 1, "unit_price" = 0, "total_price" = 0, "fiscal_funds" = 0, "use_department" = '人事代理部', "fund_source" = '人才办', "get_time" = NULL, "remark" = '', "state" = 'SCRAP' WHERE "app_assetinfo"."id" = 23; args=(0, '106', '13', 'Lenovo 启天 M7100', '台式机', 1, 0, 0, 0, '人事代理部', '人才办', '', 'SCRAP', 23)
+2016-08-22 16:40:00 (0.000) BEGIN; args=None
+2016-08-22 16:40:00 (0.000) UPDATE "app_hardwareinfo" SET "asset_id" = 23, "system_os" = 'Windows 7 旗舰版 32位 SP1 ( DirectX 11 )', "pc_score" = 53184, "pc_cpu" = '英特尔 酷睿2 双核 E7500 @ 2.93GHz', "pc_memory" = '2 GB ( 圣创雷克 DDR3L 1333MHz )', "pc_mac" = '44-37-E6-8A-D1-93', "pc_ip" = '192.168.2.73', "pc_description" = '--------[ 鲁大师 ]--------------------------------------------------------------------------------
+
+  软件:             鲁大师 5.15.16.1025
+  时间:             2016-06-21 16:11:34
+  网站:             http://www.ludashi.com
+
+--------[ 概览 ]----------------------------------------------------------------------------------
+
+  电脑型号            联想 启天M7100 台式电脑
+  操作系统            Windows 7 旗舰版 32位 SP1 ( DirectX 11 )
+
+  处理器              英特尔 酷睿2 双核 E7500 @ 2.93GHz
+  主板                联想 To be filled by O.E.M. ( 英特尔 4 Series 芯片组 - ICH7 )
+  显卡                英特尔 G41 Express Chipset ( 64 MB / 联想 )
+  内存                2 GB ( 圣创雷克 DDR3L 1333MHz )
+  主硬盘              西数 WDC WD5000AAKX-083CA1 ( 500 GB / 7200 转/分 )
+  显示器              三星 SAM06A5 SMB1920NW ( 19.1 英寸  )
+  光驱                PLDS DVD-RW DH16ABSH DVD刻录机
+  声卡                瑞昱 ALC662 @ 英特尔 82801G  高保真音频
+  网卡                Marvell Yukon 88E8057 PCI-E Gigabit Ethernet Controller / 联想
+
+--------[ 主板 ]----------------------------------------------------------------------------------
+
+  主板型号            联想 To be filled by O.E.M.
+  芯片组              英特尔 4 Series 芯片组 - ICH7
+  序列号              INVALID
+  主板版本            To be filled by O.E.M.
+  BIOS                联想 90KT23CUS  /  制造日期: 2011年06月29日
+  BIOS的大小          1024 KB
+
+
+--------[ 处理器 ]--------------------------------------------------------------------------------
+
+  处理器              英特尔 酷睿2 双核 E7500 @ 2.93GHz
+  速度                2.94 GHz (267 MHz x 11.0) 前端总线: 1067 MHz
+  处理器数量          核心数: 2 / 线程数: 2
+  核心代号            Wolfdale
+  生产工艺            45 纳米
+  插槽/插座           Socket 775 (FC-LGA6)
+  一级数据缓存        2 x 32 KB, 8-Way, 64 byte lines
+  一级代码缓存        2 x 32 KB, 8-Way, 64 byte lines
+  二级缓存            3 MB, 12-Way, 64 byte lines
+  特征                MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, EM64T, EIST
+
+--------[ 硬盘 ]----------------------------------------------------------------------------------
+
+  产品                西数 WDC WD5000AAKX-083CA1 (蓝盘)
+  大小                500 GB
+  转速                7200 转/分
+  缓存                16 MB
+  硬盘已使用          共 1145 次，累计 8133 小时
+  固件                19.01H19
+  接口                SATA III
+  数据传输率          600.00 MB/秒
+  特征                S.M.A.R.T,  48-bit LBA,  NCQ
+
+--------[ 内存 ]----------------------------------------------------------------------------------
+
+  DIMM0               圣创雷克 DDR3L 1333MHz 2GB
+  制造日期            2012 年 01月
+  型号                 SHARETRONIC
+  序列号              4CE61004
+  厂商                SHARETRONIC
+  模块位宽:           64 Bits
+  模块电压:           SSTL 1.35V
+
+--------[ 显卡 ]----------------------------------------------------------------------------------
+
+  主显卡              英特尔 G41 Express Chipset
+  显存                64 MB
+  制造商              联想
+  制造商              Intel
+  BIOS版本            Intel Video BIOS
+  BIOS日期            06/25/20
+  驱动版本            8.15.10.2555
+  驱动日期            10-13-2011
+
+--------[ 显示器 ]--------------------------------------------------------------------------------
+
+  产品                三星 SAM06A5 SMB1920NW
+  厂商                三星
+  固件日期            2011 年 07月
+  屏幕尺寸            19.1 英寸 (41 厘米 x 26 厘米)
+  显示比例            宽屏 16 : 10
+  分辨率              1440 x 900 32 位真彩色
+  Gamma               2.20
+  电源管理            Active-Off
+
+--------[ 其他设备 ]------------------------------------------------------------------------------
+
+  产品                PLDS DVD-RW DH16ABSH DVD刻录机
+  缓存/固件:          1536 KB /YL32
+
+  网卡                Marvell Yukon 88E8057 PCI-E Gigabit Ethernet Controller
+  制造商              联想
+
+  无线网卡            瑞丽 802.11 n WLAN
+
+  声卡                瑞昱 ALC662 @ 英特尔 82801G  高保真音频
+
+  键盘                PS/2 标准键盘
+  鼠标                微软 PS/2 鼠标
+
+
+--------[ PCI设备 ]-------------------------------------------------------------------------------
+
+  设备                4 Series Chipset DRAM Controller
+  设备ID              2E30
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to HOST
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                G41 Express Chipset
+  设备ID              2E32
+  制造商              Intel
+  制造商ID            8086
+  类别                Display / VGA
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                82801G HD Audio Controller
+  设备ID              27D8
+  制造商              Intel
+  制造商ID            8086
+  类别                Multimedia / Hi-definition Audio
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                N10/ICH7 PCI Express Root Port
+  设备ID              27D0
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                N10/ICH7 PCI Express Root Port
+  设备ID              27D2
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI
+  子系统ID            00000000
+
+  设备                N10/ICH7 USB Universal Host Controller
+  设备ID              27C8
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB (UHCI)
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                N10/ICH7 USB Universal Host Controller
+  设备ID              27C9
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB (UHCI)
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                N10/ICH7 USB Universal Host Controller
+  设备ID              27CA
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB (UHCI)
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                N10/ICH7 USB Universal Host Controller
+  设备ID              27CB
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB (UHCI)
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                N10/ICH7 USB2 Enhanced Host Controller
+  设备ID              27CC
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / USB 2.0 (EHCI)
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                82801 PCI Bridge
+  设备ID              244E
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to PCI (Subtractive Decode)
+  子系统ID            00000000
+
+  设备                ICH7 LPC Interface Controller
+  设备ID              27B8
+  制造商              Intel
+  制造商ID            8086
+  类别                Bridge / PCI to ISA
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                ICH7 Ultra ATA Storage Controller
+  设备ID              27DF
+  制造商              Intel
+  制造商ID            8086
+  类别                Storage / IDE (ATA)
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                N10/ICH7 Serial ATA Storage Controller
+  设备ID              27C0
+  制造商              Intel
+  制造商ID            8086
+  类别                Storage / IDE (ATA)
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                N10/ICH7 SMBus Controller
+  设备ID              27DA
+  制造商              Intel
+  制造商ID            8086
+  类别                Serial / SMBus Controller
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+  设备                Yukon 88E8057 PCI-E Gigabit Ethernet Controller
+  设备ID              4380
+  制造商              Marvell
+  制造商ID            11AB
+  类别                Network / Ethernet
+  子系统制造商        Lenovo
+  子系统ID            301B17AA
+
+--------[ USB设备 ]-------------------------------------------------------------------------------
+
+  描述                Canon CAPT Device
+  制造商ID            04A9
+  产品ID              2676
+  类别                0 / 0 / 0
+  设备                Canon Canon CAPT USB Device
+  Serial              0000A455EFP1
+  版本                USB 2.0
+
+  制造商ID            0951
+  产品ID              1665
+  类别                0 / 0 / 0
+  设备                Kingston DataTraveler 2.0
+  Serial              60A44C425324AF718996000F
+  版本                USB 2.0
+
+  制造商ID            148F
+  产品ID              760B
+  类别                0 / 0 / 0
+  设备                MediaTek 802.11 n WLAN
+  Serial              1.0
+
+  描述                Prolific Technology, Inc. PL2305 Parallel Port
+  制造商ID            067B
+  产品ID              2305
+  类别                0 / 0 / 0
+  设备                Prolific Technology Inc. IEEE-1284 Controller
+  Serial              ?
+  版本                USB 1.0
+
+--------[ 传感器 ]--------------------------------------------------------------------------------
+
+  CPU温度             56℃
+  CPU核心             57℃
+  硬盘温度            39℃' WHERE "app_hardwareinfo"."id" = 23; args=(23, 'Windows 7 旗舰版 32位 SP1 ( DirectX 11 )', 53184, '英特尔 酷睿2 双核 E7500 @ 2.93GHz', '2 GB ( 圣创雷克 DDR3L 1333MHz )', '44-37-E6-8A-D1-93', '192.168.2.73', '--------[ 鲁大师 ]--------------------------------------------------------------------------------\r\n\r\n  软件:             鲁大师 5.15.16.1025\r\n  时间:             2016-06-21 16:11:34\r\n  网站:             http://www.ludashi.com\r\n\r\n--------[ 概览 ]----------------------------------------------------------------------------------\r\n\r\n  电脑型号            联想 启天M7100 台式电脑\r\n  操作系统            Windows 7 旗舰版 32位 SP1 ( DirectX 11 )\r\n\r\n  处理器              英特尔 酷睿2 双核 E7500 @ 2.93GHz\r\n  主板                联想 To be filled by O.E.M. ( 英特尔 4 Series 芯片组 - ICH7 )\r\n  显卡                英特尔 G41 Express Chipset ( 64 MB / 联想 )\r\n  内存                2 GB ( 圣创雷克 DDR3L 1333MHz )\r\n  主硬盘              西数 WDC WD5000AAKX-083CA1 ( 500 GB / 7200 转/分 )\r\n  显示器              三星 SAM06A5 SMB1920NW ( 19.1 英寸  )\r\n  光驱                PLDS DVD-RW DH16ABSH DVD刻录机\r\n  声卡                瑞昱 ALC662 @ 英特尔 82801G  高保真音频\r\n  网卡                Marvell Yukon 88E8057 PCI-E Gigabit Ethernet Controller / 联想\r\n\r\n--------[ 主板 ]----------------------------------------------------------------------------------\r\n\r\n  主板型号            联想 To be filled by O.E.M.\r\n  芯片组              英特尔 4 Series 芯片组 - ICH7\r\n  序列号              INVALID\r\n  主板版本            To be filled by O.E.M.\r\n  BIOS                联想 90KT23CUS  /  制造日期: 2011年06月29日\r\n  BIOS的大小          1024 KB\r\n\r\n\r\n--------[ 处理器 ]--------------------------------------------------------------------------------\r\n\r\n  处理器              英特尔 酷睿2 双核 E7500 @ 2.93GHz\r\n  速度                2.94 GHz (267 MHz x 11.0) 前端总线: 1067 MHz\r\n  处理器数量          核心数: 2 / 线程数: 2\r\n  核心代号            Wolfdale\r\n  生产工艺            45 纳米\r\n  插槽/插座           Socket 775 (FC-LGA6)\r\n  一级数据缓存        2 x 32 KB, 8-Way, 64 byte lines\r\n  一级代码缓存        2 x 32 KB, 8-Way, 64 byte lines\r\n  二级缓存            3 MB, 12-Way, 64 byte lines\r\n  特征                MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, EM64T, EIST\r\n\r\n--------[ 硬盘 ]----------------------------------------------------------------------------------\r\n\r\n  产品                西数 WDC WD5000AAKX-083CA1 (蓝盘)\r\n  大小                500 GB\r\n  转速                7200 转/分\r\n  缓存                16 MB\r\n  硬盘已使用          共 1145 次，累计 8133 小时\r\n  固件                19.01H19\r\n  接口                SATA III\r\n  数据传输率          600.00 MB/秒\r\n  特征                S.M.A.R.T,  48-bit LBA,  NCQ\r\n\r\n--------[ 内存 ]----------------------------------------------------------------------------------\r\n\r\n  DIMM0               圣创雷克 DDR3L 1333MHz 2GB\r\n  制造日期            2012 年 01月\r\n  型号                 SHARETRONIC\r\n  序列号              4CE61004\r\n  厂商                SHARETRONIC\r\n  模块位宽:           64 Bits\r\n  模块电压:           SSTL 1.35V\r\n\r\n--------[ 显卡 ]----------------------------------------------------------------------------------\r\n\r\n  主显卡              英特尔 G41 Express Chipset\r\n  显存                64 MB\r\n  制造商              联想\r\n  制造商              Intel\r\n  BIOS版本            Intel Video BIOS\r\n  BIOS日期            06/25/20\r\n  驱动版本            8.15.10.2555\r\n  驱动日期            10-13-2011\r\n\r\n--------[ 显示器 ]--------------------------------------------------------------------------------\r\n\r\n  产品                三星 SAM06A5 SMB1920NW\r\n  厂商                三星\r\n  固件日期            2011 年 07月\r\n  屏幕尺寸            19.1 英寸 (41 厘米 x 26 厘米)\r\n  显示比例            宽屏 16 : 10\r\n  分辨率              1440 x 900 32 位真彩色\r\n  Gamma               2.20\r\n  电源管理            Active-Off\r\n\r\n--------[ 其他设备 ]------------------------------------------------------------------------------\r\n\r\n  产品                PLDS DVD-RW DH16ABSH DVD刻录机\r\n  缓存/固件:          1536 KB /YL32\r\n\r\n  网卡                Marvell Yukon 88E8057 PCI-E Gigabit Ethernet Controller\r\n  制造商              联想\r\n\r\n  无线网卡            瑞丽 802.11 n WLAN\r\n\r\n  声卡                瑞昱 ALC662 @ 英特尔 82801G  高保真音频\r\n\r\n  键盘                PS/2 标准键盘\r\n  鼠标                微软 PS/2 鼠标\r\n\r\n\r\n--------[ PCI设备 ]-------------------------------------------------------------------------------\r\n\r\n  设备                4 Series Chipset DRAM Controller\r\n  设备ID              2E30\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to HOST\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                G41 Express Chipset\r\n  设备ID              2E32\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Display / VGA\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                82801G HD Audio Controller\r\n  设备ID              27D8\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Multimedia / Hi-definition Audio\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                N10/ICH7 PCI Express Root Port\r\n  设备ID              27D0\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to PCI\r\n  子系统ID            00000000\r\n\r\n  设备                N10/ICH7 PCI Express Root Port\r\n  设备ID              27D2\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to PCI\r\n  子系统ID            00000000\r\n\r\n  设备                N10/ICH7 USB Universal Host Controller\r\n  设备ID              27C8\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / USB (UHCI)\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                N10/ICH7 USB Universal Host Controller\r\n  设备ID              27C9\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / USB (UHCI)\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                N10/ICH7 USB Universal Host Controller\r\n  设备ID              27CA\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / USB (UHCI)\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                N10/ICH7 USB Universal Host Controller\r\n  设备ID              27CB\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / USB (UHCI)\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                N10/ICH7 USB2 Enhanced Host Controller\r\n  设备ID              27CC\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / USB 2.0 (EHCI)\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                82801 PCI Bridge\r\n  设备ID              244E\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to PCI (Subtractive Decode)\r\n  子系统ID            00000000\r\n\r\n  设备                ICH7 LPC Interface Controller\r\n  设备ID              27B8\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Bridge / PCI to ISA\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                ICH7 Ultra ATA Storage Controller\r\n  设备ID              27DF\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Storage / IDE (ATA)\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                N10/ICH7 Serial ATA Storage Controller\r\n  设备ID              27C0\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Storage / IDE (ATA)\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                N10/ICH7 SMBus Controller\r\n  设备ID              27DA\r\n  制造商              Intel\r\n  制造商ID            8086\r\n  类别                Serial / SMBus Controller\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n  设备                Yukon 88E8057 PCI-E Gigabit Ethernet Controller\r\n  设备ID              4380\r\n  制造商              Marvell\r\n  制造商ID            11AB\r\n  类别                Network / Ethernet\r\n  子系统制造商        Lenovo\r\n  子系统ID            301B17AA\r\n\r\n--------[ USB设备 ]-------------------------------------------------------------------------------\r\n\r\n  描述                Canon CAPT Device\r\n  制造商ID            04A9\r\n  产品ID              2676\r\n  类别                0 / 0 / 0\r\n  设备                Canon Canon CAPT USB Device\r\n  Serial              0000A455EFP1\r\n  版本                USB 2.0\r\n\r\n  制造商ID            0951\r\n  产品ID              1665\r\n  类别                0 / 0 / 0\r\n  设备                Kingston DataTraveler 2.0\r\n  Serial              60A44C425324AF718996000F\r\n  版本                USB 2.0\r\n\r\n  制造商ID            148F\r\n  产品ID              760B\r\n  类别                0 / 0 / 0\r\n  设备                MediaTek 802.11 n WLAN\r\n  Serial              1.0\r\n\r\n  描述                Prolific Technology, Inc. PL2305 Parallel Port\r\n  制造商ID            067B\r\n  产品ID              2305\r\n  类别                0 / 0 / 0\r\n  设备                Prolific Technology Inc. IEEE-1284 Controller\r\n  Serial              ?\r\n  版本                USB 1.0\r\n\r\n--------[ 传感器 ]--------------------------------------------------------------------------------\r\n\r\n  CPU温度             56℃\r\n  CPU核心             57℃\r\n  硬盘温度            39℃', 23)
+2016-08-22 16:40:00 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-22 16:40:01 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:03 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND state='BAD'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:04 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND state='SCRAP'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:06 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND state='UNKNOWN'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:07 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='PC服务器'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:09 (0.007) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (person_id=0 AND state='OK')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:10 (0.008) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND person_id>0
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:11 (0.007) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-22 16:40:20 (0.019) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY serial_number asc 
+        ; args=[]
+2016-08-22 16:40:21 (0.008) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY serial_number desc 
+        ; args=[]
+2016-08-22 18:18:53 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'True': True, 'None': None, 'False': False}, {'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003EEEFD0>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000003F8A0F0>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000003F21268>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003EC37B8>>, 'request': <WSGIRequest: GET '/'>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-23 09:25:36 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x00000000040990F0>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003FD37B8>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000004031268>>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003FFEFD0>, 'DEFAULT_MESSAGE_LEVELS': {'INFO': 20, 'WARNING': 30, 'SUCCESS': 25, 'ERROR': 40, 'DEBUG': 10}}, {}, {'dateTest': '2016.08.01', 'title': '首页'}]"
+2016-08-23 09:25:36 Not Found: /favicon.ico
+2016-08-23 09:25:36 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-23 09:25:36 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-23 15:06:13 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'None': None, 'False': False, 'True': True}, {'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x00000000059CD598>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005A29048>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005A89588>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000000059F7CC0>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'WARNING': 30, 'SUCCESS': 25, 'DEBUG': 10, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-23 15:06:13 Not Found: /favicon.ico
+2016-08-23 15:06:13 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-23 15:06:13 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-23 15:06:14 (0.134) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-23 15:06:14 (0.189) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 15:06:15 (0.001) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-23 15:57:53 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'None': None, 'False': False, 'True': True}, {'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005AE4EA0>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005AE4D90>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005AAE320>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005AF95C0>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'WARNING': 30, 'SUCCESS': 25, 'DEBUG': 10, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-23 15:57:54 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-23 15:57:55 (0.004) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 15:58:08 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%022%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:26:11 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%039%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:26:14 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%039%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:26:15 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%039%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:29:58 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%099%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:30:00 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%099%') AND person_id>0
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:30:01 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%099%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:30:11 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%006%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:30:19 (0.009) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%6%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:30:36 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-23 16:30:36 (0.000) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-23 16:30:52 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE (serial_number LIKE '%099%' OR person_name LIKE '%099%' OR position LIKE '%099%' OR name LIKE '%099%') AND category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-23 16:30:59 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE (serial_number LIKE '%006%' OR person_name LIKE '%006%' OR position LIKE '%006%' OR name LIKE '%006%') AND category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-23 16:50:05 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'None': None, 'False': False, 'True': True}, {'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005AE4EA0>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005AE4E18>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005B04390>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005B04898>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'WARNING': 30, 'SUCCESS': 25, 'DEBUG': 10, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-23 16:50:13 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'None': None, 'False': False, 'True': True}, {'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005AE4E18>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005B0A9D8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005A9A438>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005AAE198>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'WARNING': 30, 'SUCCESS': 25, 'DEBUG': 10, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-23 16:50:13 Not Found: /favicon.ico
+2016-08-23 16:50:13 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-23 16:50:13 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-23 16:50:15 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-23 16:50:15 (0.004) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:50:22 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%026%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-23 16:51:29 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='笔记本电脑'
+        ORDER BY serial_number asc 
+        ; args=[]
+2016-08-23 16:51:36 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-23 16:51:36 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-23 16:51:44 (0.001) 
+        SELECT *
+        FROM app_personinfo
+        WHERE 1=1
+        ORDER BY position asc 
+        ; args=[]
+2016-08-23 16:51:52 (0.007) 
+        SELECT *
+        FROM app_changeinfo
+        WHERE 1=1
+        ORDER BY create_time desc 
+        ; args=[]
+2016-08-23 16:51:55 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-23 16:51:55 (0.008) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 09:17:41 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'True': True, 'False': False, 'None': None}, {'request': <WSGIRequest: GET '/'>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003DBEFD0>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003D937B8>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000003DF1268>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000003E5A0F0>, 'DEFAULT_MESSAGE_LEVELS': {'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'DEBUG': 10, 'INFO': 20}}, {}, {'dateTest': '2016.08.01', 'title': '首页'}]"
+2016-08-24 09:17:41 Not Found: /favicon.ico
+2016-08-24 09:17:41 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-24 09:17:41 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-24 09:17:42 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-24 09:17:42 (0.004) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 09:58:17 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'True': True, 'False': False, 'None': None}, {'request': <WSGIRequest: GET '/'>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003E899B0>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003E68158>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000003E681E0>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000003E89F28>, 'DEFAULT_MESSAGE_LEVELS': {'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'DEBUG': 10, 'INFO': 20}}, {}, {'dateTest': '2016.08.01', 'title': '首页'}]"
+2016-08-24 09:58:19 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-24 09:58:19 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 09:58:32 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%7100%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:15:00 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-24 10:15:00 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:15:06 (0.008) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:16:12 (0.016) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:20:43 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-24 10:20:43 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:21:37 (0.005) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:22:42 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-24 10:22:42 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:22:49 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%7100%' OR name LIKE '%7100%' OR person_name LIKE '%7100%' OR position LIKE '%7100%' OR state LIKE '%7100%' OR remark LIKE '%7100%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:22:53 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-24 10:22:54 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:23:06 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%7100%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:23:12 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%7100%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:34:31 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-24 10:34:31 (0.004) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:34:34 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%7100%' OR name LIKE '%7100%' OR person_name LIKE '%7100%' OR position LIKE '%7100%' OR state LIKE '%7100%' OR remark LIKE '%7100%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:37:05 (0.012) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (serial_number LIKE '%7100%' OR name LIKE '%7100%' OR person_name LIKE '%7100%' OR position LIKE '%7100%' OR state LIKE '%7100%' OR remark LIKE '%7100%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 10:37:13 (0.005) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%7100%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-24 14:10:34 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'True': True, 'False': False, 'None': None}, {'request': <WSGIRequest: GET '/'>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005A2B9E8>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005A1E6A8>>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005A1E730>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005A2BE48>, 'DEFAULT_MESSAGE_LEVELS': {'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'DEBUG': 10, 'INFO': 20}}, {}, {'dateTest': '2016.08.01', 'title': '首页'}]"
+2016-08-24 14:10:34 Not Found: /favicon.ico
+2016-08-24 14:10:34 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-24 14:10:34 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'

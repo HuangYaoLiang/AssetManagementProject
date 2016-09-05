@@ -27,7 +27,7 @@ class controller():
             model = {}
             if key == 'printer':
                 model = AssetInfo()
-            elif key == 'hardware2':
+            elif key == 'hardware2' or key == 'hardware3':
                 model = HardwareInfo()
             else:
                 model = utils.importModel(key)()
@@ -98,6 +98,13 @@ class controller():
                     query = HardwareInfo().getDesktopList(sqlWhere, sortName, sortOrder)
             elif key == 'hardware2':
                 query = HardwareInfo().getNotebookList(sqlWhere, sortName, sortOrder)
+            elif key == 'hardware3':
+                otherWhere = "category not in ('台式机','PC服务器','笔记本电脑','多功能一体机','打印设备','复印机')"
+                if sqlWhere:
+                    sqlWhere += (" AND " + otherWhere)
+                else:
+                    sqlWhere = otherWhere
+                query = AssetInfo().getList(sqlWhere, sortName, sortOrder)
             #elif key == 'untread':
             #    pass
             else:
@@ -123,7 +130,7 @@ class controller():
                     assetInfo.save()
                     hardwareInfo.asset_id = assetInfo.id
                     hardwareInfo.save()
-                elif key == 'printer':
+                elif key == 'printer' or key == 'hardware3':
                     assetInfo = AssetInfo()
                     if id > 0:
                         assetInfo = AssetInfo.objects.get(id=id)
@@ -198,7 +205,7 @@ class controller():
         try:
             ids = request.POST["ids"]
             if key and ids:
-                if key == 'printer':
+                if key == 'printer' or key == 'hardware3':
                     AssetInfo.objects.extra(where=['id IN (%s)' % ids]).delete()
                 elif key == 'hardware' or key == 'hardware2':
                     AssetInfo.objects.extra(where=['id IN (%s)' % ids]).delete()

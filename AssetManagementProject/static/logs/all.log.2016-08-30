@@ -1,0 +1,1278 @@
+2016-08-29 09:37:44 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'None': None, 'True': True}, {'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003F4C7B8>>, 'request': <WSGIRequest: GET '/'>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000003FA8268>>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003F79BE0>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000004008D68>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'DEBUG': 10, 'WARNING': 30, 'SUCCESS': 25, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-29 09:37:44 Not Found: /favicon.ico
+2016-08-29 09:37:44 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-29 09:37:44 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-29 09:37:46 (0.125) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-29 09:37:46 (0.124) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-29 09:38:13 (0.014) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%Lenovo Erazer D5050%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-29 09:38:22 (0.015) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%Lenovo Erazer D5050%')
+        ORDER BY person_name asc 
+        ; args=[]
+2016-08-29 09:39:22 (0.009) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%Lenovo Erazer D5050%')
+        ORDER BY person_name desc 
+        ; args=[]
+2016-08-29 10:59:42 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'None': None, 'True': True}, {'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x000000000407C378>>, 'request': <WSGIRequest: GET '/'>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000000000407C0D0>>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000004064320>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000004064A90>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'DEBUG': 10, 'WARNING': 30, 'SUCCESS': 25, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-29 10:59:42 Not Found: /favicon.ico
+2016-08-29 10:59:42 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-29 10:59:42 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-29 10:59:43 (0.133) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-29 10:59:44 (0.139) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-29 10:59:52 (0.005) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%Lenovo Erazer D5050%')
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-29 11:00:02 (0.014) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机' AND (name LIKE '%Lenovo Erazer D5050%')
+        ORDER BY serial_number asc 
+        ; args=[]
+2016-08-29 16:41:38 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'None': None, 'True': True}, {'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x000000000407C7B8>>, 'request': <WSGIRequest: GET '/'>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000000000407C620>>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000004081668>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000004081DD8>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'DEBUG': 10, 'WARNING': 30, 'SUCCESS': 25, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-29 16:41:38 Not Found: /favicon.ico
+2016-08-29 16:41:38 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-29 16:41:38 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'path': 'favicon.ico', 'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]]}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-29 16:41:41 (0.125) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-29 16:41:41 (0.019) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-29 16:41:43 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-29 16:41:48 (0.001) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-29 16:41:48 (0.001) 
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        WHERE t1.id='130'
+        ; args=['130']
+2016-08-29 16:41:53 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'None': None, 'True': True}, {'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x000000000407C488>>, 'request': <WSGIRequest: GET '/'>, 'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x000000000407C400>>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x00000000040999E8>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000004099F98>, 'DEFAULT_MESSAGE_LEVELS': {'ERROR': 40, 'DEBUG': 10, 'WARNING': 30, 'SUCCESS': 25, 'INFO': 20}}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-29 16:41:56 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-29 16:41:56 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-29 16:42:42 (0.001) SELECT "app_assetinfo"."id", "app_assetinfo"."person_id", "app_assetinfo"."position", "app_assetinfo"."serial_number", "app_assetinfo"."name", "app_assetinfo"."category", "app_assetinfo"."quantity", "app_assetinfo"."unit_price", "app_assetinfo"."total_price", "app_assetinfo"."fiscal_funds", "app_assetinfo"."use_department", "app_assetinfo"."fund_source", "app_assetinfo"."get_time", "app_assetinfo"."remark", "app_assetinfo"."state" FROM "app_assetinfo" WHERE "app_assetinfo"."id" = 130; args=(130,)
+2016-08-29 16:42:42 (0.000) BEGIN; args=None
+2016-08-29 16:42:42 (0.001) UPDATE "app_assetinfo" SET "person_id" = 23, "position" = '三楼前台档案室', "serial_number" = '40', "name" = 'Canon LBP 2900', "category" = '打印设备', "quantity" = 1, "unit_price" = 0, "total_price" = 0, "fiscal_funds" = 0, "use_department" = '人事代理部', "fund_source" = '人才办', "get_time" = NULL, "remark" = '', "state" = 'OK' WHERE "app_assetinfo"."id" = 130; args=(23, '三楼前台档案室', '40', 'Canon LBP 2900', '打印设备', 1, 0, 0, 0, '人事代理部', '人才办', '', 'OK', 130)
+2016-08-29 16:42:42 (0.000) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-29 16:42:42 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-29 16:42:50 (0.001) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-29 16:42:50 (0.001) 
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        WHERE t1.id='60'
+        ; args=['60']
+2016-08-29 16:43:06 (0.001) SELECT "app_assetinfo"."id", "app_assetinfo"."person_id", "app_assetinfo"."position", "app_assetinfo"."serial_number", "app_assetinfo"."name", "app_assetinfo"."category", "app_assetinfo"."quantity", "app_assetinfo"."unit_price", "app_assetinfo"."total_price", "app_assetinfo"."fiscal_funds", "app_assetinfo"."use_department", "app_assetinfo"."fund_source", "app_assetinfo"."get_time", "app_assetinfo"."remark", "app_assetinfo"."state" FROM "app_assetinfo" WHERE "app_assetinfo"."id" = 60; args=(60,)
+2016-08-29 16:43:06 (0.000) BEGIN; args=None
+2016-08-29 16:43:06 (0.000) UPDATE "app_assetinfo" SET "person_id" = 0, "position" = '106', "serial_number" = '28', "name" = 'Canon LBP 2900', "category" = '打印设备', "quantity" = 1, "unit_price" = 0, "total_price" = 0, "fiscal_funds" = 0, "use_department" = '人事代理部', "fund_source" = '人才办', "get_time" = NULL, "remark" = '暂时放在326', "state" = 'OK' WHERE "app_assetinfo"."id" = 60; args=(0, '106', '28', 'Canon LBP 2900', '打印设备', 1, 0, 0, 0, '人事代理部', '人才办', '暂时放在326', 'OK', 60)
+2016-08-29 16:43:06 (0.000) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-29 16:43:06 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 15:05:25 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000003E88268>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003E2C7B8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000003EE8DD8>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003E59C50>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 15:05:25 Not Found: /favicon.ico
+2016-08-30 15:05:25 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-30 15:05:25 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-30 15:05:27 (0.133) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-30 15:05:27 (0.150) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-30 15:05:31 (0.007) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:21:26 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000003F5B2F0>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000003F5B268>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000003F43A90>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000003F435F8>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 17:22:02 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005ACCEA0>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005ACC2F0>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005ADCCF8>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005ADC3C8>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 17:22:22 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005ACCE18>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005A7E0D0>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005A723C8>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005AD5BE0>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 17:22:22 Not Found: /favicon.ico
+2016-08-30 17:22:22 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-30 17:22:22 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-30 17:22:22 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005ACCD90>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005ACCF28>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005ADC278>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005A723C8>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 17:22:23 Not Found: /favicon.ico
+2016-08-30 17:22:23 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-30 17:22:23 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-30 17:22:29 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-30 17:22:29 (0.010) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-30 17:22:30 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='笔记本电脑'
+        ORDER BY serial_number asc 
+        ; args=[]
+2016-08-30 17:22:31 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-30 17:22:31 (0.000) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:22:32 (0.001) 
+        SELECT *
+        FROM app_personinfo
+        WHERE 1=1
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:22:33 (0.000) 
+        SELECT *
+        FROM app_changeinfo
+        WHERE 1=1
+        ORDER BY create_time desc 
+        ; args=[]
+2016-08-30 17:22:34 (0.000) 
+        SELECT *
+        FROM app_untreadinfo
+        WHERE 1=1
+        ORDER BY untread_time desc 
+        ; args=[]
+2016-08-30 17:22:37 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005ACCEA0>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005ACCD90>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005A79D68>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005ACB358>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 17:22:53 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-30 17:22:53 (0.007) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-30 17:22:58 (0.001) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-30 17:22:58 (0.001) 
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id
+        WHERE t1.id='29'
+        ; args=['29']
+2016-08-30 17:23:09 (0.006) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='笔记本电脑'
+        ORDER BY serial_number asc 
+        ; args=[]
+2016-08-30 17:23:13 (0.001) 
+        SELECT id,name
+        FROM app_personinfo
+        ORDER BY name
+        ; args=[]
+2016-08-30 17:23:13 (0.001) 
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id
+        WHERE t1.id='100'
+        ; args=['100']
+2016-08-30 17:23:16 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-30 17:23:16 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:23:17 (0.002) 
+        SELECT *
+        FROM app_personinfo
+        WHERE 1=1
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:23:18 (0.002) 
+        SELECT *
+        FROM app_changeinfo
+        WHERE 1=1
+        ORDER BY create_time desc 
+        ; args=[]
+2016-08-30 17:23:19 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-30 17:23:19 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:23:20 (0.005) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='笔记本电脑'
+        ORDER BY serial_number asc 
+        ; args=[]
+2016-08-30 17:23:20 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005A7E488>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005A7E598>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005A92F28>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005A92C50>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 17:23:21 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-30 17:23:21 (0.007) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-30 17:23:22 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-30 17:23:22 (0.002) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:23:23 (0.002) 
+        SELECT *
+        FROM app_changeinfo
+        WHERE 1=1
+        ORDER BY create_time desc 
+        ; args=[]
+2016-08-30 17:23:24 (0.001) 
+        SELECT *
+        FROM app_untreadinfo
+        WHERE 1=1
+        ORDER BY untread_time desc 
+        ; args=[]
+2016-08-30 17:23:26 (0.001) 
+        SELECT *
+        FROM app_changeinfo
+        WHERE 1=1
+        ORDER BY create_time desc 
+        ; args=[]
+2016-08-30 17:24:51 (0.001) 
+        SELECT *
+        FROM app_untreadinfo
+        WHERE 1=1
+        ORDER BY untread_time desc 
+        ; args=[]
+2016-08-30 17:24:51 Not Found: /favicon.ico
+2016-08-30 17:24:51 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in "<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\\\Program Files\\\\Python35\\\\lib\\\\site-packages\\\\django-1.9.7-py3.5.egg\\\\django\\\\contrib\\\\admindocs\\\\urls.py'> (None:None) ^admin/doc/>"
+2016-08-30 17:24:51 Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\handlers\base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\core\urlresolvers.py", line 404, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.core.urlresolvers.Resolver404: {'tried': [[<RegexURLPattern test ^test>], [<RegexURLPattern home ^$>], [<RegexURLPattern hardwareList ^hardwareList$>], [<RegexURLPattern hardwareDetail ^hardwareDetail/(\d*)$>], [<RegexURLPattern hardware2List ^hardware2List$>], [<RegexURLPattern hardware2Detail ^hardware2Detail/(\d*)$>], [<RegexURLPattern printerList ^printerList$>], [<RegexURLPattern printerDetail ^printerDetail/(\d*)$>], [<RegexURLPattern personList ^personList$>], [<RegexURLPattern personDetail ^personDetail/(\d*)$>], [<RegexURLPattern changeList ^changeList$>], [<RegexURLPattern changeDetail ^changeDetail/(\d*)$>], [<RegexURLPattern untreadList ^untreadList$>], [<RegexURLPattern untreadDetail ^untreadDetail/(\d*)$>], [<RegexURLPattern task ^task$>], [<RegexURLPattern login ^login$>], [<RegexURLPattern logout ^logout$>], [<RegexURLPattern get ^get/(\w+)/(\d*)$>], [<RegexURLPattern query ^query/(\w+)$>], [<RegexURLPattern edit ^edit/(\w+)$>], [<RegexURLPattern remove ^remove/(\w+)$>], [<RegexURLResolver <module 'django.contrib.admindocs.urls' from 'C:\\Program Files\\Python35\\lib\\site-packages\\django-1.9.7-py3.5.egg\\django\\contrib\\admindocs\\urls.py'> (None:None) ^admin/doc/>], [<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'RegexURLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'RegexURLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in '<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+2016-08-30 17:24:52 (0.001) 
+        SELECT *
+        FROM app_changeinfo
+        WHERE 1=1
+        ORDER BY create_time desc 
+        ; args=[]
+2016-08-30 17:24:53 (0.001) 
+        SELECT *
+        FROM app_personinfo
+        WHERE 1=1
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:24:55 (0.002) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ; args=[]
+2016-08-30 17:24:55 (0.001) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id)
+        WHERE category IN ('多功能一体机','打印设备','复印机')
+        ORDER BY position asc 
+        ; args=[]
+2016-08-30 17:24:56 (0.005) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='笔记本电脑'
+        ORDER BY serial_number asc 
+        ; args=[]
+2016-08-30 17:24:57 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-30 17:24:57 (0.008) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
+2016-08-30 17:27:13 Exception while resolving variable 'menu' in template 'app/index.html'.
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\context.py", line 77, in __getitem__
+    raise KeyError(key)
+KeyError: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'menu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Program Files\Python35\lib\site-packages\django-1.9.7-py3.5.egg\django\template\base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [menu] in "[{'False': False, 'True': True, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000000005B01378>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x0000000005B01510>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x0000000005A91BE0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'WARNING': 30, 'ERROR': 40, 'SUCCESS': 25, 'INFO': 20}, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x0000000005ACB748>}, {}, {'title': '首页', 'dateTest': '2016.08.01'}]"
+2016-08-30 17:27:20 (0.001) 
+        SELECT COUNT(id)+1
+        FROM app_assetinfo
+        WHERE category='台式机'
+        ; args=[]
+2016-08-30 17:27:20 (0.003) 
+        SELECT * FROM (
+        SELECT t1.*,t2.name AS person_name,t3.system_os,t3.pc_score,t3.pc_cpu,t3.pc_memory,t3.pc_mac,t3.pc_ip,t3.pc_description
+        FROM app_assetinfo AS t1
+        LEFT JOIN app_PersonInfo AS t2 ON t1.person_id=t2.id
+        LEFT JOIN app_HardwareInfo AS t3 ON t1.id=t3.asset_id)
+        WHERE 1=1 AND category='台式机'
+        ORDER BY pc_score asc 
+        ; args=[]
